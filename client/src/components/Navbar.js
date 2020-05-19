@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
 
@@ -7,10 +8,10 @@ const Navbar = () => {
       <span>
         feedback loft logo 
       </span>
-      <button>User Loft</button>
-      <button>The Loop</button>
+      <Link to="/"><button>this goes to the dashboard</button></Link>
+      <Link to="/loop"><button>This goes to The Loop</button></Link>
       <span><i className="far fa-bell"></i></span>
-      <a href="#">User Account</a>
+      <Link to="login">User Account</Link>
       <span><i className="fas fa-arrow-alt-circle-up"></i></span>
       <span><i className="fas fa-arrow-alt-circle-down"></i></span>
     </div>

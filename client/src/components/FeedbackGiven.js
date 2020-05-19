@@ -1,7 +1,7 @@
 import React from 'react';
 import Comment from "./Comment"
 
-const Feedback = () => {
+const FeedbackGiven = () => {
 
   return(
     <div>
@@ -13,4 +13,4 @@ const Feedback = () => {
   )
 }
 
-export default Feedback
+export default FeedbackGiven
