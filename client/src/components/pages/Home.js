@@ -6,12 +6,13 @@ import API from '../../utils/API.js'
 
 const Home = () => {
 
+  API.getAllUsers()
+
   return (
     <div>
       <Project />
       <EmptyProject />
       <FeedbackGiven />
-      {console.log(API.getAllUsers())}
     </div>
   );
 }
