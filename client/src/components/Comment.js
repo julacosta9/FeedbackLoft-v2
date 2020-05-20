@@ -4,10 +4,10 @@ const Comment = (props) => {
 
   return(
     <div>
-      <h2>Commenting Username {props.username} <span>[timestamp] {props.timestamp}</span></h2>
-      <p> {props.comment}Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus expedita reiciendis accusantium ab repudiandae reprehenderit eius possimus voluptatibus architecto harum! Similique enim odit quisquam iure eos dicta dolore itaque laboriosam!</p>
+      <h2>{props.username} <span> {props.timestamp}</span></h2>
+      <p> {props.comment}</p>
     </div>
   )
 }
 
-export default Comment
+export default Comment 
