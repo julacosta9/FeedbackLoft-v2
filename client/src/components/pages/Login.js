@@ -7,8 +7,8 @@ const Login = () => {
     <div>
       <h1>Sign in</h1>
       <form>
-        <textarea>User</textarea>
-        <textarea>Password</textarea>
+        <textarea placeholder="User"></textarea>
+        <textarea placeholder="Password"></textarea>
       </form>
       <h2>Not a member? Sign up <Link to="/">This goes to the dashboard</Link></h2>
     </div>

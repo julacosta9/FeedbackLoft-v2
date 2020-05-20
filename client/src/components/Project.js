@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Comment from "./Comment"
 import { Link } from 'react-router-dom'
 
 const Project = () => {
+
+  const [userName, setUserName] = useState([]);
 
   return(
     <div>
