@@ -7,7 +7,6 @@
   },
   "description": "Mern Demo",
   "main": "server.js",
-  "proxy": "http://localhost:3001/",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "node server.js",
@@ -28,7 +27,6 @@
     "axios": "^0.19.2",
     "express": "^4.16.3",
     "if-env": "^1.0.4",
-    "mongoose": "^5.9.15",
-    "react-router-dom": "^5.2.0"
+    "mongoose": "^5.9.15"
   }
 }
