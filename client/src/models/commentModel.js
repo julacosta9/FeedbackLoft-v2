@@ -17,7 +17,7 @@ const CommentSchema = new Schema({
         type: String,
         trim: true
     },
-
+    
     rating: {
         type: Number,
         trim: true
@@ -37,7 +37,6 @@ const CommentSchema = new Schema({
         type: Date,
         default: Date.now
     }
-
 });
 
 const Comment = mongoose.model("Comment", CommentSchema);
