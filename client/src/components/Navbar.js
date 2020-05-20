@@ -4,7 +4,13 @@ import API from '../utils/API.js'
 
 const Navbar = () => {
 
-  const [activeUser, setActiveUser] = useState([]);
+  const [activeUser, setActiveUser] = useState(
+    {
+      feedbackGiven: 0,
+      feedbackReceived: 0,
+      username: ""
+    }
+  );
 
   const loadUser = () => {
     API.getAllUsers()
@@ -13,8 +19,6 @@ const Navbar = () => {
       )
       .catch(err => console.log(err));
   };
-
-
 
   useEffect(() => {
     loadUser();
@@ -31,8 +35,8 @@ const Navbar = () => {
       <span><i className="far fa-bell"></i></span>
       <Link to="login">this goes to the login</Link>
       <a href="#">{activeUser.username}</a>
-      <span>{/*activeUser.feedbackGiven*/}<i className="fas fa-arrow-alt-circle-up"></i></span>
-      <span>{/*activeUser.feedbackReceived*/}<i className="fas fa-arrow-alt-circle-down"></i></span>
+      <span>{activeUser.feedbackGiven}<i className="fas fa-arrow-alt-circle-up"></i></span>
+      <span>{activeUser.feedbackReceived}<i className="fas fa-arrow-alt-circle-down"></i></span>
     </div>
   )
 }
