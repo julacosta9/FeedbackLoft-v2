@@ -1,27 +1,82 @@
 import axios from "axios";
 
 export default {
+    // User routes
+    // TODO: add updateUser, deleteUser
     getAllUsers: function () {
-        return axios.get("/api/users/all")
+        return axios.get("/api/users/all");
     },
+
+    getUserById: function (id) {
+        return axios.get(`/api/users/${id}`);
+    },
+
+    createUser: function (obj) {
+        axios
+            .post("/api/users", obj)
+            .then((response) => {
+                console.log(response);
+                return response;
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    },
+
+    // Project routes
+    // TODO: add updateProject
 
     getAllProjects: function () {
         return axios.get("/api/projects/all");
     },
 
-    getAllComments: function () {
-        return axios.get("/api/comments/all");
+    getProjectById: function (id) {
+        return axios.get(`/api/projects/${id}`);
     },
 
-    getBook: function (id) {
-        return axios.get("/api/books/" + id);
+    createProject: function (obj) {
+        axios
+            .post("/api/projects", obj)
+            .then((response) => {
+                console.log(response);
+                return response;
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     },
 
-    deleteBook: function (id) {
-        return axios.delete("/api/books/" + id);
+    deleteProject: function (id) {
+        axios
+            .delete(`/api/projects/${id}`)
+            .then((response) => {
+                console.log(response);
+                return response;
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     },
 
-    saveBook: function (bookData) {
-        return axios.post("/api/books", bookData);
+    // Comment routes
+    // TODO: add getCommentById, updateComment, deleteComment
+    getAllCommentsByAuthor: function (id) {
+        return axios.get(`/api/comments/byAuthor/${id}`);
     },
+
+    getAllCommentsByProject: function (id) {
+        return axios.get(`/api/comments/byProject/${id}`);
+    },
+
+    createComment: function (obj) {
+        axios
+            .post("/api/comments", obj)
+            .then((response) => {
+                console.log(response);
+                return response;
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }
 };
