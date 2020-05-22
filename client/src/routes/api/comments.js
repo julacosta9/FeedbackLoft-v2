@@ -1,7 +1,8 @@
 const router = require("express").Router();
 const controller = require("../../controllers");
 
-// The order of the routes matter. Be careful changing
+// The order of the routes matter
+// If the /:id route is placed before the /byAuthor or /byProject route, "byAuthor/byProject" may be interpreted as the id
 
 // Matches with "/api/comments"
 router.route("/")
