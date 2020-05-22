@@ -1,10 +1,24 @@
+
+// src/components/NavBar.js
+
 import React, {useState, useEffect, useContext} from 'react';
 import { Link } from "react-router-dom";
 import API from '../utils/API.js';
 import UserContext from './UserContext';
+import { useAuth0 } from "../react-auth0-spa";
 
 const Navbar = () => {
 
+  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+
+  const [activeUser, setActiveUser] = useState(
+    {
+      feedbackGiven: 0,
+      feedbackReceived: 0,
+      username: ""
+    }
+  );
+  
   // const [activeUser, setActiveUser] = useState(
   //   {
   //     feedbackGiven: 0,
@@ -39,8 +53,11 @@ const Navbar = () => {
       <a href="#">{username}</a>
       <span>{feedbackGiven}<i className="fas fa-arrow-alt-circle-up"></i></span>
       <span>{feedbackReceived}<i className="fas fa-arrow-alt-circle-down"></i></span>
+      {!isAuthenticated && (
+      <button onClick={() => loginWithRedirect({})}>Log in</button>
+    )}
+    {isAuthenticated && <button onClick={() => logout()}>Log out</button>}
     </div>
-  
   )
 }
 
