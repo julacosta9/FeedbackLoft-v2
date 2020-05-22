@@ -11,10 +11,20 @@ import EmptyProject from "./components/EmptyProject";
 import Project from "./components/Project";
 import Feedback from "./components/FeedbackGiven";
 
+import { useAuth0 } from "./react-auth0-spa";
+
 const App = () => {
+
+  const { loading } = useAuth0();
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
   return(
     
     <div>
+      <Router>
       <Switch>
       <Route path="/login">
         <Login />
@@ -35,6 +45,7 @@ const App = () => {
       </Route>
       
       </Switch>
+      </Router>
     </div>
   )
 }
