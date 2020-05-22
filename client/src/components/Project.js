@@ -15,14 +15,13 @@ const Project = () => {
       .catch(err => console.log(err));
   }
 
-  useEffect(() => {
-    loadComments()
-  },[]);
+  // useEffect(() => {
+  //   loadComments()
+  // },[]);
   
 
   return(
     <div>
-      {console.log(`Comments: ${comments}`)}
       <h1>Project Name</h1>
       <img src="https://udemy-images.udemy.com/course/480x270/1424968_0f47_5.jpg" width="100px" height="70px" alt=""></img>
       <Link to="/project-page"><button>This goes to a project page</button></Link>
