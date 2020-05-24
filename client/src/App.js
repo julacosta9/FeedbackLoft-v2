@@ -40,9 +40,10 @@ const App = () => {
 
       {/* / path must be the last switch case */}
       <Route path="/">
-        <Navbar />
-        <Home />
+      <Login />
       </Route>
+
+     
       
       </Switch>
       </Router>
