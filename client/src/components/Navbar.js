@@ -11,13 +11,13 @@ const Navbar = () => {
 
   const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
 
-  const [activeUser, setActiveUser] = useState(
-    {
-      feedbackGiven: 0,
-      feedbackReceived: 0,
-      username: ""
-    }
-  );
+  // const [activeUser, setActiveUser] = useState(
+  //   {
+  //     feedbackGiven: 0,
+  //     feedbackReceived: 0,
+  //     username: ""
+  //   }
+  // );
   
   // const [activeUser, setActiveUser] = useState(
   //   {
@@ -39,7 +39,7 @@ const Navbar = () => {
   //   loadUser();
   // },[]);
 
-  const {username, feedbackGiven, feedbackReceived} = useContext(UserContext);
+  const {username, email, feedbackGiven, feedbackReceived, _id} = useContext(UserContext);
   return (
     <div>
       {/*console.log(activeUser)*/}
