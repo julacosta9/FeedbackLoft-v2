@@ -8,6 +8,9 @@ const controller = require("../../controllers");
 router.route("/")
     .post(controller.Project.create);
 
+router.route("/byUser/:id")
+    .get(controller.Project.findAllByUserId)
+
 // Matches with "/api/projects/all"
 router.route("/all")
     .get(controller.Project.findAll);
