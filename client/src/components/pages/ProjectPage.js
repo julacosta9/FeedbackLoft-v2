@@ -5,7 +5,9 @@ const ProjectPage = () => {
 
   return(
     <div>
-      <Project />
+      <Project
+        /* comment="hello" */
+      />
     </div>
   )
 }
