@@ -34,10 +34,10 @@ const App = () => {
   const loadUser = () => {
     API.getAllUsers()
     .then(user => 
-      setActiveUser(user.data[0])
-      )
-      .catch(err => console.log(err)
-      )
+      setActiveUser(user.data[3])
+    )
+    .catch(err => console.log(err)
+    )
   };
 
   useEffect(() => {

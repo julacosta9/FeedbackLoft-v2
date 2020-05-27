@@ -30,6 +30,10 @@ export default {
         return axios.get("/api/projects/all");
     },
 
+    getProjectsByUserId: function (id) {
+        return axios.get(`/api/projects/byUser/${id}`);
+    },
+
     getProjectById: function (id) {
         return axios.get(`/api/projects/${id}`);
     },
