@@ -2,12 +2,11 @@ import React, {useState, useEffect, useContext} from 'react';
 import Comment from "./Comment"
 import { Link } from 'react-router-dom'
 import API from '../utils/API.js'
-import ProjectContext from './ProjectContext'
 import UserContext from './UserContext'
 
 const Project = (props) => {
 
-  const {_id} = useContext(ProjectContext);
+  const {_id, projectName, username, genres, url, description} = props.project;
 
   const [comments, setComments] = useState([
     {
@@ -37,14 +36,14 @@ const Project = (props) => {
     <div>
     {console.log(`ProjectID: ${_id}`)}
       <span>
-      <h1>{props.projectName}</h1>
-      <h2> by {props.username}</h2>
+      <h1>{projectName}</h1>
+      <h2> by {username}</h2>
       </span>
-      <h3>{props.genres}</h3>
+      <h3>{genres}</h3>
       <iframe 
-        srcDoc={props.url}
+        srcDoc={url}
       />
-      <h3>{props.description}</h3>
+      <h3>{description}</h3>
       <Link to="/project-page"><button>This goes to a project page</button></Link>
       <ul>
       {comments.map(comment => 

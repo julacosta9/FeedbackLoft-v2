@@ -1,5 +1,5 @@
 const db = require("../models/index.js");
-const upload = require("../../../aws.js");
+const upload = require("../aws.js");
 
 const singleUpload = upload.single("audio");
 
