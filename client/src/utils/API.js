@@ -98,7 +98,7 @@ export default {
             });
     },
 
-    // Project Review (Loop) routes
+    // Loop routes (for project review)
     getProjectForReview: function() {
         return axios.get("/api/loop");
     }
