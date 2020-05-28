@@ -1,45 +1,42 @@
 const aws = require("aws-sdk");
-// const config = require("./config.json");
+const multer = require("multer");
+const multerS3 = require("multer-s3");
+const moment = require("moment");
 
-(async function () {
-    try {
-        aws.config.setPromisesDependency();
-        aws.config.update({
-            accessKeyId: "AKIAJBML5VKTFHFGRLTQ",
-            // Setup Env Variable, e.g: process.env.SECRET_ACCESS_KEY
-            secretAccessKey: "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",
-            // Setup Env Variable, e.g: process.env.ACCESS_KEY_ID
-            region: "us-west-1",
-        });
+function formatFilename(filename) {
+    const date = moment().format("YYYYMMDD");
+    const randomString = Math.random().toString(36).substring(2, 7);
+    const [cleanFileName] = filename
+        .toLowerCase()
+        .replace(/[^a-z0-9]/g, "-") // replaces spaces with dashes and keeps alphanumeric characters,
+        .split("-mp3"); // removes mp3 extension from file name
+    const newFilename = `${date}-${randomString}-${cleanFileName}`;
+    return newFilename.substring(0, 60);
+}
 
-        const s3 = new aws.S3();
+// Setup Env Variable, e.g: process.env.SECRET_ACCESS_KEY
+// Setup Env Variable, e.g: process.env.ACCESS_KEY_ID
+aws.config.update({
+    accessKeyId: aws.config.credentials.accessKeyId,
+    secretAccessKey: aws.config.credentials.secretAccessKey,
+    region: "us-west-1",
+});
 
-        const upload = multer({
-            storage: multerS3({
-                s3: s3,
-                bucket: "medium-test",
-                acl: "public-read",
-                metadata: function (req, file, cb) {
-                    cb(null, { fieldName: file.fieldname });
-                },
-                key: function (req, file, cb) {
-                    cb(null, Date.now().toString());
-                },
-            }),
-        });
+const s3 = new aws.S3();
 
-        module.exports = upload;
+const upload = multer({
+    storage: multerS3({
+        s3: s3,
+        bucket: "feedback-loft-audio",
+        acl: "public-read",
+        contentType: multerS3.AUTO_CONTENT_TYPE,
+        metadata: function (req, file, cb) {
+            cb(null, { fieldName: file.fieldname });
+        },
+        key: function (req, file, cb) {
+            cb(null, formatFilename(file.originalname));
+        },
+    }),
+});
 
-        const response = await s3
-            .listObjectsV2({
-                Bucket: "feedback-loft-audio",
-            })
-            .promise();
-
-        console.log(response);
-    } catch (e) {
-        console.log("our error", e);
-    }
-
-    debugger;
-})();
+module.exports = upload;
