@@ -11,13 +11,14 @@ router.route("/")
 // Matches with "/api/projects/audio-upload"
 router.route("/audio-upload")
     .post(controller.Project.uploadtoAWS);
-    
-router.route("/byUser/:id")
-    .get(controller.Project.findAllByUserId)
 
 // Matches with "/api/projects/all"
 router.route("/all")
     .get(controller.Project.findAll);
+
+// Matches with "/api/projects/byUser/:id"
+router.route("/byUser/:id")
+    .get(controller.Project.findAllByUserId)
 
 // Matches with "/api/projects/:id"
 router.route("/:id")
