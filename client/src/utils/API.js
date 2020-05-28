@@ -38,6 +38,20 @@ export default {
         return axios.get(`/api/projects/${id}`);
     },
 
+    uploadToS3: function (file) {
+        axios
+            .post("/api/audio-upload", {
+                audio: file
+            })
+            .then((response) => {
+                console.log(response);
+                return response;
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    },
+
     createProject: function (obj) {
         axios
             .post("/api/projects", obj)
