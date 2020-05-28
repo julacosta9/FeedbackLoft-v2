@@ -1,4 +1,7 @@
 const db = require("../models/index.js");
+const upload = require("../../../aws.js");
+
+const singleUpload = upload.single("audio");
 
 module.exports = {
     findAll: function (req, res) {
@@ -23,6 +26,19 @@ module.exports = {
             .then((dbModel) => res.json(dbModel))
             .catch((err) => res.status(422).json(err));
     },
+    uploadtoAWS: function (req, res) {
+        singleUpload(req, res, function (err, some) {
+            if (err) {
+                return res
+                    .status(422)
+                    .send({
+                        errors: [{ title: "Audio Upload Error", detail: err }],
+                    });
+            }
+            
+            return res.json({ "s3-audio-url": req.file.location });
+        });
+    },
     update: function (req, res) {
         db.Project.findByIdAndUpdate(req.params.id, req.body)
             .then((dbModel) => res.json(dbModel))
@@ -33,5 +49,5 @@ module.exports = {
             .then((dbModel) => dbModel.remove())
             .then((dbModel) => res.json(dbModel))
             .catch((err) => res.status(422).json(err));
-    }
+    },
 };
