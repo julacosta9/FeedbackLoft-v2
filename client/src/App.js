@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import UserContext from './components/UserContext'
 import "./App.css";
@@ -7,9 +7,6 @@ import Navbar from "./components/Navbar"
 import Loop from "./components/pages/Loop"
 import ProjectPage from './components/pages/ProjectPage'
 import Home from './components/pages/Home'
-import EmptyProject from "./components/EmptyProject";
-import Project from "./components/Project";
-import Feedback from "./components/FeedbackGiven";
 import { useAuth0 } from "./react-auth0-spa";
 import API from "./utils/API";
 

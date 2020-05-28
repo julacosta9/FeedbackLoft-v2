@@ -5,7 +5,6 @@ import FeedbackGiven from '../FeedbackGiven';
 import { useAuth0 } from "../../react-auth0-spa";
 import UserContext from '../UserContext';
 import API from '../../utils/API.js';
-import ProjectContext from '../ProjectContext'
 
 const Home = () => {
   const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
@@ -41,24 +40,18 @@ const Home = () => {
   },[_id]);
 
   return (
-    <ProjectContext.Provider value={projects}>
-      <div>
-      {console.log(`Projects: ${projects._id}`)}
-        {isAuthenticated && <button onClick={() => logout()}>Log out</button>}
-        {projects.map(project => 
-          <Project 
-          key = {project._id}
-          projectName = {project.name}
-          username = {project.username}
-          genres = {project.genres}
-          url = {project.url}
-          description = {project.description}
-          />
-        )}
-        <EmptyProject />
-        <FeedbackGiven />
-      </div>
-    </ProjectContext.Provider>
+    <div>
+    {console.log(`Projects: ${projects._id}`)}
+      {isAuthenticated && <button onClick={() => logout()}>Log out</button>}
+      {projects.map(project => 
+        <Project 
+        key = {project._id}
+        project = {project}
+        />
+      )}
+      <EmptyProject />
+      <FeedbackGiven />
+    </div>
   );
 }
 
