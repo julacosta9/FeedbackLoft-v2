@@ -1,9 +1,8 @@
 
 // src/components/NavBar.js
 
-import React, {useState, useEffect, useContext} from 'react';
+import React, {useContext} from 'react';
 import { Link } from "react-router-dom";
-import API from '../utils/API.js';
 import UserContext from './UserContext';
 import { useAuth0 } from "../react-auth0-spa";
 
@@ -11,38 +10,9 @@ const Navbar = () => {
 
   const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
 
-  const [activeUser, setActiveUser] = useState(
-    {
-      feedbackGiven: 0,
-      feedbackReceived: 0,
-      username: ""
-    }
-  );
-  
-  // const [activeUser, setActiveUser] = useState(
-  //   {
-  //     feedbackGiven: 0,
-  //     feedbackReceived: 0,
-  //     username: ""
-  //   }
-  // );
-
-  // const loadUser = () => {
-  //   API.getAllUsers()
-  //     .then(res => 
-  //       setActiveUser(res.data[0])
-  //     )
-  //     .catch(err => console.log(err));
-  // };
-
-  // useEffect(() => {
-  //   loadUser();
-  // },[]);
-
-  const {username, feedbackGiven, feedbackReceived} = useContext(UserContext);
+  const {username, email, feedbackGiven, feedbackReceived, _id} = useContext(UserContext);
   return (
     <div>
-      {/*console.log(activeUser)*/}
       <span>
         feedback loft logo 
       </span>

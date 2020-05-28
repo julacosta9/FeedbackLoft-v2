@@ -5,7 +5,8 @@ const ProjectPage = () => {
 
   return(
     <div>
-      <Project />
+      <Project
+      />
     </div>
   )
 }

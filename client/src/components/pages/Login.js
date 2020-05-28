@@ -1,18 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import { useAuth0 } from "../../react-auth0-spa";
+import Home from './Home'
 
 const Login = () => {
 
-  return(
-    <div>
-      <h1>Sign in</h1>
-      <form>
-        <textarea placeholder="User"></textarea>
-        <textarea placeholder="Password"></textarea>
-      </form>
-      <h2>Not a member? Sign up <Link to="/">This goes to the dashboard</Link></h2>
-    </div>
-  )
+  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+  if (!isAuthenticated){
+    return (
+      loginWithRedirect({})
+    )
+  }
+  else{
+    return(
+      <Home />
+    )
+  }
 }
 
 export default Login;

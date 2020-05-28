@@ -1,32 +1,60 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import Comment from "./Comment"
 import { Link } from 'react-router-dom'
 import API from '../utils/API.js'
+import ProjectContext from './ProjectContext'
+import UserContext from './UserContext'
 
-const Project = () => {
+const Project = (props) => {
 
-  const [comments, setComments] = useState([])
+  const {_id} = useContext(ProjectContext);
+
+  const [comments, setComments] = useState([
+    {
+      authorUsername: "",
+      dateCreated: "",
+      text: "",
+      _id : ""
+    }
+  ]);
 
   const loadComments = () => {
-    API.getAllComments()
-    .then(res =>
-      setComments(res.data)
-      )
-      .catch(err => console.log(err));
-  }
+    API.getAllCommentsByProject(_id)
+    .then(res => {
+      setComments(res.data);
+      console.log(`Project Comments: ${res.data}`);
+      
+    })
+    .catch(err => console.log(err)
+    );
+  };
 
-  // useEffect(() => {
-  //   loadComments()
-  // },[]);
-  
+  useEffect(() => {
+   loadComments();
+  },[_id]);
 
   return(
     <div>
-      <h1>Project Name</h1>
-      <img src="https://udemy-images.udemy.com/course/480x270/1424968_0f47_5.jpg" width="100px" height="70px" alt=""></img>
+    {console.log(`ProjectID: ${_id}`)}
+      <span>
+      <h1>{props.projectName}</h1>
+      <h2> by {props.username}</h2>
+      </span>
+      <h3>{props.genres}</h3>
+      <iframe 
+        srcDoc={props.url}
+      />
+      <h3>{props.description}</h3>
       <Link to="/project-page"><button>This goes to a project page</button></Link>
       <ul>
-      <Comment />
+      {comments.map(comment => 
+          <Comment 
+          key = {comment._id}
+          authorUsername = {comment.authorUsername}
+          timestamp = {comment.dateCreated}
+          text = {comment.text}
+          />
+      )}
       </ul>
     </div>
   )
