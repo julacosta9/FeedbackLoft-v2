@@ -1,13 +1,16 @@
 const db = require("../models/index.js");
 
 // create helper function that returns true/false if a user is eligible
-function isUserEligible(userId) {
+function isUserEligible(req, res, userId) {
     db.User.findById(userId)
         .then((user) => {
-            if (user.feedbackGiven < user.feedbackReceived) {
-                return true;
+            console.log(user.feedbackGiven, user.feedbackReceived)
+            if (user.feedbackGiven > user.feedbackReceived) {
+                res.end();
+                return true
             } else {
-                return false;
+                res.end();
+                return false
             }
         })
         .catch((err) => res.status(422).json(err));
@@ -20,9 +23,12 @@ module.exports = {
             .sort({ lastCommentDate: -1 })
             .then((dbResponse) => {
                 let isEligibleProjectFound = false;
+                // console.log(`isEligibleProjectFound: ${!isEligibleProjectFound}`)
                 if (!isEligibleProjectFound) {
                     dbResponse.forEach((project) => {
-                        if (isUserEligible(project.userId)) {
+                        let eligible = await isUserEligible(req, res, project.userId);
+                        console.log(eligible)
+                        if (eligible === undefined) {
                             isEligibleProjectFound = true;
                             res.json(project);
                         }
