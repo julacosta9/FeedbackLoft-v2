@@ -1,53 +1,28 @@
 const db = require("../models/index.js");
 
-// create helper function that returns true/false if a user is eligible
 function isUserEligible(userId) {
-    return new Promise(() => {
+    return new Promise((resolve, reject) => {
         db.User.findById(userId)
         .then((user) => {
-            console.log(typeof user.feedbackGiven)
             if (user.feedbackGiven > user.feedbackReceived) {
-                return true
+                resolve(true)
             } else {
-                return false
+                resolve(false)
             }
         })
-        .catch((err) => res.status(422).json(err));
+        .catch((err) => reject(err));
     })
-
-    // db.User.findById(userId)
-    //     .then((user) => {
-    //         console.log(typeof user.feedbackGiven)
-    //         if (user.feedbackGiven > user.feedbackReceived) {
-    //             return true
-    //         } else {
-    //             return false
-    //         }
-    //     })
-    //     .catch((err) => res.status(422).json(err));
-}
-
-async function findProjectForReview (req, res) {
-    db.Project.find({})
-        // add .limit(1000) at a later point?
-        .sort({ lastCommentDate: -1 })
-        .then((dbResponse) => {
-            let isEligibleProjectFound = false;
-            // console.log(`isEligibleProjectFound: ${!isEligibleProjectFound}`)
-            if (!isEligibleProjectFound) {
-                dbResponse.forEach((project) => {
-                    let eligible = await isUserEligible(project.userId);
-                    console.log(eligible)
-                    if (eligible === true) {
-                        isEligibleProjectFound = true;
-                        res.json(project);
-                    }
-                });
-            }
-        })
-        .catch((err) => res.status(422).json(err));
 }
 
 module.exports = {
-    findProjectForReview: findProjectForReview
+    findProjectForReview: async function (req, res) {
+        db.Project.find({})
+            // add .limit() at a later point?
+            .sort({ lastCommentDate: -1 })
+            .then((dbResponse) => {
+                const project = dbResponse.find(async (element) => isUserEligible(element.userId))
+                res.json(project);
+            })
+            .catch((err) => res.status(422).json(err));
+    }
 };
