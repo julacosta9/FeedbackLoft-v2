@@ -27,10 +27,9 @@ const Home = () => {
 
   const loadProjects = () => {
     API.getProjectsByUserId(_id)
-    .then(res => {
-      setProjects(res.data);
-      console.log(`Project Data: ${res.data}`);
-    })
+    .then(res => 
+      setProjects(res.data)
+    )
     .catch(err => console.log(err)
     );
   };
@@ -41,7 +40,6 @@ const Home = () => {
 
   return (
     <div>
-    {console.log(`Projects: ${projects._id}`)}
       {isAuthenticated && <button onClick={() => logout()}>Log out</button>}
       {projects.map(project => 
         <Project 
