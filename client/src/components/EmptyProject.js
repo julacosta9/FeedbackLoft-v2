@@ -1,4 +1,5 @@
 import React from 'react';
+import CreateProjectForm from './forms/CreateProjectForm'
 
 const EmptyProject = () => {
 
@@ -6,6 +7,7 @@ const EmptyProject = () => {
     <div>
       <p>Create a new project</p>
       <span><i className="fas fa-plus-circle"></i></span>
+    <CreateProjectForm />
     </div>
   )
 }

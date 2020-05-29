@@ -19,11 +19,9 @@ const Project = (props) => {
 
   const loadComments = () => {
     API.getAllCommentsByProject(_id)
-    .then(res => {
-      setComments(res.data);
-      console.log(`Project Comments: ${res.data}`);
-      
-    })
+    .then(res =>
+      setComments(res.data)
+    )
     .catch(err => console.log(err)
     );
   };
@@ -34,7 +32,6 @@ const Project = (props) => {
 
   return(
     <div>
-    {console.log(`ProjectID: ${_id}`)}
       <span>
       <h1>{projectName}</h1>
       <h2> by {username}</h2>
