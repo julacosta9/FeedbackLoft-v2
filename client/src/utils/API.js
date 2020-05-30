@@ -94,5 +94,10 @@ export default {
             .catch((error) => {
                 console.log(error);
             });
+    },
+
+    // Loop routes (for project review)
+    getProjectForReview: function() {
+        return axios.get("/api/loop");
     }
 };
