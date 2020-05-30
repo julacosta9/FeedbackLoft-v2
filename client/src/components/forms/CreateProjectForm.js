@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import axios from 'axios';
 import API from '../../utils/API.js';
 import UserContext from '../UserContext';
 import UseForm from '../../utils/UseForm'
@@ -7,7 +8,22 @@ const CreateProjectForm = () => {
 
   const {_id, username} = useContext(UserContext);
   
-  const logThis = () => console.log(values);
+  const s3Upload = () => {
+    let formData = new FormData();
+    let inputElement = document.getElementById("audio-file")
+    // HTML file input, chosen by user
+    formData.append("audio", inputElement.files[0]);
+    axios
+    .post("/api/projects/audio-upload", formData)
+    .then((response) => {
+      values.url = response.data.s3AudioUrl;
+      API.createProject(values);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }
+
 
   const { values, handleChange, handleSubmit } = UseForm(
     {
@@ -17,10 +33,12 @@ const CreateProjectForm = () => {
       genre:'rock', 
       url:'', 
       description:''
-    },logThis);
+    }, 
+    s3Upload);
 
-    values.userId = {_id}
-    values.username = {username}
+  values.userId = _id
+  values.username = username
+
 
   return (
     
@@ -53,6 +71,11 @@ const CreateProjectForm = () => {
           placeholder="Soundcloud Embed"
           onChange={handleChange}
           value={values.url}
+        />
+        <input 
+          name="file"
+          type="file"
+          id="audio-file"
         />
         <input 
           name="description"
