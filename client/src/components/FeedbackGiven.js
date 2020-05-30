@@ -19,7 +19,6 @@ const FeedbackGiven = () => {
   const loadUserComments = () => {
     API.getAllCommentsByAuthor(_id)
     .then(res => {
-      console.log(res.data);
       setUserComments(res.data)
     })
     .catch(err => console.log(err)

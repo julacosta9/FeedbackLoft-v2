@@ -19,11 +19,9 @@ const Project = (props) => {
 
   const loadComments = () => {
     API.getAllCommentsByProject(_id)
-    .then(res => {
-      setComments(res.data);
-      console.log(`Project Comments: ${res.data}`);
-      
-    })
+    .then(res =>
+      setComments(res.data)
+    )
     .catch(err => console.log(err)
     );
   };
@@ -34,15 +32,23 @@ const Project = (props) => {
 
   return(
     <div>
-    {console.log(`ProjectID: ${_id}`)}
       <span>
       <h1>{projectName}</h1>
       <h2> by {username}</h2>
       </span>
       <h3>{genres}</h3>
+      {url[0] === "<" 
+      ?
       <iframe 
         srcDoc={url}
       />
+      :
+      <audio controls controlsList="nodownload">
+        <source
+        src={url}
+        type="audio/mpeg"
+        />
+      </audio>}
       <h3>{description}</h3>
       <Link to="/project-page"><button>This goes to a project page</button></Link>
       <ul>
