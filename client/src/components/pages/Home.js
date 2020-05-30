@@ -40,7 +40,11 @@ const Home = () => {
 
   return (
     <div>
+
       {isAuthenticated && <button onClick={() => logout()}>Log out</button>}
+
+    {console.log(`Projects: ${projects._id}`)}
+
       {projects.map(project => 
         <Project 
         key = {project._id}
