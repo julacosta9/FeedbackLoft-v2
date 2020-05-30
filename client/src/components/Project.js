@@ -37,9 +37,18 @@ const Project = (props) => {
       <h2> by {username}</h2>
       </span>
       <h3>{genres}</h3>
+      {url[0] === "<" 
+      ?
       <iframe 
         srcDoc={url}
       />
+      :
+      <audio controls controlsList="nodownload">
+        <source
+        src={url}
+        type="audio/mpeg"
+        />
+      </audio>}
       <h3>{description}</h3>
       <Link to="/project-page"><button>This goes to a project page</button></Link>
       <ul>

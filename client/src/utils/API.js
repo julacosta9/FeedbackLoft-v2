@@ -38,11 +38,9 @@ export default {
         return axios.get(`/api/projects/${id}`);
     },
 
-    uploadToS3: function (file) {
+    uploadToS3: function (formData) {
         axios
-            .post("/api/audio-upload", {
-                audio: file
-            })
+            .post("/api/projects/audio-upload", formData)
             .then((response) => {
                 console.log(response);
                 return response;

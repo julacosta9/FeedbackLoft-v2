@@ -36,7 +36,7 @@ module.exports = {
                     });
             }
             
-            return res.json({ "s3-audio-url": req.file.location });
+            return res.json({ "s3AudioUrl": req.file.location });
         });
     },
     update: function (req, res) {
