@@ -40,7 +40,7 @@ export default {
 
     uploadToS3: function (file) {
         axios
-            .post("/api/audio-upload", {
+            .post("/api/projects/audio-upload", {
                 audio: file
             })
             .then((response) => {
