@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import axios from 'axios';
 import API from '../../utils/API.js';
 import UserContext from '../UserContext';
-import UseForm from '../../utils/UseForm'
+import UseForm from '../../utils/UseForm';
 
 const CreateProjectForm = () => {
 
