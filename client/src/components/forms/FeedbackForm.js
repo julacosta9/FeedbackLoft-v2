@@ -9,6 +9,8 @@ const FeedbackForm = (props) => {
   
   const createPost = () => {
     API.createComment(values);
+    API.incrementFeedback(_id, props.id);
+    window.location.reload(false);
   }
 
   const { values, handleChange, handleSubmit } = UseForm(

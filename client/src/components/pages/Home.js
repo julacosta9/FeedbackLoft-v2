@@ -49,6 +49,7 @@ const Home = () => {
         <Project 
         key = {project._id}
         project = {project}
+        
         />
       )}
       <EmptyProject />

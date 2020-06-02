@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const db = require("./client/src/models/index.js");
+const db = require("./models/index.js");
 
 mongoose.connect(
     process.env.MONGODB_URI || "mongodb://localhost/feedbackLoft",
