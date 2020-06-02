@@ -27,5 +27,28 @@ module.exports = {
             .then((dbModel) => dbModel.remove())
             .then((dbModel) => res.json(dbModel))
             .catch((err) => res.status(422).json(err));
+    },
+    incrementFeedback: function (req, res) {
+        Promise.all([
+            // increment the giver's feedbackGiven amount by 1
+            db.User.findOneAndUpdate(
+                { _id: req.body.giverId },
+                { $inc: { feedbackGiven: 1 } },
+                { new: true }
+            ),
+
+            // increment the receiver's feedbackReceived amount by 1
+            db.User.findOneAndUpdate(
+                { _id: req.body.receiverId },
+                { $inc: { feedbackReceived: 1 } },
+                { new: true }
+            ),
+        ])
+            .then((values) => {
+                res.json(values);
+            })
+            .catch((err) => {
+                res.status(422).json(err);
+            });
     }
 };
