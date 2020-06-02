@@ -12,6 +12,10 @@ router.route("/")
 router.route("/all")
     .get(controller.User.findAll);
 
+// Matches with "/api/users/incrementFeedback"
+router.route("/incrementFeedback")
+    .put(controller.User.incrementFeedback);
+
 // Matches with "/api/users/:id"
 router.route("/:id")
     .get(controller.User.findById)
