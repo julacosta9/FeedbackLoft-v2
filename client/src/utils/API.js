@@ -46,8 +46,21 @@ export default {
                 console.log(error);
             });
     },
-    
 
+    incrementFeedback: function(giverId, receiverId) {
+        axios
+            .put("/api/users/incrementFeedback", {
+                giverId: giverId,
+                receiverId: receiverId
+            })
+            .then((response) => {
+                return response;
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    },
+    
     // Project routes
 
     getAllProjects: function () {
