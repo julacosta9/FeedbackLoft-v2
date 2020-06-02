@@ -2,7 +2,7 @@ import axios from "axios";
 
 export default {
     // User routes
-    // TODO: add updateUser, deleteUser
+    // TODO: increment 2 users feedback given/receive
     getAllUsers: function () {
         return axios.get("/api/users/all");
     },
@@ -23,8 +23,45 @@ export default {
             });
     },
 
+    updateUser: function (id, obj) {
+        axios
+            .put(`/api/users/${id}`, obj)
+            .then((response) => {
+                console.log(response);
+                return response;
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    },
+
+    deleteUser: function (id) {
+        axios
+            .delete(`/api/users/${id}`)
+            .then((response) => {
+                console.log(response);
+                return response;
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    },
+
+    incrementFeedback: function(giverId, receiverId) {
+        axios
+            .put("/api/users/incrementFeedback", {
+                giverId: giverId,
+                receiverId: receiverId
+            })
+            .then((response) => {
+                return response;
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    },
+    
     // Project routes
-    // TODO: add updateProject
 
     getAllProjects: function () {
         return axios.get("/api/projects/all");
@@ -62,6 +99,18 @@ export default {
             });
     },
 
+    updateProject: function (id, obj) {
+        axios
+            .put(`/api/projects/${id}`, obj)
+            .then((response) => {
+                console.log(response);
+                return response;
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    },
+
     deleteProject: function (id) {
         axios
             .delete(`/api/projects/${id}`)
@@ -75,7 +124,7 @@ export default {
     },
 
     // Comment routes
-    // TODO: add getCommentById, updateComment, deleteComment
+    // TODO: deleteComment
     getAllCommentsByAuthor: function (id) {
         return axios.get(`/api/comments/byAuthor/${id}`);
     },
@@ -84,9 +133,37 @@ export default {
         return axios.get(`/api/comments/byProject/${id}`);
     },
 
+    getCommentById: function (id) {
+        return axios.get(`/api/comments/${id}`);
+    },
+
     createComment: function (obj) {
         axios
             .post("/api/comments", obj)
+            .then((response) => {
+                console.log(response);
+                return response;
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    },
+
+    updateComment: function (id, obj) {
+        axios
+            .put(`/api/comments/${id}`, obj)
+            .then((response) => {
+                console.log(response);
+                return response;
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    },
+
+    deleteComment: function (id) {
+        axios
+            .delete(`/api/comments/${id}`)
             .then((response) => {
                 console.log(response);
                 return response;
