@@ -50,5 +50,28 @@ module.exports = {
             .catch((err) => {
                 res.status(422).json(err);
             });
-    }
+    },
+    addNotification: function (req, res) {
+        db.User.findOneAndUpdate(
+            { _id: req.body.recipientId },
+            {
+                $push: {
+                    notifications: [
+                        {
+                            senderName: req.body.senderName,
+                            message: req.body.message,
+                            isRead: false,
+                        }
+                    ]
+                }
+            },
+            { new: true }
+        )
+            .then((values) => {
+                res.json(values);
+            })
+            .catch((err) => {
+                res.status(422).json(err);
+            });
+    },
 };

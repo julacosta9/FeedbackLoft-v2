@@ -60,6 +60,17 @@ export default {
                 console.log(error);
             });
     },
+
+    addNotifcation: function(obj) {
+        axios
+            .put("/api/users/addNotification", obj)
+            .then((response) => {
+                return response;
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    },
     
     // Project routes
 

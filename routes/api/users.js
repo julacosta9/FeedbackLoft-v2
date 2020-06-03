@@ -16,6 +16,10 @@ router.route("/all")
 router.route("/incrementFeedback")
     .put(controller.User.incrementFeedback);
 
+// Matches with "/api/users/addNotification"
+router.route("/addNotification")
+    .put(controller.User.addNotification);
+
 // Matches with "/api/users/:id"
 router.route("/:id")
     .get(controller.User.findById)

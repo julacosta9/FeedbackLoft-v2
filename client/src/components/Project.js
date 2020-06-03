@@ -49,7 +49,7 @@ const Project = (props) => {
         type="audio/mpeg"
         />
       </audio>}
-      <h3>{description}</h3>
+      <h3 className="bg-blue-500">{description}</h3>
       <Link to="/project-page"><button>This goes to a project page</button></Link>
       <ul>
       {comments.map(comment => 
