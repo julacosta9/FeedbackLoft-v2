@@ -36,7 +36,17 @@ const UserSchema = new Schema({
     dateCreated: {
         type: Date,
         default: Date.now,
-    }
+    },
+
+    notifications: [{
+        author: String,
+        dateCreated: {
+            type: Date,
+            default: Date.now,
+        },
+        message: String,
+        isRead: Boolean
+    }]
 });
 
 const User = mongoose.model("User", UserSchema);
