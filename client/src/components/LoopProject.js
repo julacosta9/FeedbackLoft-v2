@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import API from '../utils/API.js';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faArrowAltCircleUp, faArrowAltCircleDown } from '@fortawesome/free-regular-svg-icons';
+
 
 const LoopProject = (props) => {
 
@@ -25,13 +28,15 @@ const LoopProject = (props) => {
     loadRatio();
   }, [props.userId])
 
+  
+
   return (
     <div>
     {console.log(feedbackRatio)}
       <span>
         <h1>{props.name}</h1> by <h1>{props.username}</h1>
-        <span><i className="fas fa-arrow-alt-circle-up"></i></span>
-        <span><i className="fas fa-arrow-alt-circle-down"></i></span>
+        <FontAwesomeIcon icon="arrow-alt-circle-up" />{feedbackRatio.feedbackGiven}
+        <FontAwesomeIcon icon="arrow-alt-circle-down" />{feedbackRatio.feedbackReceived}
       </span>
       {props.url}
       <h2>{props.genre}</h2>
