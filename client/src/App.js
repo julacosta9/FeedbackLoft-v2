@@ -33,7 +33,7 @@ const App = () => {
   const loadUser = () => {
     API.getAllUsers()
     .then(user => 
-      setActiveUser(user.data[0])
+      setActiveUser(user.data[1])
     )
     .catch(err => console.log(err)
     )

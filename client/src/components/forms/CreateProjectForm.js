@@ -39,7 +39,6 @@ const CreateProjectForm = () => {
   values.userId = _id
   values.username = username
 
-
   return (
     
     <div>
@@ -58,12 +57,36 @@ const CreateProjectForm = () => {
           name="genre" 
           id="genre"
         >
-          <option value="rock">Rock</option>
-          <option value="rap">Rap</option>
-          <option value="electronic">Electronic</option>
+          <option value="alternative-rock">Alternative Rock</option>
+          <option value="ambient">Ambient</option>
+          <option value="classical">Classical</option>
           <option value="country">Country</option>
-          <option value="jazz">Jazz</option>
+          <option value="dance-&-edm">Dance & EDM</option>
+          <option value="dancehall">Dancehall</option>
+          <option value="deep-house">Deep House</option>
+          <option value="disco">Disco</option>
+          <option value="drum-&-bass">Drum & Bass</option>
+          <option value="dubstep">Dubstep</option>
+          <option value="electronic">Electronic</option>
+          <option value="folk-&-singer-songwriter">Folk & Singer-Songwriter</option>
+          <option value="hip-hop-&-rap">Hip-hop & Rap</option>
+          <option value="house">House</option>
+          <option value="indie">Indie</option>
+          <option value="jazz-&-blues">Jazz & Blues</option>
+          <option value="lastin">Latin</option>
+          <option value="metal">Metal</option>
+          <option value="piano">Piano</option>
           <option value="pop">Pop</option>
+          <option value="r&b-&-soul">R&B & Soul</option>
+          <option value="reggae">Reggae</option>
+          <option value="reggaeton">Reggaeton</option>
+          <option value="rock">Rock</option>
+          <option value="soundtrack">Soundtrack</option>
+          <option value="techno">Techno</option>
+          <option value="trance">Trance</option>
+          <option value="trap">Trap</option>
+          <option value="triphop">Triphop</option>
+          <option value="world">World</option>
         </select>
         <input 
           name="url"
