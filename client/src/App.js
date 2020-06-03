@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import UserContext from './components/UserContext'
 import "./App.css";
@@ -12,6 +12,10 @@ import Project from "./components/Project";
 import Feedback from "./components/FeedbackGiven";
 import { useAuth0 } from "./react-auth0-spa";
 import API from "./utils/API";
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faArrowAltCircleUp, faArrowAltCircleDown } from "@fortawesome/free-regular-svg-icons"
+
+library.add(faArrowAltCircleUp, faArrowAltCircleDown)
 
 const App = () => {
 
