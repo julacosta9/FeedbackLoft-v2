@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import UserContext from './components/UserContext'
+import UserContext from './utils/UserContext'
 import "./App.css";
-import Navbar from "./components/Navbar"
+import Navbar from "./components/navbar/Navbar"
 import Loop from "./components/pages/Loop"
 import ProjectPage from './components/pages/ProjectPage'
 import Home from './components/pages/Home'
@@ -34,7 +34,7 @@ const App = () => {
   const loadUser = () => {
     API.getAllUsers()
     .then(user => 
-      setActiveUser(user.data[1])
+      setActiveUser(user.data[0])
     )
     .catch(err => console.log(err)
     )

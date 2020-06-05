@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import Comment from "./Comment";
 import { Link } from "react-router-dom";
-import API from "../utils/API.js";
-import UserContext from "./UserContext";
+import API from "../../utils/API.js";
+import UserContext from "../../utils/UserContext";
 
 const Project = (props) => {
     const { _id, name, username, genres, url, description } = props.project;

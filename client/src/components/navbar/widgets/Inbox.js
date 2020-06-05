@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Notification from './Notification';
-import UserContext from './UserContext';
+import UserContext from '../../../utils/UserContext';
 
 const Inbox = () => {
 
@@ -19,17 +19,33 @@ const Inbox = () => {
     // const messageId = e.target._id;
     // setMessage(message.filter(item => item.message !== messageId));
     console.log(`Click! ${e.target._id}`);
-    
   };
+
+  const [showMessages, setMessagesState] = useState(false);
+
+  useEffect(() => {
+
+  },[showMessages])
 
   return (
     <div>
-    <button className='block'>
-      <FontAwesomeIcon 
-        icon = 'bell' 
-      />
+    <button 
+      className='block'
+      onClick={() => showMessages === true ?
+      setMessagesState(false)
+      :
+      setMessagesState(true)
+      }
+      >
+      {message[0] ?
+        <FontAwesomeIcon icon = {['fas' ,'bell']} />
+        :
+        <FontAwesomeIcon icon = {['far' ,'bell']} />
+      }
     </button>
-    <div>
+    {showMessages === true ?
+    
+    (<div>
       {message[0] ?
         message.map(notification => {
         return(
@@ -47,7 +63,10 @@ const Inbox = () => {
       :
       <p>No current notifications</p>
       }
-    </div>
+    </div>)
+    :
+    <div></div>
+    }
 
     </div>
   )

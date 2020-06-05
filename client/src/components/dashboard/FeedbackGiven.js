@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useContext} from 'react';
-import UserContext from './UserContext';
-import Comment from "./Comment";
-import API from '../utils/API.js'
+import UserContext from '../../utils/UserContext';
+import Comment from "../projects/Comment";
+import API from '../../utils/API.js'
 
 const FeedbackGiven = () => {
 

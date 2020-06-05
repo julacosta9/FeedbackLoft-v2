@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import axios from "axios";
 import API from "../../utils/API.js";
-import UserContext from "../UserContext";
+import UserContext from "../../utils/UserContext";
 import UseForm from "../../utils/UseForm";
 
 const CreateProjectForm = () => {
@@ -81,7 +81,7 @@ const CreateProjectForm = () => {
                     <option value="house">House</option>
                     <option value="indie">Indie</option>
                     <option value="jazz-&-blues">Jazz & Blues</option>
-                    <option value="lastin">Latin</option>
+                    <option value="latin">Latin</option>
                     <option value="metal">Metal</option>
                     <option value="piano">Piano</option>
                     <option value="pop">Pop</option>

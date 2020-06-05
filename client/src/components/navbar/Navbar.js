@@ -1,13 +1,20 @@
 // src/components/NavBar.js
 
-import React, { useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import UserContext from "./UserContext";
-import { useAuth0 } from "../react-auth0-spa";
-import Inbox from './Inbox';
+import UserContext from "../../utils/UserContext";
+import { useAuth0 } from "../../react-auth0-spa";
+import Inbox from './widgets/Inbox';
+import UserOptions from './widgets/UserOptions'
 
 const Navbar = () => {
     // const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+
+    const [showOptions, setOptionsState] = useState(false)
+
+    useEffect(() => {
+  
+    }, [showOptions])
 
     const {
         username,
@@ -60,11 +67,22 @@ const Navbar = () => {
                     </a>
                 </div>
                 <span className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-                    <i className="far fa-bell"></i>
+                    <Inbox />
                 </span>
-                <a className="block mt-4 lg:inline-block lg:mt-0 font-semibold text-teal-200 hover:text-white mr-4">
+                <a 
+                    className="block mt-4 lg:inline-block lg:mt-0 font-semibold text-teal-200 hover:text-white mr-4"
+                    onClick={() => showOptions === true ?
+                    setOptionsState(false)
+                    :
+                    setOptionsState(true)}
+                >
                     {username}
                 </a>
+                {showOptions === true ?
+                    <UserOptions />
+                    :
+                    <div></div>
+                }
                 <span className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 mr-4">
                     <span className="mx-1">{feedbackGiven}</span>
                     <i className="fas fa-arrow-alt-circle-up mx-1"></i>
