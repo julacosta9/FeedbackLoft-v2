@@ -40,7 +40,11 @@ const Home = () => {
             {projects.map((project) => (
                 <Project key={project._id} project={project} />
             ))}
-            <EmptyProject />
+            {projects.length <= 2 ?
+                <EmptyProject />
+                :
+                <div></div>
+            }
             <FeedbackGiven />
             {console.log(`Projects: ${projects._id}`)}
         </div>
