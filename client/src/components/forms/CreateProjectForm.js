@@ -3,6 +3,8 @@ import axios from 'axios';
 import API from '../../utils/API.js';
 import UserContext from '../UserContext';
 import UseForm from '../../utils/UseForm';
+import Dropzone from '../Dropzone';
+
 
 const CreateProjectForm = () => {
 
@@ -51,7 +53,7 @@ const CreateProjectForm = () => {
           value={values.name}
           required
         />
-        <label for="genre">Choose a Genre:</label>
+        <label htmlFor="genre">Choose a Genre:</label>
         <select 
           onChange={handleChange} 
           name="genre" 

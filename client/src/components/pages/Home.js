@@ -7,7 +7,7 @@ import UserContext from '../UserContext';
 import API from '../../utils/API.js';
 
 const Home = () => {
-  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+  // const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
 
   const {_id} = useContext(UserContext) 
 
@@ -41,9 +41,7 @@ const Home = () => {
   return (
     <div>
 
-      {isAuthenticated && <button onClick={() => logout()}>Log out</button>}
-
-    {console.log(`Projects: ${projects._id}`)}
+      {/*isAuthenticated && <button onClick={() => logout()}>Log out</button>*/}
 
       {projects.map(project => 
         <Project 

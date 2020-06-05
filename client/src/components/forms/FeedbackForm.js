@@ -7,9 +7,16 @@ const FeedbackForm = (props) => {
 
   const {_id, username} = useContext(UserContext);
   
-  const createPost = () => {
+  const createPost = (event) => {
     API.createComment(values);
     API.incrementFeedback(_id, props.id);
+    API.addNotifcation(
+      {
+        recipientId: props.id,
+        senderName: username,
+        message: username + " has left a review on your project " + props.projectName
+      }
+    )
     window.location.reload(false);
   }
 
