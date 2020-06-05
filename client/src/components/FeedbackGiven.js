@@ -30,8 +30,8 @@ const FeedbackGiven = () => {
   },[_id])
 
   return(
-    <div>
-      <h1>Feedback Given</h1>
+    <div className="w-full flex flex-col bg-gray-200 space-y-4 rounded overflow-hidden border w-full lg:w-12/12 md:w-12/12 bg-white mx-3 md:mx-0 lg:mx-0 shadow-lg m-8 p-6">
+      <h2 className="font-bold text-xl mb-2">Your Comment History</h2>
       {userComments.map(comment => 
         <Comment 
         key = {comment._id}

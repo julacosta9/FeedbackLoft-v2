@@ -47,7 +47,7 @@ const App = () => {
   // if (isAuthenticated){
     return(
       <UserContext.Provider value={activeUser}>
-        <div>
+        {/* <div> */}
           <Router>
             <Switch>
               <Route path="/loop">
@@ -64,7 +64,7 @@ const App = () => {
               </Route>
             </Switch>
           </Router>
-        </div>
+        {/* </div> */}
       </UserContext.Provider>
   )}
 //   else {

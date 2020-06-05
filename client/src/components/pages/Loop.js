@@ -33,7 +33,7 @@ const Loop = () => {
   },[])
 
   return(
-    <div>
+    <div className="container mx-auto">
       <LoopProject
         name={loop.name}
         username={loop.username}
