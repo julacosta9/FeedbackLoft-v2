@@ -46,6 +46,10 @@ const UserSchema = new Schema({
         },
         message: String,
         isRead: Boolean
+    }],
+
+    genres: [{
+        
     }]
 });
 
