@@ -17,7 +17,6 @@ const LoopProject = (props) => {
     API.getUserById(props.userId)
     .then(res => {
       setFeedbackRatio(res.data);
-      console.log(res.data)
     }
     )
     .catch(err => console.log(err)
@@ -32,7 +31,6 @@ const LoopProject = (props) => {
 
   return (
     <div>
-    {console.log(feedbackRatio)}
       <span>
         <h1>{props.name}</h1> by <h1>{props.username}</h1>
         <FontAwesomeIcon icon="arrow-alt-circle-up" />{feedbackRatio.feedbackGiven}

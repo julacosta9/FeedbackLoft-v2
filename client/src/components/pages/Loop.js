@@ -21,7 +21,6 @@ const Loop = () => {
   const loadLoop = () => {
     API.getProjectForReview()
     .then(res => {
-      console.log(res)
       setLoop(res.data)
     })
     .catch(err => console.log(err)
@@ -35,7 +34,6 @@ const Loop = () => {
 
   return(
     <div>
-      {console.log(loop)}
       <LoopProject
         name={loop.name}
         username={loop.username}
