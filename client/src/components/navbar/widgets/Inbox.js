@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Notification from './Notification';
-import UserContext from './UserContext';
+import UserContext from '../../../utils/UserContext';
 
 const Inbox = () => {
 

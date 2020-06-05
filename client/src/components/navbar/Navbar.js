@@ -2,9 +2,9 @@
 
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import UserContext from "./UserContext";
-import { useAuth0 } from "../react-auth0-spa";
-import Inbox from './Inbox';
+import UserContext from "../../utils/UserContext";
+import { useAuth0 } from "../../react-auth0-spa";
+import Inbox from './widgets/Inbox';
 
 const Navbar = () => {
     // const { isAuthenticated, loginWithRedirect, logout } = useAuth0();

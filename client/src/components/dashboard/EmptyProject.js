@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import CreateProjectForm from "./forms/CreateProjectForm";
+import CreateProjectForm from "../forms/CreateProjectForm";
 
 const EmptyProject = () => {
 

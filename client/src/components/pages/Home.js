@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useContext, useLayoutEffect } from "react";
-import Project from "../Project";
-import EmptyProject from "../EmptyProject";
-import FeedbackGiven from "../FeedbackGiven";
+import Project from "../projects/Project";
+import EmptyProject from "../dashboard/EmptyProject";
+import FeedbackGiven from "../dashboard/FeedbackGiven";
 import { useAuth0 } from "../../react-auth0-spa";
-import UserContext from "../UserContext";
+import UserContext from "../../utils/UserContext";
 import API from "../../utils/API.js";
 
 const Home = () => {
