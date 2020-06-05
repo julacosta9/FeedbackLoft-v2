@@ -7,7 +7,7 @@ import UserContext from "../UserContext";
 import API from "../../utils/API.js";
 
 const Home = () => {
-    const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+    // const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
 
     const { _id } = useContext(UserContext);
 

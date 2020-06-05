@@ -5,8 +5,6 @@ import UseForm from "../../utils/UseForm";
 
 const FeedbackForm = (props) => {
     const { _id, username } = useContext(UserContext);
-
-  const {_id, username} = useContext(UserContext);
   
   const createPost = (event) => {
     API.createComment(values);

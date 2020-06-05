@@ -7,7 +7,7 @@ import { useAuth0 } from "../react-auth0-spa";
 import Inbox from './Inbox';
 
 const Navbar = () => {
-    const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+    // const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
 
     const {
         username,
