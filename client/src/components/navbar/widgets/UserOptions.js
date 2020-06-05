@@ -5,7 +5,7 @@ const UserOptions = () => {
 
   const { values, handleChange, handleSubmit } = UseForm(
     []
-    ,)
+    ,updateUserGenres)
 
   const updateUserGenres = () => {
     console.log(values);
@@ -27,185 +27,185 @@ const UserOptions = () => {
       >
         Genres
       </span>
-      {showForm === false ?
+      {showForm === true ?
       (<form>
-        <input
+        <input 
           name="alternative-rock"
-          type="checkbox"
+          type="button"
           value="alternative-rock"
           placeholder="Alternative Rock"
         />
         <input 
           name="ambient"
-          type="checkbox"
+          type="button"
           value="ambient"
           placholder="Ambient" 
         />
         <input
           name="classical"
-          type="checkbox" 
+          type="button" 
           value="classical"
           placeholder="Classical" 
         />
         <input
           name="country"
-          type="checkbox" 
+          type="button" 
           value="country"
           placeholder="Country" 
         />
         <input
           name="dance-&-edm"
-          type="checkbox"
+          type="button"
           value="dance-&-edm"
           placeholder="Dance & EDM" 
         />
         <input
           name="dancehall"
-          type="checkbox" 
+          type="button" 
           value="dancehall"
           palceholder="Dancehall" 
         />
         <input
           name="deep-house"
-          type="checkbox" 
+          type="button" 
           value="deep-house"
           palceholder="Deep House" 
         />
         <input
           name="disco"
-          type="checkbox" 
+          type="button" 
           value="disco"
           palceholder="Disco" 
         />
         <input
           name="drum-&-bass"
-          type="checkbox" 
+          type="button" 
           value="drum-&-bass"
           palceholder="Drum & Bass" 
         />
         <input
           name="dubstep"
-          type="checkbox" 
+          type="button" 
           value="dubstep"
           palceholder="Dubstep" 
         />
         <input
           name="electronic"
-          type="checkbox" 
+          type="button" 
           value="electronic"
           palceholder="Electronic" 
         />
         <input
           name="folk-&-singer-songwriter"
-          type="checkbox" 
+          type="button" 
           value="folk-&-singer-songwriter"
           palceholder="Folk & Singer-Songwriter" 
         />
         <input
           name="hip-hop-&-rap"
-          type="checkbox" 
+          type="button" 
           value="hip-hop-&-rap"
           palceholder="Hip-Hop & Rap" 
         />
         <input
           name="house"
-          type="checkbox" 
+          type="button" 
           value="house"
           palceholder="House" 
         />
         <input
           name="indie"
-          type="checkbox" 
+          type="button" 
           value="indie"
           palceholder="Indie" 
         />
         <input
           name="jazz-&-blues"
-          type="checkbox" 
+          type="button" 
           value="jazz-&-blues"
           palceholder="Jazz & Blues" 
         />
         <input
           name="latin"
-          type="checkbox" 
+          type="button" 
           value="latin"
           palceholder="Latin" 
         />
         <input
           name="metal"
-          type="checkbox" 
+          type="button" 
           value="metal"
           palceholder="Metal" 
         />
         <input
           name="piano"
-          type="checkbox" 
+          type="button" 
           value="piano"
           palceholder="Piano" 
         />
         <input
           name="pop"
-          type="checkbox" 
+          type="button" 
           value="pop"
           palceholder="Pop" 
         />
         <input
           name="r&b-&-soul"
-          type="checkbox" 
+          type="button" 
           value="r&b-&-soul"
           palceholder="R&B & Soul" 
         />
         <input
           name="reggae"
-          type="checkbox" 
+          type="button" 
           value="reggae"
           palceholder="Reggae" 
         />
         <input
           name="reggaeton"
-          type="checkbox" 
+          type="button" 
           value="reggaeton"
           palceholder="Reggaeton" 
         />
         <input
           name="rock"
-          type="checkbox" 
+          type="button" 
           value="rock"
           palceholder="Rock" 
         />
         <input
           name="soundtrack"
-          type="checkbox" 
+          type="button" 
           value="soundtrack"
           palceholder="Soundtrack" 
         />
         <input
           name="techno"
-          type="checkbox" 
+          type="button" 
           value="techno"
           palceholder="Techno" 
         />
         <input
           name="trance"
-          type="checkbox" 
+          type="button" 
           value="trance"
           palceholder="Trance" 
         />
         <input
           name="trap"
-          type="checkbox" 
+          type="button" 
           value="trap"
           palceholder="Trap" 
         />
         <input
           name="triphop"
-          type="checkbox" 
+          type="button" 
           value="triphop"
           palceholder="Triphop" 
         />
         <input
           name="world"
-          type="checkbox" 
+          type="button" 
           value="world"
           palceholder="World" 
         />
