@@ -2,35 +2,32 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import UserContext from './components/UserContext'
 import "./App.css";
-import Login from './components/pages/Login'
 import Navbar from "./components/Navbar"
 import Loop from "./components/pages/Loop"
 import ProjectPage from './components/pages/ProjectPage'
 import Home from './components/pages/Home'
-import EmptyProject from "./components/EmptyProject";
-import Project from "./components/Project";
-import Feedback from "./components/FeedbackGiven";
 import { useAuth0 } from "./react-auth0-spa";
 import API from "./utils/API";
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faArrowAltCircleUp, faArrowAltCircleDown } from "@fortawesome/free-regular-svg-icons"
+import { faArrowAltCircleUp, faArrowAltCircleDown, faBell } from "@fortawesome/free-regular-svg-icons"
 
-library.add(faArrowAltCircleUp, faArrowAltCircleDown)
+library.add(faArrowAltCircleUp, faArrowAltCircleDown, faBell)
 
 const App = () => {
 
-  const { loading, isAuthenticated, loginWithRedirect, logout } = useAuth0();
+  // const { loading, isAuthenticated, loginWithRedirect, logout } = useAuth0();
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  // if (loading) {
+  //   return <div>Loading...</div>;
+  // }
   const [activeUser, setActiveUser] = useState(
     {
     username: "",
     email: "",
     feedbackGiven: "",
     feedbackReceived: "",
-    _id: ""
+    _id: "",
+    notifications: []
   }
   );
 
@@ -47,7 +44,7 @@ const App = () => {
     loadUser();
   },[])
 
-  if (isAuthenticated){
+  // if (isAuthenticated){
     return(
       <UserContext.Provider value={activeUser}>
         {/* <div> */}
@@ -70,9 +67,9 @@ const App = () => {
         {/* </div> */}
       </UserContext.Provider>
   )}
-  else {
-    loginWithRedirect({})
-  }
-}
+//   else {
+//     loginWithRedirect({})
+//   }
+// }
 
 export default App;
