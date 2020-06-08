@@ -43,7 +43,7 @@ const App = () => {
 
   useEffect(() => {
     loadUser();
-    // document.body.style.background = '#FFFFEA';
+    document.body.style.background = '#E8f4ff';
   },[])
 
   // if (isAuthenticated){
