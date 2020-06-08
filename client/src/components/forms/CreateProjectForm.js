@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import axios from "axios";
 import API from "../../utils/API.js";
 import UserContext from "../../utils/UserContext";
@@ -6,6 +6,7 @@ import UseForm from "../../utils/UseForm";
 
 const CreateProjectForm = () => {
     const { _id, username } = useContext(UserContext);
+    const { uploadType, setUploadType} = useState("none")
 
     const s3Upload = () => {
         let formData = new FormData();
@@ -40,29 +41,58 @@ const CreateProjectForm = () => {
 
     return (
         <form
-        class="w-full max-w-xl bg-white rounded-lg px-4 py-4 mx-auto shadow-lg border-gray-400"
-        onSubmit={handleSubmit}>
-                <label
-                    className="px-4 pt-3 pb-2 text-gray-800 text-lg"
-                    for="name"
-                >
-                    Project Name
-                </label>
-                <input
-                    name="name"
-                    type="text"
-                    placeholder="Project Name"
-                    onChange={handleChange}
-                    value={values.name}
-                    required
-                />
-                <label
-                    className="px-4 pt-3 pb-2 text-gray-800 text-lg"
-                    for="genre"
-                >
+            class="w-full max-w-xl flex flex-col bg-white rounded-lg px-6 py-6 mx-auto shadow-lg border-gray-400"
+            onSubmit={handleSubmit}
+        >
+            <label className="pt-3 pb-2 text-gray-800 text-lg">
+                Upload Type
+            </label>
+            <form className="flex flex-row">
+                <button
+                    className="bg-white w-6/12 text-gray-700 font-medium py-1 px-4 border border-teal-400 rounded-md tracking-wide mr-1 hover:bg-teal-400 hover:text-white h-12" 
+                    onClick={() => setUploadType("fileUpload")}
+                    >
+                        Upload a file
+                </button>
+                <button
+                    className="bg-white w-6/12 text-gray-700 font-medium py-1 px-4 border border-orange-sc rounded-md tracking-wide mr-1 hover:bg-orange-sc hover:text-white h-12"
+                    onClick={() => setUploadType("soundcloud")}
+                    >
+                        Soundcloud
+                </button>
+            </form>
+            <input
+                name="url"
+                type="text"
+                placeholder="Paste your soundcloud embed link"
+                onChange={handleChange}
+                value={values.url}
+                className="pt-3 pb-2 mt-4 appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500 focus:border-blue-500"
+            />
+            <input name="file" type="file" id="audio-file" className="pt-3 pb-2 mt-4" />
+            <label className="pt-3 pb-2 text-gray-800 text-lg" for="name">
+                Project Title
+            </label>
+            <input
+                name="name"
+                type="text"
+                placeholder="Project Title"
+                onChange={handleChange}
+                value={values.name}
+                className="appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500 focus:border-blue-500"
+                required
+            />
+
+            <div class="w-full md:w-full mb-2 mt-2 relative">
+                <label className="pt-3 pb-2 text-gray-800 text-lg" for="genre">
                     Genre
                 </label>
-                <select onChange={handleChange} name="genre" id="genre">
+                <select
+                    onChange={handleChange}
+                    name="genre"
+                    id="genre"
+                    className="appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500 focus:border-blue-500"
+                >
                     <option value="alternative-rock">Alternative Rock</option>
                     <option value="ambient">Ambient</option>
                     <option value="classical">Classical</option>
@@ -96,36 +126,33 @@ const CreateProjectForm = () => {
                     <option value="triphop">Triphop</option>
                     <option value="world">World</option>
                 </select>
-                <label
-                    className="px-4 pt-3 pb-2 text-gray-800 text-lg"
-                    for="url"
-                >
-                    Soundcloud Link
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-8 pt-6 text-gray-700">
+                    <svg
+                        class="fill-current h-4 w-4"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 16 16"
+                    >
+                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                    </svg>
+                </div>
+            </div>
+            <label className="pt-3 pb-2 text-gray-800 text-lg" for="description">
+                    Description
                 </label>
-                <input
-                    name="url"
-                    type="text"
-                    placeholder="Soundcloud Embed"
-                    onChange={handleChange}
-                    value={values.url}
-                />
-                <label
-                    className="px-4 pt-3 pb-2 text-gray-800 text-lg"
-                    for="url"
-                >
-                    Upload Your File
-                </label>
-                <input name="file" type="file" id="audio-file" />
-                <input
-                    name="description"
-                    type="text"
-                    placeholder="Description"
-                    onChange={handleChange}
-                    value={values.description}
-                    required
-                />
-                <button>Submit</button>
-            </form>
+            <textarea
+                        name="description"
+                        type="text"
+                        placeholder="Express to listeners what you like about about your song and what you'd like feedback on."
+                        onChange={handleChange}
+                        value={values.description}
+                        className="appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500 focus:border-blue-500"
+                        required
+                    ></textarea>
+            <div className="flex flex-row mt-3">
+                <button className="bg-white w-6/12 text-gray-700 font-medium py-1 px-4 border border-teal-400 rounded-md tracking-wide mr-1 hover:bg-teal-400 hover:text-white h-12">Submit</button>
+                <button id="cancel" className="bg-white w-6/12 text-gray-700 font-medium py-1 px-4 border border-gray-700 rounded-md tracking-wide mr-1 hover:bg-gray-700 hover:text-white h-12">Cancel</button>
+            </div>
+        </form>
     );
 };
 

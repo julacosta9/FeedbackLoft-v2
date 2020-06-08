@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router} from 'react-router-dom';
-import './assets/main.css'
 import "./index.css";
+import './assets/main.css'
 import App from "./App";
 import * as registerServiceWorker from "./registerServiceWorker";
 import { Auth0Provider } from "./react-auth0-spa";

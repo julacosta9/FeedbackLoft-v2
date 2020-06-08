@@ -3,3 +3,8 @@
 @import "tailwindcss/components";
 
 @import "tailwindcss/utilities";
+
+@font-face {
+    font-family: 'Cabin-Regular';
+    src: local('Cabin-Regular'), url(../fonts/Cabin-Regular.ttf) format('ttf');
+}
