@@ -44,13 +44,7 @@ const LoopProject = (props) => {
                     {feedbackRatio.feedbackReceived}
                 </div>
             </div>
-            {props.url[0] === "<" ? (
-                <iframe srcDoc={props.url} />
-            ) : (
-                <audio controls controlsList="nodownload" className="w-full">
-                    <source src={props.url} type="audio/mpeg" />
-                </audio>
-            )}
+            {props.url}
             <div className="px-2">{props.description}</div>
         </div>
     );
