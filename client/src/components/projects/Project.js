@@ -3,6 +3,8 @@ import Comment from "./Comment";
 import { Link } from "react-router-dom";
 import API from "../../utils/API.js";
 import UserContext from "../../utils/UserContext";
+// import HtmlToReactParser from "react-html-parser";
+// import renderHTML from 'react-render-html';
 
 const Project = (props) => {
     const { _id, name, username, genres, url, description } = props.project;
@@ -26,6 +28,9 @@ const Project = (props) => {
         loadComments();
     }, [_id]);
 
+    // let htmlToReactParser = new HtmlToReactParser();
+    // let soundcloud_iframe = htmlToReactParser(url);
+
     return (
         <div className="w-full flex flex-col bg-white space-y-4 rounded overflow-hidden border w-full lg:w-12/12 md:w-12/12 bg-white mx-3 md:mx-0 lg:mx-0 m-8 p-6">
             <div className="flex flex-col">
@@ -33,14 +38,16 @@ const Project = (props) => {
                     <Link to="/project-page">
                         <p className="font-bold text-3xl mb-2 hover:text-fl-red">{name}</p>
                     </Link>
-                    <span className="self-start inline-block bg-fl-yellow rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
+                    <span className="self-start inline-block bg-fl-gray rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
                         #House{genres}
                     </span>
                 </div>
                 <p className="font-bold text-xl mb-2">{username}</p>
             </div>
             {url[0] === "<" ? (
-                <iframe srcDoc={url} />
+                // renderHTML(url)
+            
+                <iframe className="h-iframe" srcdoc={url} />
             ) : (
                     <audio controls controlsList="nodownload">
                         <source src={url} type="audio/mpeg" />
@@ -48,8 +55,7 @@ const Project = (props) => {
                 )}
             <div className="px-2">{description}</div>
 
-            <div className="bg-fl-gray px-2 rounded">
-                <ul>
+            <div className="bg-white border-l-4 ml-8 px-2 ">
                     {comments.map((comment) => (
                         <Comment
                             key={comment._id}
@@ -58,7 +64,6 @@ const Project = (props) => {
                             text={comment.text}
                         />
                     ))}
-                </ul>
             </div>
         </div>
     );

@@ -20,6 +20,10 @@ router.route("/incrementFeedback")
 router.route("/addNotification")
     .put(controller.User.addNotification);
 
+// Matches with "/api/users/toggleIsRead"
+router.route("/toggleIsRead")
+.put(controller.User.toggleIsRead);    
+
 // Matches with "/api/users/:id"
 router.route("/:id")
     .get(controller.User.findById)
