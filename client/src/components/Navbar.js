@@ -6,7 +6,7 @@ import Inbox from './Inbox';
 
 const Navbar = () => {
 
-  // const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
 
   const {username, email, feedbackGiven, feedbackReceived, _id, notifications} = useContext(UserContext);
   return (
@@ -22,7 +22,7 @@ const Navbar = () => {
       <span>{feedbackGiven}<i className="fas fa-arrow-alt-circle-up"></i></span>
       <span>{feedbackReceived}<i className="fas fa-arrow-alt-circle-down"></i></span>
       
-  {/*isAuthenticated && <button onClick={() => logout()}>Log out</button>*/}
+  {isAuthenticated && <button onClick={() => logout()}>Log out</button>}
     </div>
   )
 }

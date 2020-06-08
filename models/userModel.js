@@ -9,12 +9,12 @@ const UserSchema = new Schema({
         required: "Username is Required",
     },
 
-    password: {
-        type: String,
-        trim: true,
-        required: "Password is Required",
-        validate: [({ length }) => length >= 6, "Password should be longer."],
-    },
+    // password: {
+    //     type: String,
+    //     trim: true,
+    //     required: "Password is Required",
+    //     validate: [({ length }) => length >= 6, "Password should be longer."],
+    // },
 
     email: {
         type: String,
