@@ -1,8 +1,7 @@
 import React, {useState, useEffect, useContext} from 'react';
 import FeedbackForm from '../forms/FeedbackForm';
-import LoopProject from '../LoopProject';
+import LoopProject from '../projects/LoopProject';
 import API from '../../utils/API.js';
-import UserContext from '../UserContext';
 
 const Loop = () => {
 
@@ -33,7 +32,7 @@ const Loop = () => {
   },[])
 
   return(
-    <div>
+    <div className="container mx-auto">
       <LoopProject
         name={loop.name}
         username={loop.username}
