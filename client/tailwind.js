@@ -5,6 +5,11 @@ module.exports = {
   important: false,
   separator: ':',
   theme: {
+    extend: {
+        fontFamily: {
+            'sans': ['Cabin-Regular']
+        }
+    },
     screens: {
       sm: '640px',
       md: '768px',
@@ -18,6 +23,13 @@ module.exports = {
       black: '#000',
       white: '#fff',
 
+      fl: {
+        red: '#FF5E5B',
+        gray: '#D8D8D8',
+        white: '#FFFFEA',
+        blue: '#00CECB',
+        yellow: '#FFED66',
+      },
       gray: {
         100: '#f7fafc',
         200: '#edf2f7',
@@ -86,6 +98,11 @@ module.exports = {
         900: '#234e52',
       },
       blue: {
+        1: "#CBF7ED",
+        2: "#8EA8C3",
+        3: "#406E8E",
+        4: "#23395B",
+        5: "#161925",
         100: '#ebf8ff',
         200: '#bee3f8',
         300: '#90cdf4',

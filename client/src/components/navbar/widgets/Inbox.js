@@ -29,9 +29,9 @@ const Inbox = () => {
                 }
             >
                 {message[0] ? (
-                    <FontAwesomeIcon icon={["fas", "bell"]} className="relative" />
+                    <FontAwesomeIcon icon={["fas", "bell"]} className="relative text-white" />
                 ) : (
-                    <FontAwesomeIcon icon={["far", "bell"]} className="relative" />
+                    <FontAwesomeIcon icon={["far", "bell"]} className="relative text-white" />
                 )}
             </button>
             
