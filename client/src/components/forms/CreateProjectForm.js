@@ -1,12 +1,13 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import axios from "axios";
 import API from "../../utils/API.js";
 import UserContext from "../../utils/UserContext";
 import UseForm from "../../utils/UseForm";
+import { PresignedPost } from "aws-sdk/clients/s3";
 
-const CreateProjectForm = () => {
+const CreateProjectForm = (props) => {
     const { _id, username } = useContext(UserContext);
-    const { uploadType, setUploadType} = useState("none")
+    const [ uploadType, setUploadType] = useState(false);
 
     const s3Upload = () => {
         let formData = new FormData();
@@ -36,6 +37,10 @@ const CreateProjectForm = () => {
         s3Upload
     );
 
+    useEffect(() => {
+
+    },[uploadType])
+
     values.userId = _id;
     values.username = username;
 
@@ -48,28 +53,67 @@ const CreateProjectForm = () => {
                 Upload Type
             </label>
             <form className="flex flex-row">
+            {/* This ternary checks the state of uploadType and highlights the appropiate button and shows the appropraite from depending in the state; 
+            False === s3 upload
+            True === Soundcloud Embed */}
+            {uploadType === false ?
+                <button
+                    className="bg-teal-400 w-6/12 text-white font-medium py-1 px-4 border border-teal-400 rounded-md tracking-wide mr-1 hover:bg-teal-400 hover:text-white h-12" 
+                    onClick={(e) => {
+                        e.preventDefault();
+                        setUploadType(false)
+                    }}
+                >
+                    Upload a file
+                </button>
+                :
                 <button
                     className="bg-white w-6/12 text-gray-700 font-medium py-1 px-4 border border-teal-400 rounded-md tracking-wide mr-1 hover:bg-teal-400 hover:text-white h-12" 
-                    onClick={() => setUploadType("fileUpload")}
-                    >
-                        Upload a file
+                    onClick={(e) => {
+                        e.preventDefault();
+                        setUploadType(false)
+                    }}
+                >
+                    Upload a file
                 </button>
+            }
+            {/* This ternary checks the state of uploadType and highlights the appropiate button and shows the appropraite from depending in the state; 
+            False === s3 upload
+            True === Soundcloud Embed */}
+            {uploadType === true ?
+                <button
+                    className="bg-orange-sc w-6/12 text-white font-medium py-1 px-4 border border-orange-sc rounded-md tracking-wide mr-1 hover:bg-orange-sc hover:text-white h-12"
+                    onClick={(e) => {
+                        e.preventDefault();
+                        setUploadType(true)
+                    }}
+                >
+                    Soundcloud
+                </button>
+                :
                 <button
                     className="bg-white w-6/12 text-gray-700 font-medium py-1 px-4 border border-orange-sc rounded-md tracking-wide mr-1 hover:bg-orange-sc hover:text-white h-12"
-                    onClick={() => setUploadType("soundcloud")}
-                    >
-                        Soundcloud
+                    onClick={(e) => {
+                        e.preventDefault()
+                        setUploadType(true)
+                    }}
+                >
+                    Soundcloud
                 </button>
+            }
             </form>
-            <input
-                name="url"
-                type="text"
-                placeholder="Paste your soundcloud embed link"
-                onChange={handleChange}
-                value={values.url}
-                className="pt-3 pb-2 mt-4 appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500 focus:border-blue-500"
-            />
-            <input name="file" type="file" id="audio-file" className="pt-3 pb-2 mt-4" />
+            {uploadType === false ?
+                <input name="file" type="file" id="audio-file" className="pt-3 pb-2 mt-4" />
+                :
+                <input
+                    name="url"
+                    type="text"
+                    placeholder="Paste your soundcloud embed link"
+                    onChange={handleChange}
+                    value={values.url}
+                    className="pt-3 pb-2 mt-4 appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500 focus:border-blue-500"
+                />
+            }
             <label className="pt-3 pb-2 text-gray-800 text-lg" for="name">
                 Project Title
             </label>
@@ -150,7 +194,7 @@ const CreateProjectForm = () => {
                     ></textarea>
             <div className="flex flex-row mt-3">
                 <button className="bg-white w-6/12 text-gray-700 font-medium py-1 px-4 border border-teal-400 rounded-md tracking-wide mr-1 hover:bg-teal-400 hover:text-white h-12">Submit</button>
-                <button id="cancel" className="bg-white w-6/12 text-gray-700 font-medium py-1 px-4 border border-gray-700 rounded-md tracking-wide mr-1 hover:bg-gray-700 hover:text-white h-12">Cancel</button>
+                <button onClick={props.callback} id="cancel" className="bg-white w-6/12 text-gray-700 font-medium py-1 px-4 border border-gray-700 rounded-md tracking-wide mr-1 hover:bg-gray-700 hover:text-white h-12">Cancel</button>
             </div>
         </form>
     );

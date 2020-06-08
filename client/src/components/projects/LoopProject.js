@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import API from "../../utils/API.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faArrowAltCircleUp, faArrowAltCircleDown } from '@fortawesome/free-regular-svg-icons';
 
 const LoopProject = (props) => {
     const [feedbackRatio, setFeedbackRatio] = useState({

@@ -25,6 +25,8 @@ const Home = () => {
         },
     ]);
 
+    const [ showForm, setFormState ] = useState(false)
+
     const loadProjects = () => {
         API.getProjectsByUserId(_id)
             .then((res) => setProjects(res.data))
@@ -45,7 +47,9 @@ const Home = () => {
                 :
                 <div></div>
             }
-            <FeedbackGiven />
+            <FeedbackGiven 
+            
+            />
             {console.log(`Projects: ${projects._id}`)}
         </div>
     );

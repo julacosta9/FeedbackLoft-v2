@@ -9,6 +9,11 @@ const EmptyProject = () => {
 
     }, [showForm]);
 
+    const cancelProjectSubmit = e => {
+        e.preventDefault();
+        setFormState(false)
+    }
+
     return (
         <div>
         {showForm === false ?
@@ -17,7 +22,9 @@ const EmptyProject = () => {
             <i className="fas fa-plus-circle fa-2x text-black"></i>
         </div>)
         :
-        <CreateProjectForm />
+        <CreateProjectForm
+            callback = {cancelProjectSubmit}
+        />
         // (<div className="flex flex-col items-center my-2 p-8 rounded bg-teal-400 space-x-2 w-1/4 mx-auto cursor-pointer hover:shadow-md ease-in-out">
             
         // </div>)
