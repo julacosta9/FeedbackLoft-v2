@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import API from "../../utils/API.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 // import { faArrowAltCircleUp, faArrowAltCircleDown } from '@fortawesome/free-regular-svg-icons';
 
 const LoopProject = (props) => {
@@ -23,10 +24,10 @@ const LoopProject = (props) => {
     }, [props.userId]);
 
     return (
-        <div className="w-full flex flex-col bg-blue-200 space-y-4 rounded overflow-hidden border w-full lg:w-12/12 md:w-12/12 bg-white mx-3 md:mx-0 lg:mx-0 shadow-lg m-8 p-6">
+        <div className="w-full flex flex-col bg-white space-y-4 rounded overflow-hidden border w-full lg:w-12/12 md:w-12/12 bg-white mx-3 md:mx-0 lg:mx-0 m-8 p-6">
             <div className="flex flex-col">
                 <div className="flex flex-row justify-between">
-                    <p className="font-bold text-xl mb-2">{props.name}</p>
+                    <p className="font-bold text-3xl mb-2 hover:text-fl-red">{props.name}</p>
                     <span className="self-start inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
                         #{props.genre}
                     </span>

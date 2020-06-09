@@ -40,6 +40,21 @@ export default {
             });
     },
 
+    toggleIsRead: function (id, notificationId, isRead) {
+        axios
+            .put('/api/users/toggleIsRead', {
+                id: id,
+                notificationId: notificationId,
+                isRead: isRead
+            }).then((response) => {
+                console.log(response);
+                return response;
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    },
+
     deleteUser: function (id) {
         axios
             .delete(`/api/users/${id}`)
