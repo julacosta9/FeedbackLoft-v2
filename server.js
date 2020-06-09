@@ -21,7 +21,7 @@ app.use(routes);
 
 // Connect to database
 mongoose.connect(
-    process.env.MONGODB_URI || "mongodb://localhost/feedbackLoft",
+    process.env.MONGODB_URI || process.env.MLAB_URI || "mongodb://localhost/feedbackLoft",
     { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }
 );
 
