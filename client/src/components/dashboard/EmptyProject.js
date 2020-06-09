@@ -12,9 +12,9 @@ const EmptyProject = () => {
     return (
         <div>
         {showForm === false ?
-        (<div onClick={() => setFormState(true) } className="flex flex-col items-center my-2 p-8 rounded bg-fl-yellow space-x-2 w-1/4 mx-auto cursor-pointer hover:shadow-md transition ease-in-out duration-200">
-            <p className="text-black text-lg">Create A New Project</p>
-            <i className="fas fa-plus-circle fa-2x text-black"></i>
+        (<div onClick={() => setFormState(true) } className="flex flex-col items-center my-2 p-8 rounded bg-fl-yellow space-x-2 sm:w-1/4 md:w-2/4 mx-auto cursor-pointer hover:shadow-md transition ease-in-out duration-200">
+            <p className="text-black text-center text-lg">Create A New Project</p>
+            <i className="fas fa-plus-circle fa-2x text-black pt-4"></i>
         </div>)
         :
         <CreateProjectForm />
