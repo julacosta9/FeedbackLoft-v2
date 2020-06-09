@@ -8,20 +8,29 @@ import { PresignedPost } from "aws-sdk/clients/s3";
 const CreateProjectForm = (props) => {
     const { _id, username } = useContext(UserContext);
     const [ uploadType, setUploadType] = useState(false);
+    const [ loading, setLoadingState ] = useState(false);
 
-    const s3Upload = () => {
+    useEffect(() => {}, [loading]);
+
+    const s3Upload = async () => {
         if (document.getElementById("audio-file")) {
+            setLoadingState(true)
             let formData = new FormData();
             let inputElement = document.getElementById("audio-file");
             // HTML file input, chosen by user
             formData.append("audio", inputElement.files[0]);
-            axios
+            await axios
                 .post("/api/projects/audio-upload", formData)
                 .then((response) => {
                     values.url = response.data.s3AudioUrl;
                     API.createProject(values);
+                }).then(() => {
+                    // eslint-disable-next-line no-restricted-globals
+                    location.reload()
+                    setLoadingState(false)
                 })
                 .catch((error) => {
+                    setLoadingState(false)
                     console.log(error);
                 }
             );
@@ -49,6 +58,9 @@ const CreateProjectForm = (props) => {
     values.username = username;
 
     return (
+        loading === true ?
+        <div>...Loading</div>
+        :
         <form
             class="w-full max-w-xl flex flex-col bg-white rounded-lg px-6 py-6 mx-auto shadow-lg border-gray-400"
             onSubmit={handleSubmit}
@@ -198,7 +210,7 @@ const CreateProjectForm = (props) => {
                     ></textarea>
             <div className="flex flex-row mt-3">
                 <button className="bg-white w-6/12 text-gray-700 font-medium py-1 px-4 border border-teal-400 rounded-md tracking-wide mr-1 hover:bg-teal-400 hover:text-white h-12"
-                type="submit"
+                    type="submit"
                 >Submit</button>
                 <button onClick={props.callback} id="cancel" className="bg-white w-6/12 text-gray-700 font-medium py-1 px-4 border border-gray-700 rounded-md tracking-wide mr-1 hover:bg-gray-700 hover:text-white h-12">Cancel</button>
             </div>
