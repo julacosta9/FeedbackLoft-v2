@@ -25,6 +25,8 @@ const Home = () => {
         },
     ]);
 
+    useEffect(() => {}, [projects])
+
     const [ showForm, setFormState ] = useState(false)
 
     const loadProjects = () => {

@@ -10,19 +10,29 @@ const CreateProjectForm = (props) => {
     const [ uploadType, setUploadType] = useState(false);
 
     const s3Upload = () => {
-        let formData = new FormData();
-        let inputElement = document.getElementById("audio-file");
-        // HTML file input, chosen by user
-        formData.append("audio", inputElement.files[0]);
-        axios
-            .post("/api/projects/audio-upload", formData)
-            .then((response) => {
-                values.url = response.data.s3AudioUrl;
-                API.createProject(values);
+        if (document.getElementById("audio-file")) {
+            let formData = new FormData();
+            let inputElement = document.getElementById("audio-file");
+            // HTML file input, chosen by user
+            formData.append("audio", inputElement.files[0]);
+            axios
+                .post("/api/projects/audio-upload", formData)
+                .then((response) => {
+                    values.url = response.data.s3AudioUrl;
+                    API.createProject(values);
+                })
+                .catch((error) => {
+                    console.log(error);
+                }
+            );
+        }
+        else {
+            API.createProject(values)
+            .then(res => {
+                console.log(res);
             })
-            .catch((error) => {
-                console.log(error);
-            });
+            .catch(err => console.log(err))
+        }
     };
 
     const { values, handleChange, handleSubmit } = UseForm(
@@ -37,9 +47,7 @@ const CreateProjectForm = (props) => {
         s3Upload
     );
 
-    useEffect(() => {
-
-    },[uploadType])
+    useEffect(() => {}, [uploadType])
 
     values.userId = _id;
     values.username = username;
