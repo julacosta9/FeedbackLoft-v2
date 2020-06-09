@@ -38,7 +38,7 @@ const Loop = () => {
 
   return(
     <div className="container mx-auto">
-    {console.log("Project URL", loop.url)}
+    {console.log("user id " + _id)}
       <LoopProject
         name={loop.name}
         username={loop.username}
