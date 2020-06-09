@@ -28,10 +28,6 @@ const CreateProjectForm = (props) => {
         }
         else {
             API.createProject(values)
-            .then(res => {
-                console.log(res);
-            })
-            .catch(err => console.log(err))
         }
     };
 
@@ -201,7 +197,9 @@ const CreateProjectForm = (props) => {
                         required
                     ></textarea>
             <div className="flex flex-row mt-3">
-                <button className="bg-white w-6/12 text-gray-700 font-medium py-1 px-4 border border-teal-400 rounded-md tracking-wide mr-1 hover:bg-teal-400 hover:text-white h-12">Submit</button>
+                <button className="bg-white w-6/12 text-gray-700 font-medium py-1 px-4 border border-teal-400 rounded-md tracking-wide mr-1 hover:bg-teal-400 hover:text-white h-12"
+                type="submit"
+                >Submit</button>
                 <button onClick={props.callback} id="cancel" className="bg-white w-6/12 text-gray-700 font-medium py-1 px-4 border border-gray-700 rounded-md tracking-wide mr-1 hover:bg-gray-700 hover:text-white h-12">Cancel</button>
             </div>
         </form>

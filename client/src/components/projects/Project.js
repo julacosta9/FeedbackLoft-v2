@@ -3,11 +3,19 @@ import Comment from "./Comment";
 import { Link } from "react-router-dom";
 import API from "../../utils/API.js";
 import UserContext from "../../utils/UserContext";
+import UseForm from '../../utils/UseForm';
 // import HtmlToReactParser from "react-html-parser";
 // import renderHTML from 'react-render-html';
 
 const Project = (props) => {
+
     const { _id, name, username, genres, url, description } = props.project;
+    
+    const removeProject = () => {
+        API.deleteProject(_id)
+    }
+
+    const { handleSubmit } = UseForm({}, removeProject);
 
     const [comments, setComments] = useState([
         {
@@ -55,6 +63,11 @@ const Project = (props) => {
                     </audio>
                 )}
             <div className="px-2">{description}</div>
+            <form onSubmit={handleSubmit}>
+                <button type="submit">
+                    Delete This Project!
+                </button>
+            </form>
 
             <div className="bg-white border-l-4 ml-8 px-2 ">
                     {comments.map((comment) => (

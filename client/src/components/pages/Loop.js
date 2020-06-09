@@ -23,7 +23,7 @@ const Loop = () => {
     API.getProjectForReview({id: _id})
     .then(res => {
       setLoop(res.data)
-      console.log(res.data);
+      console.log("loop projects for review " + res.data);
       
     })
     .catch(err => console.log(err)
@@ -37,7 +37,6 @@ const Loop = () => {
 
   return(
     <div className="container mx-auto">
-    {console.log("user id " + _id)}
       <LoopProject
         name={loop.name}
         username={loop.username}
