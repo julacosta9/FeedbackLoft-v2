@@ -7,7 +7,7 @@ import UserContext from "../../utils/UserContext";
 import API from "../../utils/API.js";
 
 const Home = () => {
-    // const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+    const { user, isAuthenticated, loginWithRedirect, logout } = useAuth0();
 
     const { _id } = useContext(UserContext);
 
@@ -54,5 +54,27 @@ const Home = () => {
         </div>
     );
 };
+
+  // useEffect(() => {
+  //   loadProjects();
+  // },[_id]);
+
+
+  // return (
+  //   <div>
+
+
+  //     {projects.map(project => 
+  //       <Project 
+  //       key = {project._id}
+  //       project = {project}
+        
+  //       />
+  //     )}
+  //     <EmptyProject />
+  //     <FeedbackGiven />
+  //   </div>
+  // );
+
 
 export default Home;
