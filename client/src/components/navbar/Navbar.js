@@ -81,11 +81,11 @@ const Navbar = () => {
                     <span className="mx-1">{feedbackReceived}</span>
                     <i className="fas fa-arrow-alt-circle-down mx-1"></i>
                 </span>
-                {/* <a className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                <a className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
                     {isAuthenticated && (
                         <button onClick={() => logout()}>Logout</button>
                     )}
-                </a> */}
+                </a>
             </div>
         </nav>
     );
