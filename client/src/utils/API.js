@@ -12,7 +12,7 @@ export default {
     },
 
     getUserByEmail: function (email){
-        return axios.get(`/api/users/${email}`);
+        return axios.get(`/api/users/byEmail/${email}`);
     },
 
     

@@ -31,7 +31,7 @@ const FeedbackForm = (props) => {
         createPost
     );
 
-        
+
 
     values.authorId = _id;
     values.authorUsername = username;
@@ -72,9 +72,9 @@ const FeedbackForm = (props) => {
                         id="rating"
                         className="appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500 focus:border-blue-500"
                     >
-                        <option value={3}><span>❤️</span> Love it!</option>
-                        <option value={2}><span>👍</span> Like it.</option>
-                        <option value={1}><span>🛠️</span> Needs Work...</option>
+                        <option value={3}>❤️ Love it!</option>
+                        <option value={2}>👍 Like it.</option>
+                        <option value={1}>🛠️ Needs Work...</option>
                     </select>
                     <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-8 pt-6 text-gray-700">
                         <svg
