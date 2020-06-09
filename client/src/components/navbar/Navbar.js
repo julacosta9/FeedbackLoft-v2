@@ -9,7 +9,7 @@ import UserOptions from "./widgets/UserOptions";
 import logo from "../../images/feedbackloft-logo-white-transparent.png";
 
 const Navbar = () => {
-    // const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+    const { isAuthenticated, logout } = useAuth0();
 
     const [showOptions, setOptionsState] = useState(false);
 
@@ -65,21 +65,37 @@ const Navbar = () => {
                     >
                         {username}
                     </a>
-                    {showOptions === true ? <UserOptions /> : <div></div>}
-                    <span className="block mt-4 lg:inline-block lg:mt-0 text-white mr-4">
-                        <span className="mx-1">{feedbackGiven}</span>
-                        <i className="fas fa-arrow-alt-circle-up mx-1"></i>
-                    </span>
-                    <span className="block mt-4 lg:inline-block lg:mt-0 text-white mr-4">
-                        <span className="mx-1">{feedbackReceived}</span>
-                        <i className="fas fa-arrow-alt-circle-down mx-1"></i>
-                    </span>
-                    {/* <a className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                </div>
+                <span className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                    <Inbox />
+                </span>
+                <a 
+                    className="block mt-4 lg:inline-block lg:mt-0 font-semibold text-teal-200 hover:text-white mr-4"
+                    onClick={() => showOptions === true ?
+                    setOptionsState(false)
+                    :
+                    setOptionsState(true)}
+                >
+                    {username}
+                </a>
+                {showOptions === true ?
+                    <UserOptions />
+                    :
+                    <div></div>
+                }
+                <span className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 mr-4">
+                    <span className="mx-1">{feedbackGiven}</span>
+                    <i className="fas fa-arrow-alt-circle-up mx-1"></i>
+                </span>
+                <span className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 mr-4">
+                    <span className="mx-1">{feedbackReceived}</span>
+                    <i className="fas fa-arrow-alt-circle-down mx-1"></i>
+                </span>
+                <a className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
                     {isAuthenticated && (
                         <button onClick={() => logout()}>Logout</button>
                     )}
-                </a> */}
-                </div>
+                </a>
         </nav>
     );
 };
