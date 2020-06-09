@@ -25,7 +25,7 @@ const UserSchema = new Schema({
 
     feedbackGiven: {
         type: Number,
-        default: 0,
+        default: 1,
     },
 
     feedbackReceived: {
