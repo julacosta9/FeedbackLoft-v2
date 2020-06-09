@@ -14,11 +14,9 @@ function formatFilename(filename) {
     return newFilename.substring(0, 60);
 }
 
-// Setup Env Variable, e.g: process.env.SECRET_ACCESS_KEY
-// Setup Env Variable, e.g: process.env.ACCESS_KEY_ID
 aws.config.update({
-    accessKeyId: aws.config.credentials.accessKeyId,
-    secretAccessKey: aws.config.credentials.secretAccessKey,
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID || aws.config.credentials.accessKeyId,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY || aws.config.credentials.secretAccessKey,
     region: "us-west-1",
 });
 
