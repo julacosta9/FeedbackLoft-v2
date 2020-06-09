@@ -12,7 +12,6 @@ const Loop = () => {
     userId:"",
     url:"",
     genre:"",
-    description:"",
     dateCreated:"",
     name:"",
     _id: ""
