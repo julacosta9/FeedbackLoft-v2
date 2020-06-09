@@ -16,11 +16,14 @@ library.add(faArrowAltCircleUp, faArrowAltCircleDown, faBell)
 
 const App = () => {
 
-  // const { loading, isAuthenticated, loginWithRedirect, logout } = useAuth0();
+  const { loading, user, isAuthenticated, loginWithRedirect, logout } = useAuth0();
+  
 
-  // if (loading) {
-  //   return <div>Loading...</div>;
-  // }
+  
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
   const [activeUser, setActiveUser] = useState(
     {
     username: "",
@@ -46,7 +49,16 @@ const App = () => {
     document.body.style.background = '#E8f4ff';
   },[])
 
-  // if (isAuthenticated){
+  
+
+  if (isAuthenticated){
+    API.getUserByEmail(user.email).then(dbUser => {
+      if (dbUser.data.length == 0)
+        API.createUser({
+          email: user.email,
+          username: user.nickname
+        })
+    })
     return(
       <UserContext.Provider value={activeUser}>
         {/* <div> */}
@@ -69,9 +81,9 @@ const App = () => {
         {/* </div> */}
       </UserContext.Provider>
   )}
-//   else {
-//     loginWithRedirect({})
-//   }
-// }
+  else {
+    loginWithRedirect({})
+  }
+}
 
 export default App;

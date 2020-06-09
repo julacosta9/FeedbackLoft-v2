@@ -7,44 +7,54 @@ import UserContext from "../../utils/UserContext";
 import API from "../../utils/API.js";
 
 const Home = () => {
-    // const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+  const { user, isAuthenticated, loginWithRedirect, logout } = useAuth0();
 
-    const { _id } = useContext(UserContext);
 
-    const [projects, setProjects] = useState([
-        {
-            name: "",
-            userId: "",
-            username: "",
-            genre: "",
-            url: "",
-            description: "",
-            dateCreated: "",
-            lastCommentDate: "",
-            _id: "",
-        },
-    ]);
+  const {_id} = useContext(UserContext) 
 
-    const loadProjects = () => {
-        API.getProjectsByUserId(_id)
-            .then((res) => setProjects(res.data))
-            .catch((err) => console.log(err));
-    };
+  const [projects, setProjects] = useState([
+    {
+      name: "",
+      userId: "",
+      username: "",
+      genre: "",
+      url: "",
+      description: "",
+      dateCreated: "",
+      lastCommentDate: "",
+      _id: ""
+    }
+  ]);
 
-    useEffect(() => {
-        loadProjects();
-    }, [_id]);
-
-    return (
-        <div className="container mx-auto">
-            {projects.map((project) => (
-                <Project key={project._id} project={project} />
-            ))}
-            <EmptyProject />
-            <FeedbackGiven />
-            {console.log(`Projects: ${projects._id}`)}
-        </div>
+  const loadProjects = () => {
+    API.getProjectsByUserId(_id)
+    .then(res => 
+      setProjects(res.data)
+    )
+    .catch(err => console.log(err)
     );
-};
+  };
+
+  useEffect(() => {
+    loadProjects();
+  },[_id]);
+
+
+  return (
+    <div>
+
+
+      {projects.map(project => 
+        <Project 
+        key = {project._id}
+        project = {project}
+        
+        />
+      )}
+      <EmptyProject />
+      <FeedbackGiven />
+    </div>
+  );
+}
 
 export default Home;

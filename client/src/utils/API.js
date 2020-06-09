@@ -11,6 +11,11 @@ export default {
         return axios.get(`/api/users/${id}`);
     },
 
+    getUserByEmail: function (email){
+        return axios.get(`/api/users/${email}`);
+    },
+
+    
     createUser: function (obj) {
         axios
             .post("/api/users", obj)
