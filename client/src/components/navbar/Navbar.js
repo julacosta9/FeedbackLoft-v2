@@ -9,7 +9,7 @@ import UserOptions from "./widgets/UserOptions";
 import logo from "../../images/feedbackloft-logo-white-transparent.png";
 
 const Navbar = () => {
-    // const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+    const { isAuthenticated, logout } = useAuth0();
 
     const [showOptions, setOptionsState] = useState(false);
     const [showMenu, setMenuState] = useState(false);

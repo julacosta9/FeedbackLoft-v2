@@ -12,6 +12,10 @@ router.route("/")
 router.route("/all")
     .get(controller.User.findAll);
 
+// Matches with "/api/users/email"
+router.route("/:email")
+    .get(controller.User.findByEmail);
+
 // Matches with "/api/users/incrementFeedback"
 router.route("/incrementFeedback")
     .put(controller.User.incrementFeedback);

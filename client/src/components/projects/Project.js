@@ -32,12 +32,13 @@ const Project = (props) => {
     // let soundcloud_iframe = htmlToReactParser(url);
 
     return (
-        <div className="w-full flex flex-col bg-white space-y-4 rounded overflow-hidden border w-full lg:w-12/12 md:w-12/12 bg-white mx-3 md:mx-0 lg:mx-0 m-8 p-6">
+        <div className="mx-2">
+        <div className="w-full flex flex-col bg-white space-y-4 rounded overflow-hidden border w-full lg:w-10/12 md:w-12/12 bg-white md:mx-auto sm:mx-2 mt-16 mb-8 p-6">
             <div className="flex flex-col">
                 <div className="flex flex-row justify-between">
-                    <Link to="/project-page">
+                    {/* <Link to="/project-page"> */}
                         <p className="font-bold text-3xl mb-2 hover:text-fl-red">{name}</p>
-                    </Link>
+                    {/* </Link> */}
                     <span className="self-start inline-block bg-fl-gray rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
                         #House{genres}
                     </span>
@@ -65,6 +66,7 @@ const Project = (props) => {
                         />
                     ))}
             </div>
+        </div>
         </div>
     );
 };
