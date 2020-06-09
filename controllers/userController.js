@@ -66,11 +66,27 @@ module.exports = {
                             senderName: req.body.senderName,
                             message: req.body.message,
                             isRead: false,
-                        }
-                    ]
-                }
+                        },
+                    ],
+                },
             },
             { new: true }
+        )
+            .then((values) => {
+                res.json(values);
+            })
+            .catch((err) => {
+                res.status(422).json(err);
+            });
+    },
+    toggleIsRead: function (req, res) {
+        db.User.findOneAndUpdate(
+            { _id: req.body.id, "notifications._id": req.body.notificationId },
+            {
+                $set: {
+                    "notifications.$.isRead": true,
+                },
+            }
         )
             .then((values) => {
                 res.json(values);
