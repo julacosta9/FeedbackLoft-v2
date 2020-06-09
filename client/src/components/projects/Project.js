@@ -55,6 +55,7 @@ const Project = (props) => {
                     </audio>
                 )}
             <div className="px-2">{description}</div>
+            <button onClick={() => API.deleteProject(_id)}>Delete This Project!</button>
 
             <div className="bg-white border-l-4 ml-8 px-2 ">
                     {comments.map((comment) => (

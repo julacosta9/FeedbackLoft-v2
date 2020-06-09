@@ -28,10 +28,6 @@ const CreateProjectForm = (props) => {
         }
         else {
             API.createProject(values)
-            .then(res => {
-                console.log(res);
-            })
-            .catch(err => console.log(err))
         }
     };
 
