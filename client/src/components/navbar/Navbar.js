@@ -61,7 +61,7 @@ const Navbar = () => {
                     </a>
                 </div>
                 <span className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4 relative">
-                    <Inbox />
+                    {/*<Inbox />*/}
                 </span>
                 <a
                     className="block mt-4 lg:inline-block lg:mt-0 font-semibold text-white mr-4"

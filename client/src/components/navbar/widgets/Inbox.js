@@ -8,7 +8,7 @@ const Inbox = () => {
 
     // console.log(notifications);
 
-    const [message, setMessage] = useState([]);
+    const [message, setMessage] = useState([""]);
 
     useEffect(() => {
         setMessage(notifications);

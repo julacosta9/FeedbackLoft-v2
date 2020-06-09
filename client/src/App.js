@@ -36,18 +36,29 @@ const App = () => {
   );
 
   const loadUser = () => {
-    API.getAllUsers()
-    .then(user => 
+    API.getUserByEmail(user.email)
+    .then(user => {
+      console.log(user.data)
       setActiveUser(user.data[0])
+    }
     )
     .catch(err => console.log(err)
     )
   };
 
+  // const loadUser = () => {
+  //   API.getAllUsers()
+  //   .then(user => 
+  //     setActiveUser(user.data[0])
+  //   )
+  //   .catch(err => console.log(err)
+  //   )
+  // };
+
   useEffect(() => {
     loadUser();
     document.body.style.background = '#E8f4ff';
-  },[])
+  },[user])
 
   
 
