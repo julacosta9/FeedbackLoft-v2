@@ -6,9 +6,8 @@ const UseForm = (initialValues, callback) => {
   const [values, setValues] = useState(initialValues);
 
   const handleSubmit = (event) => {
-    // if (event) event.preventDefault();
+    if (event) event.preventDefault();
       callback()
-      console.log("Form Submitted")
       // pageUpdater()
   };
 
