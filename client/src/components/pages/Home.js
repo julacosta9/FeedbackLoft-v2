@@ -7,54 +7,74 @@ import UserContext from "../../utils/UserContext";
 import API from "../../utils/API.js";
 
 const Home = () => {
-  const { user, isAuthenticated, loginWithRedirect, logout } = useAuth0();
+    const { user, isAuthenticated, loginWithRedirect, logout } = useAuth0();
 
+    const { _id } = useContext(UserContext);
 
-  const {_id} = useContext(UserContext) 
+    const [projects, setProjects] = useState([
+        {
+            name: "",
+            userId: "",
+            username: "",
+            genre: "",
+            url: "",
+            description: "",
+            dateCreated: "",
+            lastCommentDate: "",
+            _id: "",
+        },
+    ]);
 
-  const [projects, setProjects] = useState([
-    {
-      name: "",
-      userId: "",
-      username: "",
-      genre: "",
-      url: "",
-      description: "",
-      dateCreated: "",
-      lastCommentDate: "",
-      _id: ""
-    }
-  ]);
+    const [ showForm, setFormState ] = useState(false)
 
-  const loadProjects = () => {
-    API.getProjectsByUserId(_id)
-    .then(res => 
-      setProjects(res.data)
-    )
-    .catch(err => console.log(err)
+    const loadProjects = () => {
+        API.getProjectsByUserId(_id)
+            .then((res) => setProjects(res.data))
+            .catch((err) => console.log(err));
+    };
+
+    useEffect(() => {
+        loadProjects();
+    }, [_id]);
+
+    return (
+        <div className="container mx-auto">
+            {projects.map((project) => (
+                <Project key={project._id} project={project} />
+            ))}
+            {projects.length <= 2 ?
+                <EmptyProject />
+                :
+                <div></div>
+            }
+            <FeedbackGiven 
+            
+            />
+            {console.log(`Projects: ${projects._id}`)}
+        </div>
     );
-  };
+};
 
-  useEffect(() => {
-    loadProjects();
-  },[_id]);
-
-
-  return (
-    <div>
+  // useEffect(() => {
+  //   loadProjects();
+  // },[_id]);
 
 
-      {projects.map(project => 
-        <Project 
-        key = {project._id}
-        project = {project}
+  // return (
+  //   <div>
+
+
+  //     {projects.map(project => 
+  //       <Project 
+  //       key = {project._id}
+  //       project = {project}
         
-        />
-      )}
-      <EmptyProject />
-      <FeedbackGiven />
-    </div>
-  );
-}
+  //       />
+  //     )}
+  //     <EmptyProject />
+  //     <FeedbackGiven />
+  //   </div>
+  // );
+
 
 export default Home;
