@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import UserContext from './utils/UserContext'
 import "./App.css";
+import './assets/main.css'
 import Navbar from "./components/navbar/Navbar"
 import Loop from "./components/pages/Loop"
 import ProjectPage from './components/pages/ProjectPage'
@@ -45,6 +46,7 @@ const App = () => {
 
   useEffect(() => {
     loadUser();
+    document.body.style.background = '#E8f4ff';
   },[])
 
   
