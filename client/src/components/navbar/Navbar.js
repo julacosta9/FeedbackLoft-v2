@@ -39,26 +39,25 @@ const Navbar = () => {
                     >
                         <title>Menu</title>
                         {showMenu ? 
-                            <path fill-rule="evenodd" d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" /> :
-                            <path fill-rule="evenodd" d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z"/>
+                            <path fillRule="evenodd" d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" /> :
+                            <path fillRule="evenodd" d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z"/>
                         }
                     </svg>
                 </button>
             </div>
             <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto pl-16 pb-3">
                 <div className="text-sm lg:flex-grow">
-                    <a
+                    <Link to="/"
                         href="#responsive-header"
                         className="block mt-4 text-lg lg:inline-block lg:mt-0 text-white hover:underline mr-4"
-                    >
-                        <Link to="/">Dashboard</Link>
-                    </a>
-                    <a
+                    
+                    >Dashboard
+                    </Link>
+                    <Link to="/loop"
                         href="#responsive-header"
                         className="block mt-4 text-lg lg:inline-block lg:mt-0 text-white hover:underline mr-4 pl-2"
-                    >
-                        <Link to="/loop">Loop</Link>
-                    </a>
+                    >Loop
+                    </Link>
                 </div>
                 <span className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4 relative">
                     <Inbox />
