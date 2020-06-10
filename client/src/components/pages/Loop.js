@@ -20,7 +20,7 @@ const Loop = () => {
   const { _id } = useContext(UserContext);
 
   const loadLoop = () => {
-    API.getProjectForReview({id: _id})
+    API.getProjectForReview({id: loop._id})
     .then(res => {
       setLoop(res.data)
       console.log("loop projects for review " + res.data);
@@ -29,7 +29,7 @@ const Loop = () => {
     .catch(err => console.log(err)
     );
   }
-
+  let id = loop.url
 
   useEffect(() => {
     loadLoop();
@@ -37,24 +37,12 @@ const Loop = () => {
 
   return(
     <div className="container mx-auto">
+    {console.log("userID on loop.js " + id)}
       <LoopProject
         name={loop.name}
         username={loop.username}
         userId={loop.userId}
-        url={
-          loop.url[0] === "<" 
-          ?
-          <iframe 
-            srcDoc={loop.url}
-          />
-          :
-          <audio controls controlsList="nodownload">
-            <source
-            src={loop.url}
-            type="audio/mpeg"
-            />
-        </audio>
-        }
+        url={loop.url}
         genre={loop.genre}
         description={loop.description}
         dateCreated={loop.dateCreated}
