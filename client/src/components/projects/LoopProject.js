@@ -21,7 +21,7 @@ const LoopProject = (props) => {
 
     useEffect(() => {
         loadRatio();
-    }, [props.userId]);
+    }, [props.userId, feedbackRatio]);
 
     return (
         <div className="w-full flex flex-col bg-white space-y-4 rounded overflow-hidden border w-full lg:w-12/12 md:w-12/12 bg-white mx-3 md:mx-0 lg:mx-0 mt-48 m-8 p-6">
@@ -51,7 +51,7 @@ const LoopProject = (props) => {
             
                 <iframe className="h-iframe" srcDoc={props.url} />
              : 
-                    <audio controls controlsList="nodownload" src={props.url} >
+                    <audio controls controlsList="nodownload" className="w-full" src={props.url} >
                         <source type="audio/mpeg" />
                     </audio>
                 }

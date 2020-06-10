@@ -9,7 +9,7 @@ import UseForm from '../../utils/UseForm';
 
 const Project = (props) => {
 
-    const { _id, name, username, genres, url, description } = props.project;
+    const { _id, name, username, genre, url, description } = props.project;
     
     const removeProject = () => {
         API.deleteProject(_id)
@@ -51,7 +51,7 @@ const Project = (props) => {
                         <p className="font-bold text-3xl mb-2 hover:text-fl-mint">{name}</p>
                     {/* </Link> */}
                     <span className="self-start inline-block bg-fl-gray rounded-full px-3 py-1 text-sm font-semibold text-gray-700">
-                        #House{genres}
+                        #{genre}
                     </span>
                 </div>
                 <div className="flex flex-row justify-between">
@@ -68,7 +68,7 @@ const Project = (props) => {
             
                 <iframe className="h-iframe" srcdoc={url} />
             ) : (
-                    <audio controls controlsList="nodownload">
+                    <audio controls controlsList="nodownload" className="w-full">
                         <source src={url} type="audio/mpeg" />
                     </audio>
                 )}

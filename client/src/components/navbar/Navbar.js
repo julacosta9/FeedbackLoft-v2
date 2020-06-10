@@ -1,5 +1,4 @@
-// src/components/NavBar.js
-
+import API from '../../utils/API';
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import UserContext from "../../utils/UserContext";
@@ -28,7 +27,22 @@ const Navbar = () => {
         _id,
     } = useContext(UserContext);
 
-    useEffect(() => {},[feedbackGiven, feedbackReceived])
+    const [feedbackRatio, setFeedbackRatio] = useState({
+        feedbackGiven: 0,
+        feedbackReceived: 0,
+    });
+
+    const loadRatio = () => {
+        API.getUserById(_id)
+            .then((res) => {
+                setFeedbackRatio(res.data);
+            })
+            .catch((err) => console.log(err));
+    };
+
+    useEffect(() => {
+        loadRatio()
+    },[feedbackRatio])
 
     return (
         <nav className="flex items-center justify-between flex-wrap bg-fl-black fixed top-0 left-0 right-0 px-6 py-3 mb-6 shadow-lg">
