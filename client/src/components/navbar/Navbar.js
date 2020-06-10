@@ -21,10 +21,7 @@ const Navbar = () => {
 
     const {
         username,
-        email,
-        feedbackGiven,
-        feedbackReceived,
-        _id,
+        _id
     } = useContext(UserContext);
 
     const [feedbackRatio, setFeedbackRatio] = useState({
@@ -42,7 +39,7 @@ const Navbar = () => {
 
     useEffect(() => {
         loadRatio()
-    },[feedbackRatio])
+    },[_id, feedbackRatio])
 
     return (
         <nav className="flex items-center justify-between flex-wrap bg-fl-black fixed top-0 left-0 right-0 px-6 py-3 mb-6 shadow-lg">
@@ -90,11 +87,11 @@ const Navbar = () => {
                 </a>
                 {showOptions === true ? <UserOptions /> : <div></div>}
                 <span className="block mt-4 lg:inline-block lg:mt-0 text-white mr-4">
-                    <span className="mx-1">{feedbackGiven}</span>
+                    <span className="mx-1">{feedbackRatio.feedbackGiven}</span>
                     <i className="fas fa-arrow-alt-circle-up mx-1"></i>
                 </span>
                 <span className="block mt-4 lg:inline-block lg:mt-0 text-white mr-4">
-                    <span className="mx-1">{feedbackReceived}</span>
+                    <span className="mx-1">{feedbackRatio.feedbackReceived}</span>
                     <i className="fas fa-arrow-alt-circle-down mx-1"></i>
                 </span>
                 <a className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-fl-mint mr-4">
