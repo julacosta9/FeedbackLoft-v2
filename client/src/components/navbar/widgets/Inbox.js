@@ -2,27 +2,43 @@ import React, { useState, useEffect, useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Notification from "./Notification";
 import UserContext from "../../../utils/UserContext";
+import API from '../../../utils/API';
 
 const Inbox = () => {
-    const { notifications } = useContext(UserContext);
+    const { _id } = useContext(UserContext);
 
-    const [message, setMessage] = useState([""]);
+    const [message, setMessage] = useState([
+        {
+            _id: "",
+            message: "",
+            dateCreated: "",
+            isRead: false
+        }
+    ]);
+
+    const loadNotifications = () => {
+        API.getUserById(_id)
+        .then(res => {
+            const unreadNotifications = res.data.notifications.filter(message => {
+                if (message.isRead === false) return message
+            })
+            setMessage(unreadNotifications)
+        })
+        .catch(err => console.log(err))
+    }
 
     useEffect(() => {
-        setMessage(notifications);
-    }, [notifications, message]);
+        loadNotifications()
+    }, [_id, message]);
 
     const [showMessages, setMessagesState] = useState(false);
 
     useEffect(() => {}, [showMessages]);
     
-    const removeComment = (obj, index, array) => {
-        obj.isRead = true;
-        // array.slice(index, 1);
-        // setMessage(notifications)
+    const removeComment = (id, obj) => {
+        API.toggleIsRead(_id, id, obj)
     }
     
-    useEffect(() => {}, [message])
     
     return (
         <React.Fragment>
@@ -34,7 +50,7 @@ const Inbox = () => {
                     setMessagesState(true)
                 }
             >
-                {message[0] && message[0].isRead === false ?
+                {message[0]  ?
                     <FontAwesomeIcon icon={["fas", "bell"]} className="relative text-white hover:text-fl-mint" />
                     :
                     <FontAwesomeIcon icon={["far", "bell"]} className="relative text-white hover:text-fl-mint" />
@@ -48,14 +64,14 @@ const Inbox = () => {
                     aria-orientation="vertical" 
                     aria-labelledby="user-menu"
                 >
-                    {message[0] && message.length > 0 ? 
+                    {message[0] ? 
                         message.map((notification, i) => {
                             if (notification.isRead === false) return (
                                 <Notification
-                                    id={notification._id}
                                     key={notification._id}
                                     message={notification.message}
                                     date={notification.dateCreated}
+                                    callback={() => removeComment(notification._id, notification.isRead)}
                                 />
 
                             )
