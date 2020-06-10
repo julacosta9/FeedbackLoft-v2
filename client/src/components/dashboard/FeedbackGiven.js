@@ -35,8 +35,7 @@ const FeedbackGiven = () => {
 
     return (
         // <div className="w-full flex flex-col space-y-4 rounded overflow-hidden border w-full lg:w-12/12 md:w-12/12 bg-white mx-3 md:mx-0 lg:mx-0 m-8 p-6">
-        <div className="w-full flex flex-col bg-white space-y-4 rounded overflow-hidden border w-full lg:w-10/12 md:w-12/12 bg-white md:mx-auto mt-8 mb-8 p-6">
-            <h2 className="font-bold text-xl mb-2">Your Comment History</h2>
+        <div className="w-full flex flex-col bg-white space-y-4 rounded overflow-hidden border w-full lg:w-10/12 md:w-12/12 bg-white md:mx-auto sm:mx-2 mb-8 p-6">
             <div className="bg-white border-l-4 ml-8 px-2 ">
                 {userComments.map((comment) => (
                     <Comment
