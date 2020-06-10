@@ -23,11 +23,12 @@ const CreateProjectForm = (props) => {
                 .post("/api/projects/audio-upload", formData)
                 .then((response) => {
                     values.url = response.data.s3AudioUrl;
-                    API.createProject(values);
-                }).then(() => {
-                    // eslint-disable-next-line no-restricted-globals
-                    // location.reload()
-                    setLoadingState(false)
+                    API.createProject(values)
+                        .then(res => {
+                            setLoadingState(false)
+                            // eslint-disable-next-line no-restricted-globals
+                            location.reload();
+                        })
                 })
                 .catch((error) => {
                     setLoadingState(false)
