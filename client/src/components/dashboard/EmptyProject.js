@@ -9,11 +9,6 @@ const EmptyProject = () => {
 
     }, [showForm]);
 
-    const cancelProjectSubmit = e => {
-        e.preventDefault();
-        setFormState(false)
-    }
-
     return (
         <div>
         {showForm === false ?
