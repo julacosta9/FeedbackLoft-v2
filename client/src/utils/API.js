@@ -205,7 +205,7 @@ export default {
     },
 
     // Loop routes (for project review)
-    getProjectForReview: function(obj) {
-        return axios.get("/api/loop", obj);
+    getProjectForReview: function() {
+        return axios.get("/api/loop");
     }
 };

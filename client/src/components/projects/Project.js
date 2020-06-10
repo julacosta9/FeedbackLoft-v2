@@ -14,7 +14,7 @@ const Project = (props) => {
     const removeProject = () => {
         API.deleteProject(_id)
         // eslint-disable-next-line no-restricted-globals
-        location.reload()
+        // location.reload()
         
     }
 

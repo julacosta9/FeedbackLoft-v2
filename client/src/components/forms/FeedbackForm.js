@@ -6,7 +6,7 @@ import UseForm from "../../utils/UseForm";
 const FeedbackForm = (props) => {
     const { _id, username } = useContext(UserContext);
   
-  const createPost = (event) => {
+  const createPost = () => {
     API.createComment(values);
     API.incrementFeedback(_id, props.id);
     API.addNotifcation(
@@ -57,6 +57,7 @@ const FeedbackForm = (props) => {
                         name="text"
                         placeholder="Type Your Comment"
                         onChange={handleChange}
+                        // minLength="50"
                         required
                     ></textarea>
                 </div>

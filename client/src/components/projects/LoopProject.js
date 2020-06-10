@@ -14,14 +14,13 @@ const LoopProject = (props) => {
         API.getUserById(props.userId)
             .then((res) => {
                 setFeedbackRatio(res.data);
-                // console.log("user ratio" + res);
+                // console.log("user ratio" + res.data);
             })
             .catch((err) => console.log(err));
     };
 
     useEffect(() => {
         loadRatio();
-        console.log(props.url)
     }, [props.userId]);
 
     return (
@@ -47,15 +46,15 @@ const LoopProject = (props) => {
                     {feedbackRatio.feedbackReceived}
                 </div>
             </div>
-            {props.url[0] === "<" ? (
+            {props.url === "<" ? 
                 // renderHTML(url)
             
-                <iframe className="h-iframe" srcdoc={props.url} />
-            ) : (
-                    <audio controls controlsList="nodownload" src={props.url}>
-                        <source src={props.url} type="audio/mpeg" />
+                <iframe className="h-iframe" srcDoc={props.url} />
+             : 
+                    <audio controls controlsList="nodownload" src={props.url} >
+                        <source type="audio/mpeg" />
                     </audio>
-                )}
+                }
             <div className="px-2">{props.description}</div>
         </div>
     );
