@@ -28,7 +28,7 @@ const Navbar = () => {
         _id,
     } = useContext(UserContext);
     return (
-        <nav className="flex items-center justify-between flex-wrap bg-fl-black fixed top-0 left-0 right-0 px-6 py-3 shadow-lg">
+        <nav className="flex items-center justify-between flex-wrap bg-fl-black fixed top-0 left-0 right-0 px-6 py-3 mb-6 shadow-lg">
             <img src={logo} className="w-56" />
             <div className="sm:hidden">
                 <button className="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white" onClick={toggleMenu}>
