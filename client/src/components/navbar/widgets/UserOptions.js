@@ -19,7 +19,8 @@ const UserOptions = () => {
 
   return (
     <div>
-      <span 
+      <span className="text-white">Dark Mode</span>
+      <span className="text-white"
         onClick={() => showForm === true ?
         setFormState(false)
         :

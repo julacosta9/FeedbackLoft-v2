@@ -78,9 +78,10 @@ const Navbar = () => {
                 <a
                     className="block mt-4 lg:inline-block lg:mt-0 font-semibold text-white mr-4"
                     onClick={() =>
-                        showOptions === true
-                            ? setOptionsState(false)
-                            : setOptionsState(true)
+                        showOptions === true ? 
+                        setOptionsState(false)
+                        : 
+                        setOptionsState(true)
                     }
                 >
                     {username}

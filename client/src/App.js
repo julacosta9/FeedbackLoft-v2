@@ -18,8 +18,6 @@ const App = () => {
 
   const { loading, user, isAuthenticated, loginWithRedirect, logout } = useAuth0();
   
-
-  
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -46,21 +44,10 @@ const App = () => {
     )
   };
 
-  // const loadUser = () => {
-  //   API.getAllUsers()
-  //   .then(user => 
-  //     setActiveUser(user.data[0])
-  //   )
-  //   .catch(err => console.log(err)
-  //   )
-  // };
-
   useEffect(() => {
     loadUser();
     document.body.style.background = '#EEE';
   },[user])
-
-  
 
   if (isAuthenticated){
     API.getUserByEmail(user.email).then(dbUser => {

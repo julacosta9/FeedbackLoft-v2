@@ -51,7 +51,16 @@ const Inbox = () => {
                 }
             >
                 {message[0]  ?
-                    <FontAwesomeIcon icon={["fas", "bell"]} className="relative text-white hover:text-fl-mint" />
+                    <React.Fragment clas>
+                        <FontAwesomeIcon icon={["fas", "bell"]} className="relative text-white hover:text-fl-mint" />
+                        <div className="absolute top-0 text-white hover:text-white bg-fl-red w-3 h-3 flex items-center justify-center rounded-full text-xs">
+                            {message.length >= 99 ?
+                            99
+                            :
+                            message.length
+                            }
+                        </div>
+                    </React.Fragment>
                     :
                     <FontAwesomeIcon icon={["far", "bell"]} className="relative text-white hover:text-fl-mint" />
                 }
