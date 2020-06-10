@@ -26,7 +26,7 @@ const CreateProjectForm = (props) => {
                     API.createProject(values);
                 }).then(() => {
                     // eslint-disable-next-line no-restricted-globals
-                    location.reload()
+                    // location.reload()
                     setLoadingState(false)
                 })
                 .catch((error) => {
