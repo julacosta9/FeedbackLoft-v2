@@ -111,7 +111,7 @@ const FeedbackForm = (props) => {
                     <div className="-mr-1">
                         <input
                             type="submit"
-                            className="bg-white text-gray-700 font-medium py-1 px-4 border border-fl-red rounded-md tracking-wide mr-1 hover:bg-fl-red hover:text-white cursor-pointer h-12"
+                            className="bg-white text-gray-700 font-medium py-1 px-4 border border-fl-mint rounded-md tracking-wide mr-1 hover:bg-fl-mint cursor-pointer h-12"
                             value="Post Comment"
                         />
                     </div>

@@ -10,7 +10,7 @@ import Home from './components/pages/Home'
 import { useAuth0 } from "./react-auth0-spa";
 import API from "./utils/API";
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faArrowAltCircleUp, faArrowAltCircleDown, faBell } from "@fortawesome/free-regular-svg-icons"
+import { faArrowAltCircleUp, faArrowAltCircleDown, faBell } from "@fortawesome/free-regular-svg-icons";
 
 library.add(faArrowAltCircleUp, faArrowAltCircleDown, faBell)
 
@@ -57,7 +57,7 @@ const App = () => {
 
   useEffect(() => {
     loadUser();
-    document.body.style.background = '#E8f4ff';
+    document.body.style.background = '#EEE';
   },[user])
 
   

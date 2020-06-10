@@ -37,6 +37,9 @@ const Home = () => {
 
     return (
         <div className="container mx-auto">
+            <div className="font-mono font-bold text-5xl w-full lg:w-10/12 md:w-12/12 md:mx-auto sm:mx-2 mt-16 mb-1 p-6">
+                Projects
+            </div>
             {projects.map((project) => (
                 <Project key={project._id} project={project} />
             ))}
@@ -45,6 +48,9 @@ const Home = () => {
                 :
                 <div></div>
             }
+            <div className="font-mono font-bold text-5xl w-full lg:w-10/12 md:w-12/12 md:mx-auto sm:mx-2 mt-16 mb-1 p-6">
+                Your Comment History
+            </div>
             <FeedbackGiven 
             
             />

@@ -24,11 +24,13 @@ module.exports = {
       white: '#fff',
 
       fl: {
-        red: '#FF5E5B',
+        red: '#FB5A61',
         gray: '#D8D8D8',
         white: '#FFFFEA',
         blue: '#00CECB',
         yellow: '#FFED66',
+        black:'#0A0B0D',
+        mint: '#1CEE96',
       },
       gray: {
         100: '#f7fafc',
