@@ -26,19 +26,18 @@ const CreateProjectForm = (props) => {
                     API.createProject(values)
                 }).then(() => {
                     setLoadingState(false)
-                    // eslint-disable-next-line no-restricted-globals
-                    location.reload(false)
+                    props.stateChange();
                 })
                 .catch((error) => {
-                    setLoadingState(false)
                     console.log(error);
                 }
             );
         }
         else {
             API.createProject(values)
+            props.stateChange();
             // eslint-disable-next-line no-restricted-globals
-            location.reload(false)
+            // location.reload(false)
         }
     };
 

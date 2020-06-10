@@ -23,7 +23,8 @@ const EmptyProject = () => {
         </div>)
         :
         <CreateProjectForm
-            callback = {cancelProjectSubmit}
+            callback = {() => setFormState(false)}
+            stateChange = {() => setFormState(false)}
         />
         // (<div className="flex flex-col items-center my-2 p-8 rounded bg-teal-400 space-x-2 w-1/4 mx-auto cursor-pointer hover:shadow-md ease-in-out">
             
