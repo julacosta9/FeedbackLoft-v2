@@ -49,13 +49,12 @@ const Navbar = () => {
                 <div className="text-sm lg:flex-grow">
                     <Link to="/"
                         href="#responsive-header"
-                        className="block mt-4 text-lg lg:inline-block lg:mt-0 text-white hover:underline hover:text-fl-mint mr-4"
-                    
-                    >Dashboard
+                        className="block mt-4 text-lg lg:inline-block lg:mt-0 text-white hover:text-fl-mint mr-4">
+                            Dashboard
                     </Link>
                     <Link to="/loop"
                         href="#responsive-header"
-                        className="block mt-4 text-lg lg:inline-block lg:mt-0 text-white hover:underline hover:text-fl-mint mr-4 pl-2"
+                        className="block mt-4 text-lg lg:inline-block lg:mt-0 text-white hover:text-fl-mint mr-4 pl-2"
                     >Loop
                     </Link>
                 </div>
