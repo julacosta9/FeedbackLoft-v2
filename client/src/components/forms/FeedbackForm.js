@@ -57,6 +57,7 @@ const FeedbackForm = (props) => {
                         name="text"
                         placeholder="Type Your Comment"
                         onChange={handleChange}
+                        minLength="50"
                         required
                     ></textarea>
                 </div>
