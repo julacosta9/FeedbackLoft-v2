@@ -15,9 +15,8 @@ const FeedbackForm = (props) => {
         senderName: username,
         message: username + " has left a review on your project " + props.projectName
       }
-    )
-    // eslint-disable-next-line no-restricted-globals
-    location.reload();
+    );
+    {props.callback()};
   }
 
     const { values, handleChange, handleSubmit } = UseForm(

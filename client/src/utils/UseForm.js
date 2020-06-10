@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import pageUpdater from '../utils/pageUpdater';
 
 const UseForm = (initialValues, callback) => {
 
@@ -8,7 +7,6 @@ const UseForm = (initialValues, callback) => {
   const handleSubmit = (event) => {
     if (event) event.preventDefault();
       callback()
-      // pageUpdater()
   };
 
   const handleChange = (event) => {

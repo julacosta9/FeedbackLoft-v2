@@ -1,5 +1,4 @@
-// src/components/NavBar.js
-
+import API from '../../utils/API';
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import UserContext from "../../utils/UserContext";
@@ -22,13 +21,25 @@ const Navbar = () => {
 
     const {
         username,
-        email,
-        feedbackGiven,
-        feedbackReceived,
-        _id,
+        _id
     } = useContext(UserContext);
 
-    useEffect(() => {},[feedbackGiven, feedbackReceived])
+    const [feedbackRatio, setFeedbackRatio] = useState({
+        feedbackGiven: 0,
+        feedbackReceived: 0,
+    });
+
+    const loadRatio = () => {
+        API.getUserById(_id)
+            .then((res) => {
+                setFeedbackRatio(res.data);
+            })
+            .catch((err) => console.log(err));
+    };
+
+    useEffect(() => {
+        loadRatio()
+    },[_id, feedbackRatio])
 
     return (
         <nav className="flex items-center justify-between flex-wrap bg-fl-black fixed top-0 left-0 right-0 px-6 py-3 mb-6 shadow-lg">
@@ -76,11 +87,11 @@ const Navbar = () => {
                 </a>
                 {showOptions === true ? <UserOptions /> : <div></div>}
                 <span className="block mt-4 lg:inline-block lg:mt-0 text-white mr-4">
-                    <span className="mx-1">{feedbackGiven}</span>
+                    <span className="mx-1">{feedbackRatio.feedbackGiven}</span>
                     <i className="fas fa-arrow-alt-circle-up mx-1"></i>
                 </span>
                 <span className="block mt-4 lg:inline-block lg:mt-0 text-white mr-4">
-                    <span className="mx-1">{feedbackReceived}</span>
+                    <span className="mx-1">{feedbackRatio.feedbackReceived}</span>
                     <i className="fas fa-arrow-alt-circle-down mx-1"></i>
                 </span>
                 <a className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-fl-mint mr-4">

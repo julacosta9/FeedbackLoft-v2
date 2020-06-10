@@ -27,6 +27,8 @@ const CreateProjectForm = (props) => {
                 }).then(() => {
                     setLoadingState(false)
                     props.stateChange();
+                    document.body.scrollTop = 0; // For Safari
+                    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
                 })
                 .catch((error) => {
                     console.log(error);
@@ -36,6 +38,8 @@ const CreateProjectForm = (props) => {
         else {
             API.createProject(values)
             props.stateChange();
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
             // eslint-disable-next-line no-restricted-globals
             // location.reload(false)
         }
@@ -46,7 +50,7 @@ const CreateProjectForm = (props) => {
             name: "",
             userId: "",
             username: "",
-            genre: "rock",
+            genre: "alternative-rock",
             url: "",
             description: "",
         },
