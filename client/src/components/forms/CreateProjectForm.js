@@ -24,11 +24,10 @@ const CreateProjectForm = (props) => {
                 .then((response) => {
                     values.url = response.data.s3AudioUrl;
                     API.createProject(values)
-                        .then(res => {
-                            setLoadingState(false)
-                            // eslint-disable-next-line no-restricted-globals
-                            location.reload();
-                        })
+                }).then(() => {
+                    setLoadingState(false)
+                    // eslint-disable-next-line no-restricted-globals
+                    location.reload(false)
                 })
                 .catch((error) => {
                     setLoadingState(false)
@@ -38,6 +37,8 @@ const CreateProjectForm = (props) => {
         }
         else {
             API.createProject(values)
+            // eslint-disable-next-line no-restricted-globals
+            location.reload(false)
         }
     };
 
