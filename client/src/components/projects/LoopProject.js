@@ -21,6 +21,7 @@ const LoopProject = (props) => {
 
     useEffect(() => {
         loadRatio();
+        console.log(props.url)
     }, [props.userId]);
 
     return (
@@ -51,7 +52,7 @@ const LoopProject = (props) => {
             
                 <iframe className="h-iframe" srcdoc={props.url} />
             ) : (
-                    <audio controls controlsList="nodownload">
+                    <audio controls controlsList="nodownload" src={props.url}>
                         <source src={props.url} type="audio/mpeg" />
                     </audio>
                 )}
