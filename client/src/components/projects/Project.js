@@ -44,17 +44,24 @@ const Project = (props) => {
 
     return (
         <div className="mx-2">
-        <div className="w-full flex flex-col bg-white space-y-4 rounded overflow-hidden border w-full lg:w-10/12 md:w-12/12 bg-white md:mx-auto sm:mx-2 mt-16 mb-8 p-6">
+        <div className="w-full flex flex-col bg-white space-y-4 rounded overflow-hidden border w-full lg:w-10/12 md:w-12/12 bg-white md:mx-auto sm:mx-2 mb-8 p-6">
             <div className="flex flex-col">
                 <div className="flex flex-row justify-between">
                     {/* <Link to="/project-page"> */}
-                        <p className="font-bold text-3xl mb-2 hover:text-fl-red">{name}</p>
+                        <p className="font-bold text-3xl mb-2 hover:text-fl-mint">{name}</p>
                     {/* </Link> */}
-                    <span className="self-start inline-block bg-fl-gray rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
+                    <span className="self-start inline-block bg-fl-gray rounded-full px-3 py-1 text-sm font-semibold text-gray-700">
                         #House{genres}
                     </span>
                 </div>
-                <p className="font-bold text-xl mb-2">{username}</p>
+                <div className="flex flex-row justify-between">
+                    <p className="font-bold text-xl mb-2">{username}</p>
+                    <form onSubmit={handleSubmit}>
+                        <button type="submit" className=" text-xs text-fl-black py-1 px-2 text-center border border-fl-black rounded hover:text-fl-mint hover:bg-fl-black">
+                            Delete
+                        </button>
+            </form>
+                </div>
             </div>
             {url[0] === "<" ? (
                 // renderHTML(url)
@@ -66,12 +73,6 @@ const Project = (props) => {
                     </audio>
                 )}
             <div className="px-2">{description}</div>
-            <form onSubmit={handleSubmit}>
-                <button type="submit">
-                    Delete This Project!
-                </button>
-            </form>
-
             <div className="bg-white border-l-4 ml-8 px-2 ">
                     {comments.map((comment) => (
                         <Comment

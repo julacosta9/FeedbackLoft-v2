@@ -74,7 +74,7 @@ const CreateProjectForm = (props) => {
             True === Soundcloud Embed */}
             {uploadType === false ?
                 <button
-                    className="bg-teal-400 w-6/12 text-white font-medium py-1 px-4 border border-teal-400 rounded-md tracking-wide mr-1 hover:bg-teal-400 hover:text-white h-12" 
+                    className="bg-fl-mint w-6/12 text-fl-black font-medium py-1 px-4 border border-fl-mint rounded-md tracking-wide mr-1 hover:bg-fl-mint h-12" 
                     onClick={(e) => {
                         e.preventDefault();
                         setUploadType(false)
@@ -84,7 +84,7 @@ const CreateProjectForm = (props) => {
                 </button>
                 :
                 <button
-                    className="bg-white w-6/12 text-gray-700 font-medium py-1 px-4 border border-teal-400 rounded-md tracking-wide mr-1 hover:bg-teal-400 hover:text-white h-12" 
+                    className="bg-white w-6/12 text-gray-700 font-medium py-1 px-4 border border-fl-mint rounded-md tracking-wide mr-1 hover:bg-fl-mint h-12" 
                     onClick={(e) => {
                         e.preventDefault();
                         setUploadType(false)
@@ -209,10 +209,10 @@ const CreateProjectForm = (props) => {
                         required
                     ></textarea>
             <div className="flex flex-row mt-3">
-                <button className="bg-white w-6/12 text-gray-700 font-medium py-1 px-4 border border-teal-400 rounded-md tracking-wide mr-1 hover:bg-teal-400 hover:text-white h-12"
+                <button className="bg-white w-6/12 text-gray-700 font-medium py-1 px-4 border border-fl-mint rounded-md tracking-wide mr-1 hover:bg-fl-mint hover:text-black h-12"
                     type="submit"
                 >Submit</button>
-                <button onClick={props.callback} id="cancel" className="bg-white w-6/12 text-gray-700 font-medium py-1 px-4 border border-gray-700 rounded-md tracking-wide mr-1 hover:bg-gray-700 hover:text-white h-12">Cancel</button>
+                <button onClick={props.callback} id="cancel" className="bg-white w-6/12 text-gray-700 font-medium py-1 px-4 border border-fl-black rounded-md tracking-wide mr-1 hover:bg-fl-black hover:text-white h-12">Cancel</button>
             </div>
         </form>
     );

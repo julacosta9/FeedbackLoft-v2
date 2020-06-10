@@ -28,7 +28,7 @@ const Navbar = () => {
         _id,
     } = useContext(UserContext);
     return (
-        <nav className="flex items-center justify-between flex-wrap bg-fl-red p-6 shadow-lg">
+        <nav className="flex items-center justify-between flex-wrap bg-black p-6 shadow-lg">
             <img src={logo} className="w-56" />
             <div className="sm:hidden">
                 <button className="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white" onClick={toggleMenu}>
@@ -49,17 +49,17 @@ const Navbar = () => {
                 <div className="text-sm lg:flex-grow">
                     <Link to="/"
                         href="#responsive-header"
-                        className="block mt-4 text-lg lg:inline-block lg:mt-0 text-white hover:underline mr-4"
+                        className="block mt-4 text-lg lg:inline-block lg:mt-0 text-white hover:underline hover:text-fl-mint mr-4"
                     
                     >Dashboard
                     </Link>
                     <Link to="/loop"
                         href="#responsive-header"
-                        className="block mt-4 text-lg lg:inline-block lg:mt-0 text-white hover:underline mr-4 pl-2"
+                        className="block mt-4 text-lg lg:inline-block lg:mt-0 text-white hover:underline hover:text-fl-mint mr-4 pl-2"
                     >Loop
                     </Link>
                 </div>
-                <span className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4 relative">
+                <span className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-fl-mint mr-4 relative">
                     <Inbox />
                 </span>
                 <a
@@ -81,7 +81,7 @@ const Navbar = () => {
                     <span className="mx-1">{feedbackReceived}</span>
                     <i className="fas fa-arrow-alt-circle-down mx-1"></i>
                 </span>
-                <a className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                <a className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-fl-mint mr-4">
                     {isAuthenticated && (
                         <button onClick={() => logout()}>Logout</button>
                     )}

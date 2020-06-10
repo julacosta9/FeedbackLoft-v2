@@ -6,8 +6,6 @@ import UserContext from "../../../utils/UserContext";
 const Inbox = () => {
     const { notifications } = useContext(UserContext);
 
-    // console.log(notifications);
-
     const [message, setMessage] = useState([""]);
 
     useEffect(() => {
@@ -37,9 +35,9 @@ const Inbox = () => {
                 }
             >
                 {message[0] && message[0].isRead === false ?
-                    <FontAwesomeIcon icon={["fas", "bell"]} className="relative text-white" />
+                    <FontAwesomeIcon icon={["fas", "bell"]} className="relative text-white hover:text-fl-mint" />
                     :
-                    <FontAwesomeIcon icon={["far", "bell"]} className="relative text-white" />
+                    <FontAwesomeIcon icon={["far", "bell"]} className="relative text-white hover:text-fl-mint" />
                 }
             </button>
 
@@ -64,7 +62,7 @@ const Inbox = () => {
                         })
                         :
                         (
-                            <div className="text-center">
+                            <div className="text-center text-black">
                             No Current Notifications
                             </div>
                         )
