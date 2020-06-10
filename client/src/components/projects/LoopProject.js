@@ -21,13 +21,14 @@ const LoopProject = (props) => {
 
     useEffect(() => {
         loadRatio();
+        console.log(props.url)
     }, [props.userId]);
 
     return (
         <div className="w-full flex flex-col bg-white space-y-4 rounded overflow-hidden border w-full lg:w-12/12 md:w-12/12 bg-white mx-3 md:mx-0 lg:mx-0 m-8 p-6">
             <div className="flex flex-col">
                 <div className="flex flex-row justify-between">
-                    <p className="font-bold text-3xl mb-2 hover:text-fl-mint">{props.name}</p>
+                    <p className="font-bold text-3xl mb-2 hover:text-fl-red">{props.name}</p>
                     <span className="self-start inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
                         #{props.genre}
                     </span>
@@ -51,7 +52,7 @@ const LoopProject = (props) => {
             
                 <iframe className="h-iframe" srcdoc={props.url} />
             ) : (
-                    <audio controls controlsList="nodownload">
+                    <audio controls controlsList="nodownload" src={props.url}>
                         <source src={props.url} type="audio/mpeg" />
                     </audio>
                 )}

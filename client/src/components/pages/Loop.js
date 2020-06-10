@@ -29,7 +29,6 @@ const Loop = () => {
     .catch(err => console.log(err)
     );
   }
-  let id = loop.url
 
   useEffect(() => {
     loadLoop();
@@ -37,7 +36,7 @@ const Loop = () => {
 
   return(
     <div className="container mx-auto">
-    {console.log("userID on loop.js " + id)}
+    {console.log("userID on loop.js " + _id)}
       <LoopProject
         name={loop.name}
         username={loop.username}
