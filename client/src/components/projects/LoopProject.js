@@ -46,7 +46,7 @@ const LoopProject = (props) => {
                     {feedbackRatio.feedbackReceived}
                 </div>
             </div>
-            {props.url === "<" ? 
+            {props.url[0] === "<" ? 
                 // renderHTML(url)
             
                 <iframe className="h-iframe" srcDoc={props.url} />
