@@ -27,13 +27,15 @@ const Home = () => {
 
     const loadProjects = () => {
         API.getProjectsByUserId(_id)
-            .then((res) => setProjects(res.data))
-            .catch((err) => console.log(err));
+            .then((res) => setProjects(res.data)
+        )
+            .catch((err) => console.log(err)
+        );
     };
 
     useEffect(() => {
         loadProjects();
-    }, [_id]);
+    }, [_id, projects]);
 
     return (
         <div className="container mx-auto">

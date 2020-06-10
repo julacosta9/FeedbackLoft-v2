@@ -10,7 +10,7 @@ const Inbox = () => {
 
     useEffect(() => {
         setMessage(notifications);
-    }, [notifications]);
+    }, [notifications, message]);
 
     const [showMessages, setMessagesState] = useState(false);
 

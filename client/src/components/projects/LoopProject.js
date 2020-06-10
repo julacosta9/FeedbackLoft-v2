@@ -14,14 +14,14 @@ const LoopProject = (props) => {
         API.getUserById(props.userId)
             .then((res) => {
                 setFeedbackRatio(res.data);
-                // console.log("user ratio" + res);
+                // console.log("user ratio" + res.data);
             })
             .catch((err) => console.log(err));
     };
 
     useEffect(() => {
         loadRatio();
-    }, []);
+    }, [props.userId]);
 
     return (
         <div className="w-full flex flex-col bg-white space-y-4 rounded overflow-hidden border w-full lg:w-12/12 md:w-12/12 bg-white mx-3 md:mx-0 lg:mx-0 m-8 p-6">
