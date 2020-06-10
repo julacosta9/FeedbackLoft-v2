@@ -25,10 +25,6 @@ const Home = () => {
         },
     ]);
 
-    useEffect(() => {}, [projects])
-
-    const [ showForm, setFormState ] = useState(false)
-
     const loadProjects = () => {
         API.getProjectsByUserId(_id)
             .then((res) => setProjects(res.data))
@@ -52,7 +48,6 @@ const Home = () => {
             <FeedbackGiven 
             
             />
-            {console.log(`Projects: ${projects._id}`)}
         </div>
     );
 };

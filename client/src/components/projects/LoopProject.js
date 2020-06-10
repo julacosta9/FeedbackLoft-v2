@@ -21,7 +21,7 @@ const LoopProject = (props) => {
 
     useEffect(() => {
         loadRatio();
-    }, [props.userId]);
+    }, []);
 
     return (
         <div className="w-full flex flex-col bg-white space-y-4 rounded overflow-hidden border w-full lg:w-12/12 md:w-12/12 bg-white mx-3 md:mx-0 lg:mx-0 m-8 p-6">
@@ -46,15 +46,15 @@ const LoopProject = (props) => {
                     {feedbackRatio.feedbackReceived}
                 </div>
             </div>
-            {props.url[0] === "<" ? (
+            {props.url === "<" ? 
                 // renderHTML(url)
             
-                <iframe className="h-iframe" srcdoc={props.url} />
-            ) : (
-                    <audio controls controlsList="nodownload">
-                        <source src={props.url} type="audio/mpeg" />
+                <iframe className="h-iframe" srcDoc={props.url} />
+             : 
+                    <audio controls controlsList="nodownload" src={props.url} >
+                        <source type="audio/mpeg" />
                     </audio>
-                )}
+                }
             <div className="px-2">{props.description}</div>
         </div>
     );

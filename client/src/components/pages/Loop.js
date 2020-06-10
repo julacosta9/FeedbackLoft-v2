@@ -13,31 +13,29 @@ const Loop = () => {
     url:"",
     genre:"",
     dateCreated:"",
-    name:"",
     _id: ""
   });
 
   const { _id } = useContext(UserContext);
 
   const loadLoop = () => {
-    API.getProjectForReview({id: loop._id})
+    API.getProjectForReview()
     .then(res => {
       setLoop(res.data)
-      console.log("loop projects for review " + res.data);
+      console.log(res.data);
       
     })
     .catch(err => console.log(err)
     );
   }
-  let id = loop.url
 
   useEffect(() => {
     loadLoop();
-  },[])
+  },[_id])
 
   return(
     <div className="container mx-auto">
-    {console.log("userID on loop.js " + id)}
+    {console.log(loop.url)}
       <LoopProject
         name={loop.name}
         username={loop.username}
