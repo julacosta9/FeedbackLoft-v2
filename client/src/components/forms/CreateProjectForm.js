@@ -64,10 +64,10 @@ const CreateProjectForm = (props) => {
     values.username = username;
 
     return (
-        loading === true ?
-        <div className="flex flex-col lg:w-4/12 max-w-sm items-center my-2 p-8 rounded bg-white border space-y-6 mx-auto">
+        loading === false ?
+        <div className="flex flex-col lg:w-4/12 max-w-sm items-center my-2 p-8 bg-white border-l-4 border-fl-mint text-fl-black space-y-6 mx-auto">
             <img src={loadingIcon} className="w-8" />
-            <p>Uploading your project...</p>
+            <p className="font-bold">Uploading your project...</p>
         </div>
         :
         <form
@@ -83,7 +83,7 @@ const CreateProjectForm = (props) => {
             True === Soundcloud Embed */}
             {uploadType === false ?
                 <button
-                    className="bg-fl-mint w-6/12 text-fl-black font-medium py-1 px-4 border border-fl-mint rounded-md tracking-wide mr-1 hover:bg-fl-mint h-12" 
+                    className="bg-fl-mint w-6/12 text-fl-black font-medium py-1 px-4 border border-fl-mint rounded-md tracking-wide mr-1 hover:bg-fl-mint h-12 transition ease-in-out duration-150" 
                     onClick={(e) => {
                         e.preventDefault();
                         setUploadType(false)
@@ -93,7 +93,7 @@ const CreateProjectForm = (props) => {
                 </button>
                 :
                 <button
-                    className="bg-white w-6/12 text-gray-700 font-medium py-1 px-4 border border-fl-mint rounded-md tracking-wide mr-1 hover:bg-fl-mint h-12" 
+                    className="bg-white w-6/12 text-gray-700 font-medium py-1 px-4 border border-fl-mint rounded-md tracking-wide mr-1 hover:bg-fl-mint h-12 transition ease-in-out duration-150" 
                     onClick={(e) => {
                         e.preventDefault();
                         setUploadType(false)
@@ -107,7 +107,7 @@ const CreateProjectForm = (props) => {
             True === Soundcloud Embed */}
             {uploadType === true ?
                 <button
-                    className="bg-orange-sc w-6/12 text-white font-medium py-1 px-4 border border-orange-sc rounded-md tracking-wide mr-1 hover:bg-orange-sc hover:text-white h-12"
+                    className="bg-orange-sc w-6/12 text-white font-medium py-1 px-4 border border-orange-sc rounded-md tracking-wide mr-1 hover:bg-orange-sc hover:text-white h-12 transition ease-in-out duration-150"
                     onClick={(e) => {
                         e.preventDefault();
                         setUploadType(true)
@@ -117,7 +117,7 @@ const CreateProjectForm = (props) => {
                 </button>
                 :
                 <button
-                    className="bg-white w-6/12 text-gray-700 font-medium py-1 px-4 border border-orange-sc rounded-md tracking-wide mr-1 hover:bg-orange-sc hover:text-white h-12"
+                    className="bg-white w-6/12 text-gray-700 font-medium py-1 px-4 border border-orange-sc rounded-md tracking-wide mr-1 hover:bg-orange-sc hover:text-white h-12 transition ease-in-out duration-150"
                     onClick={(e) => {
                         e.preventDefault()
                         setUploadType(true)
@@ -218,10 +218,10 @@ const CreateProjectForm = (props) => {
                         required
                     ></textarea>
             <div className="flex flex-row mt-3">
-                <button className="bg-white w-6/12 text-gray-700 font-medium py-1 px-4 border border-fl-mint rounded-md tracking-wide mr-1 hover:bg-fl-mint hover:text-black h-12"
+                <button className="bg-white w-6/12 text-gray-700 font-medium py-1 px-4 border border-fl-mint rounded-md tracking-wide mr-1 hover:bg-fl-mint hover:text-black h-12 transition ease-in-out duration-150"
                     type="submit"
                 >Submit</button>
-                <button onClick={props.callback} id="cancel" className="bg-white w-6/12 text-gray-700 font-medium py-1 px-4 border border-fl-black rounded-md tracking-wide mr-1 hover:bg-fl-black hover:text-white h-12">Cancel</button>
+                <button onClick={props.callback} id="cancel" className="bg-white w-6/12 text-gray-700 font-medium py-1 px-4 border border-fl-black rounded-md tracking-wide mr-1 hover:bg-fl-black hover:text-white h-12 transition ease-in-out duration-150">Cancel</button>
             </div>
         </form>
     );
