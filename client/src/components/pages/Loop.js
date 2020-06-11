@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import FeedbackForm from "../forms/FeedbackForm";
 import LoopProject from "../projects/LoopProject";
 import API from "../../utils/API.js";
-import UserContext from "../../utils/UserContext";
 import Comment from '../projects/Comment';
 
 const Loop = () => {
@@ -27,8 +26,6 @@ const Loop = () => {
       _id: ""
     }
   ])
-
-  const { _id } = useContext(UserContext);
 
   const loadLoop = () => {
     API.getProjectForReview()

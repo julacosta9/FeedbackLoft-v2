@@ -43,7 +43,7 @@ const Navbar = () => {
 
     return (
         <nav className="flex items-center justify-between flex-wrap bg-fl-black fixed top-0 left-0 right-0 px-6 py-3 mb-6 shadow-lg">
-            <img src={logo} className="w-56" />
+            <img src={logo} alt="Feedback Loft" className="w-56" />
             <div className="sm:hidden">
                 <button className="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white" onClick={toggleMenu}>
                     <svg
@@ -75,7 +75,7 @@ const Navbar = () => {
                 <span className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-fl-mint mr-4 relative">
                     <Inbox />
                 </span>
-                <a
+                <button
                     className="block mt-4 lg:inline-block lg:mt-0 font-semibold text-white mr-4"
                     onClick={() =>
                         showOptions === true ? 
@@ -85,7 +85,7 @@ const Navbar = () => {
                     }
                 >
                     {username}
-                </a>
+                </button>
                 {showOptions === true ? <UserOptions /> : <div></div>}
                 <span className="block mt-4 lg:inline-block lg:mt-0 text-white mr-4">
                     <span className="mx-1">{feedbackRatio.feedbackGiven}</span>
@@ -95,11 +95,11 @@ const Navbar = () => {
                     <span className="mx-1">{feedbackRatio.feedbackReceived}</span>
                     <i className="fas fa-arrow-alt-circle-down mx-1"></i>
                 </span>
-                <a className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-fl-mint mr-4">
+                <button className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-fl-mint mr-4">
                     {isAuthenticated && (
                         <button onClick={() => logout()}>Logout</button>
                     )}
-                </a>
+                </button>
             </div>
         </nav>
     );

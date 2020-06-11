@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import Comment from "./Comment";
 import { Link } from "react-router-dom";
 import API from "../../utils/API.js";
-import UserContext from "../../utils/UserContext";
 import UseForm from '../../utils/UseForm';
 
 const Project = (props) => {
@@ -59,7 +58,7 @@ const Project = (props) => {
                 </div>
             </div>
             {url[0] === "<" ? (
-                <iframe className="h-iframe" srcdoc={url} />
+                <iframe title={_id} aria-hidden="true" className="h-iframe" srcdoc={url} />
             ) : (
                     <audio controls controlsList="nodownload" className="w-full">
                         <source src={url} type="audio/mpeg" />

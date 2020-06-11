@@ -74,7 +74,7 @@ const Inbox = () => {
                     aria-labelledby="user-menu"
                 >
                     {message[0] ? 
-                        message.map((notification, i) => {
+                        message.map((notification) => {
                             if (notification.isRead === false) return (
                                 <Notification
                                     key={notification._id}

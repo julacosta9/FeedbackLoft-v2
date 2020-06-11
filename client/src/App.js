@@ -11,13 +11,12 @@ import { useAuth0 } from "./react-auth0-spa";
 import API from "./utils/API";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faArrowAltCircleUp, faArrowAltCircleDown, faBell } from "@fortawesome/free-regular-svg-icons";
-import Project from "./components/projects/Project";
 
 library.add(faArrowAltCircleUp, faArrowAltCircleDown, faBell)
 
 const App = () => {
 
-  const { loading, user, isAuthenticated, loginWithRedirect, logout } = useAuth0();
+  const { loading, user, isAuthenticated, loginWithRedirect } = useAuth0();
   
   if (loading) {
     return <div>Loading...</div>;
@@ -52,7 +51,7 @@ const App = () => {
 
   if (isAuthenticated){
     API.getUserByEmail(user.email).then(dbUser => {
-      if (dbUser.data.length == 0)
+      if (dbUser.data.length === 0)
         API.createUser({
           email: user.email,
           username: user.nickname

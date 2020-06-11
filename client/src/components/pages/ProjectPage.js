@@ -78,7 +78,7 @@ const ProjectPage = () => {
         {project.url[0] === "<" ? (
             // renderHTML(url)
         
-            <iframe className="h-iframe" srcdoc={project.url} />
+            <iframe className="h-iframe" title={project._id} aria-hidden="true" srcdoc={project.url} />
         ) : (
                 <audio controls controlsList="nodownload" className="w-full">
                     <source src={project.url} type="audio/mpeg" />

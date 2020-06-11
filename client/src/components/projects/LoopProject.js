@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import API from "../../utils/API.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-// import { faArrowAltCircleUp, faArrowAltCircleDown } from '@fortawesome/free-regular-svg-icons';
 
 const LoopProject = (props) => {
     const [feedbackRatio, setFeedbackRatio] = useState({
@@ -49,7 +48,7 @@ const LoopProject = (props) => {
             {props.url[0] === "<" ? 
                 // renderHTML(url)
             
-                <iframe className="h-iframe" srcDoc={props.url} />
+                <iframe className="h-iframe" title={props._id} aria-hidden="true" srcDoc={props.url} />
              : 
                     <audio controls controlsList="nodownload" className="w-full" src={props.url} >
                         <source type="audio/mpeg" />

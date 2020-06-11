@@ -3,7 +3,6 @@ import axios from "axios";
 import API from "../../utils/API.js";
 import UserContext from "../../utils/UserContext";
 import UseForm from "../../utils/UseForm";
-import { PresignedPost } from "aws-sdk/clients/s3";
 
 const CreateProjectForm = (props) => {
     const { _id, username } = useContext(UserContext);
