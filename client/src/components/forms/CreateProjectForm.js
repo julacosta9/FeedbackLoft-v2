@@ -4,6 +4,7 @@ import API from "../../utils/API.js";
 import UserContext from "../../utils/UserContext";
 import UseForm from "../../utils/UseForm";
 import { PresignedPost } from "aws-sdk/clients/s3";
+import loadingIcon from "../../../src/images/loading-icon.gif";
 
 const CreateProjectForm = (props) => {
     const { _id, username } = useContext(UserContext);
@@ -64,7 +65,10 @@ const CreateProjectForm = (props) => {
 
     return (
         loading === true ?
-        <div>...Loading</div>
+        <div className="flex flex-col lg:w-4/12 max-w-sm items-center my-2 p-8 rounded bg-white border space-y-6 mx-auto">
+            <img src={loadingIcon} className="w-8" />
+            <p>Uploading your project...</p>
+        </div>
         :
         <form
             class="w-full max-w-xl flex flex-col bg-white rounded-lg px-6 py-6 mx-auto shadow-lg border-gray-400"
