@@ -5,10 +5,8 @@ function isUserEligible(userId) {
         db.User.findById(userId)
             .then((user) => {
                 if (user.feedbackGiven > user.feedbackReceived) {
-                    console.log("ITS TRUE");
                     resolve(true);
                 } else {
-                    console.log("ITS FALSE");
                     resolve(false);
                 }
             })
@@ -18,18 +16,21 @@ function isUserEligible(userId) {
 
 module.exports = {
     findProjectForReview: async function (req, res) {
+        let activeUser = req.body.userId;
+
+        // Get all projects
         db.Project.find({})
             .sort({ lastCommentDate: 1 })
             .then((dbResponse) => {
-                console.log(dbResponse)
                 let length = dbResponse.length;
                 for (let i = 0; i < length; i++) {
                     let project = dbResponse[i];
                     let isProjectFound = false;
                     if (isProjectFound === false) {
+                        // Get user of the project 
                         db.User.findById(project.userId)
                         .then((user) => {
-                            if (user.feedbackGiven > user.feedbackReceived) {
+                            if (user.feedbackGiven > user.feedbackReceived && user._id != activeUser) {
                                 res.json(project);
                                 isProjectFound = true;
                             } else {
