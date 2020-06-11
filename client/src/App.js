@@ -11,6 +11,7 @@ import { useAuth0 } from "./react-auth0-spa";
 import API from "./utils/API";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faArrowAltCircleUp, faArrowAltCircleDown, faBell } from "@fortawesome/free-regular-svg-icons";
+import Project from "./components/projects/Project";
 
 library.add(faArrowAltCircleUp, faArrowAltCircleDown, faBell)
 
@@ -57,6 +58,7 @@ const App = () => {
           username: user.nickname
         })
     })
+    
     return(
       <UserContext.Provider value={activeUser}>
         {/* <div> */}
@@ -66,7 +68,7 @@ const App = () => {
                 <Navbar />
                 <Loop />
               </Route>
-              <Route path="/project-page">
+              <Route path="/project-page/:paramId">
                 <Navbar />
                 <ProjectPage />
               </Route>
