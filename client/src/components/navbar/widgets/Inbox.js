@@ -13,6 +13,8 @@ const Inbox = () => {
         {
             _id: "",
             message: "",
+            link: "",
+            projectReviewed: "",
             dateCreated: "",
             isRead: false
         }
@@ -80,6 +82,9 @@ const Inbox = () => {
                                     key={notification._id}
                                     message={notification.message}
                                     date={notification.dateCreated}
+                                    link={notification.link}
+                                    projectReviewed={notification.projectReviewed}
+                                    closeInboxCallback={() => setMessagesState(false)}
                                     callback={() => removeComment(notification._id, notification.isRead)}
                                 />
 
