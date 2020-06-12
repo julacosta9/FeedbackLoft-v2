@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import FeedbackForm from "../forms/FeedbackForm";
 import LoopProject from "../projects/LoopProject";
 import API from "../../utils/API.js";
+import Comment from '../projects/Comment';
 import UserContext from "../../utils/UserContext";
 import Comment from "../projects/Comment";
 

@@ -16,7 +16,7 @@ const FeedbackForm = (props) => {
         message: username + " has left a review on your project " + props.projectName
       }
     );
-    {props.callback()};
+    props.callback();
   }
 
     const { values, handleChange, handleSubmit } = UseForm(
@@ -73,7 +73,7 @@ const FeedbackForm = (props) => {
                         id="rating"
                         className="appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500 focus:border-blue-500"
                     >
-                        <option value={3}>❤️ Love it!</option>
+                        <option value={3}>❤️Love it!</option>
                         <option value={2}>👍 Like it.</option>
                         <option value={1}>🛠️ Needs Work...</option>
                     </select>

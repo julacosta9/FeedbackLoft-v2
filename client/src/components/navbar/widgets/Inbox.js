@@ -51,7 +51,7 @@ const Inbox = () => {
                 }
             >
                 {message[0]  ?
-                    <React.Fragment clas>
+                    <React.Fragment>
                         <FontAwesomeIcon icon={["fas", "bell"]} className="relative text-white hover:text-fl-mint" />
                         <div className="absolute top-0 text-white hover:text-white bg-fl-red w-3 h-3 flex items-center justify-center rounded-full text-xs">
                             {message.length >= 99 ?
@@ -74,7 +74,7 @@ const Inbox = () => {
                     aria-labelledby="user-menu"
                 >
                     {message[0] ? 
-                        message.map((notification, i) => {
+                        message.map((notification) => {
                             if (notification.isRead === false) return (
                                 <Notification
                                     key={notification._id}

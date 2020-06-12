@@ -3,7 +3,6 @@ import axios from "axios";
 import API from "../../utils/API.js";
 import UserContext from "../../utils/UserContext";
 import UseForm from "../../utils/UseForm";
-import { PresignedPost } from "aws-sdk/clients/s3";
 import loadingIcon from "../../../src/images/loading-icon.gif";
 
 const CreateProjectForm = (props) => {

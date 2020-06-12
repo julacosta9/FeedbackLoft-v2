@@ -3,13 +3,12 @@ import UseForm from '../../../utils/UseForm';
 
 const UserOptions = () => {
 
-  const { values, handleChange, handleSubmit } = UseForm(
-    []
-    ,updateUserGenres)
-
   const updateUserGenres = () => {
     console.log(values);
   }
+
+  const { values } = UseForm([],updateUserGenres)
+
 
   const [showForm, setFormState] = useState(false)
 

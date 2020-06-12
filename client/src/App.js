@@ -16,7 +16,7 @@ library.add(faArrowAltCircleUp, faArrowAltCircleDown, faBell)
 
 const App = () => {
 
-  const { loading, user, isAuthenticated, loginWithRedirect, logout } = useAuth0();
+  const { loading, user, isAuthenticated, loginWithRedirect } = useAuth0();
   
   if (loading) {
     return <div>Loading...</div>;
@@ -51,12 +51,13 @@ const App = () => {
 
   if (isAuthenticated){
     API.getUserByEmail(user.email).then(dbUser => {
-      if (dbUser.data.length == 0)
+      if (dbUser.data.length === 0)
         API.createUser({
           email: user.email,
           username: user.nickname
         })
     })
+    
     return(
       <UserContext.Provider value={activeUser}>
         {/* <div> */}
@@ -66,7 +67,7 @@ const App = () => {
                 <Navbar />
                 <Loop />
               </Route>
-              <Route path="/project-page">
+              <Route path="/project-page/:paramId">
                 <Navbar />
                 <ProjectPage />
               </Route>
