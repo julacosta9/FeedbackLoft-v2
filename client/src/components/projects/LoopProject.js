@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import API from "../../utils/API.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-
 const LoopProject = (props) => {
+
     const [feedbackRatio, setFeedbackRatio] = useState({
         feedbackGiven: 0,
         feedbackReceived: 0,
@@ -50,10 +50,13 @@ const LoopProject = (props) => {
             
                 <iframe className="h-iframe" title={props._id} aria-hidden="true" srcDoc={props.url} />
              : 
+                <React.Fragment>
+                    <img src={`${process.env.PUBLIC_URL}/assets/genres/${props.genre}.jpg`} alt={props.genre}></img>
                     <audio controls controlsList="nodownload" className="w-full" src={props.url} >
                         <source type="audio/mpeg" />
                     </audio>
-                }
+                </React.Fragment>
+            }
             <div className="px-2">{props.description}</div>
         </div>
     );

@@ -21,7 +21,7 @@ const Navbar = () => {
 
     const {
         username,
-        _id
+        _id,
     } = useContext(UserContext);
 
     const [feedbackRatio, setFeedbackRatio] = useState({
@@ -38,7 +38,9 @@ const Navbar = () => {
     };
 
     useEffect(() => {
-        loadRatio()
+        setTimeout(() => {
+            loadRatio()
+        }, 5000); 
     },[_id, feedbackRatio])
 
     return (

@@ -33,7 +33,7 @@ const Home = () => {
 
     useEffect(() => {
         loadProjects();
-    }, [_id, projects]);
+    }, [_id]);
 
     return (
         <div className="container mx-auto">
