@@ -10,9 +10,10 @@ const Notification = (props) => {
     }
 
     return (
+        <div className="flex justify-around">
         <div className= "flex flex-col justify-between px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition ease-in-out duration-200">
             <span className="text-xs">sent {formatDate(props.date)}</span>
-            <span className="flex justify-between">
+            <span>
                 {props.message}
                 <Link 
                     to={props.link}
@@ -22,8 +23,9 @@ const Notification = (props) => {
                 >
                     {props.projectReviewed}
                 </Link>
-                <button className="semibold text-red-800 text-xs" onClick={props.callback}>X</button>
-            </span>
+                </span>
+            </div>
+            <button className="semibold text-red-800 text-xs pr-4" onClick={props.callback}>X</button>
         </div>
     );
 };
