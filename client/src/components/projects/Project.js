@@ -58,7 +58,11 @@ const Project = (props) => {
                 <iframe title={_id} aria-hidden="true" className="h-iframe" srcdoc={url} />
             ) : (
                     <React.Fragment>
-                    <img src={`${process.env.PUBLIC_URL}/assets/genres/${genre}.jpg`} alt={genre}></img>
+                    <div className="block object-center h-64 w-full">
+                        <img className="h-full w-full object-cover"
+                        src={`${process.env.PUBLIC_URL}/assets/genres/${genre}.jpg`} 
+                        alt={genre}></img>
+                    </div>
                     <audio controls controlsList="nodownload" className="w-full">
                         <source src={url} type="audio/mpeg" />
                     </audio>

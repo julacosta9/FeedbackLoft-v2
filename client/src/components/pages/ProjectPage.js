@@ -29,10 +29,6 @@ const projectPage = () => {
     .catch(err => console.log(err))
   }
 
-  // useEffect(() => {
-  //   loadProject()
-  // },[])
-
   const [comments, setComments] = useState([
     {
         authorUsername: "",
@@ -83,7 +79,12 @@ const projectPage = () => {
             <iframe className="h-iframe" title={project._id} aria-hidden="true" srcdoc={project.url} />
         ) : (
               <React.Fragment>
-                <img src={`${process.env.PUBLIC_URL}/assets/genres/${project.genre}.jpg`} alt={project.genre}></img>
+              <div className="block object-center h-64 w-full">
+                <img className="h-full w-full object-cover"
+                  src={`${process.env.PUBLIC_URL}/assets/genres/${project.genre}.jpg`} 
+                  alt={project.genre}>
+                </img>
+              </div>
                 <audio controls controlsList="nodownload" src={project.url} className="w-full">
                     <source src={project.url} type="audio/mpeg" />
                 </audio>
