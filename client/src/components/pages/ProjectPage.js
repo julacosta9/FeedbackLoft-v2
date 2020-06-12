@@ -25,14 +25,13 @@ const projectPage = () => {
     API.getProjectById(id)
     .then(res => {
       setProjectState(res.data)
-      console.log("parameter", res.data)
     })
     .catch(err => console.log(err))
   }
 
-  useEffect(() => {
-    loadProject()
-  },[])
+  // useEffect(() => {
+  //   loadProject()
+  // },[])
 
   const [comments, setComments] = useState([
     {
@@ -45,13 +44,17 @@ const projectPage = () => {
 
   const loadComments = () => {
     API.getAllCommentsByProject(project._id)
-    .then((res) => setComments(res.data))
+    .then((res) => {
+      console.log(res.data)
+      setComments(res.data)
+    })
     .catch((err) => console.log(err));
   };
 
   useEffect(() => {
+    loadProject();
     loadComments();
-  }, [id]);
+  }, [id, project._id]);
 
   return(
     <div className="mx-2">
