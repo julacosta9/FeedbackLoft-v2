@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import API from "../../utils/API.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-
 const LoopProject = (props) => {
+
     const [feedbackRatio, setFeedbackRatio] = useState({
         feedbackGiven: 0,
         feedbackReceived: 0,
@@ -20,10 +20,11 @@ const LoopProject = (props) => {
 
     useEffect(() => {
         loadRatio();
-    }, [props.userId, feedbackRatio]);
+    }, [props.userId]);
 
     return (
         <div className="w-full flex flex-col bg-white space-y-4 rounded overflow-hidden border w-full lg:w-12/12 md:w-12/12 bg-white mx-3 md:mx-0 lg:mx-0 mt-48 m-8 p-6">
+           {console.log(feedbackRatio)}
             <div className="flex flex-col">
                 <div className="flex flex-row justify-between">
                     <p className="font-bold text-3xl mb-2">{props.name}</p>
@@ -50,10 +51,13 @@ const LoopProject = (props) => {
             
                 <iframe className="h-iframe" title={props._id} aria-hidden="true" srcDoc={props.url} />
              : 
+                <React.Fragment>
+                    <img src={`${process.env.PUBLIC_URL}/assets/genres/${props.genre}.jpg`} alt={props.genre}></img>
                     <audio controls controlsList="nodownload" className="w-full" src={props.url} >
                         <source type="audio/mpeg" />
                     </audio>
-                }
+                </React.Fragment>
+            }
             <div className="px-2">{props.description}</div>
         </div>
     );

@@ -9,10 +9,11 @@ import MobileDropdown from "./widgets/MobileDropdown";
 import Logo from "./widgets/Logo";
 
 const Navbar = () => {
-    const { isAuthenticated, logout } = useAuth0();
 
+    const { isAuthenticated, logout } = useAuth0();
     const [showOptions, setOptionsState] = useState(false);
     const [showMenu, setMenuState] = useState(false);
+    const { username, _id } = useContext(UserContext);
 
     function toggleMenu() {
         setMenuState(!showMenu);
@@ -29,15 +30,17 @@ const Navbar = () => {
 
     const loadRatio = () => {
         API.getUserById(_id)
-            .then((res) => {
-                setFeedbackRatio(res.data);
-            })
-            .catch((err) => console.log(err));
+        .then((res) => {
+            setFeedbackRatio(res.data);
+        })
+        .catch((err) => console.log(err));
     };
+    
+    useEffect(() => {}, [showOptions]);
 
     useEffect(() => {
-        loadRatio();
-    }, [_id, feedbackRatio]);
+        loadRatio()
+    },[username])
 
     return (
         <nav className="flex items-center justify-between bg-fl-black fixed top-0 left-0 right-0 px-6 py-3 mb-6 shadow-lg">

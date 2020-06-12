@@ -82,9 +82,12 @@ const projectPage = () => {
         
             <iframe className="h-iframe" title={project._id} aria-hidden="true" srcdoc={project.url} />
         ) : (
+              <React.Fragment>
+                <img src={`${process.env.PUBLIC_URL}/assets/genres/${project.genre}.jpg`} alt={project.genre}></img>
                 <audio controls controlsList="nodownload" src={project.url} className="w-full">
                     <source src={project.url} type="audio/mpeg" />
                 </audio>
+              </React.Fragment>
             )}
         <div className="px-2">{project.description}</div>
         <div className="bg-white border-l-4 ml-8 px-2 ">
