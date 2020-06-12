@@ -95,11 +95,13 @@ const Navbar = () => {
                     <span className="mx-1">{feedbackRatio.feedbackReceived}</span>
                     <i className="fas fa-arrow-alt-circle-down mx-1"></i>
                 </span>
-                <button className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-fl-mint mr-4 transition ease-in-out duration-150">
+
+                <span className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-fl-mint mr-4 transition ease-in-out duration-150">
+
                     {isAuthenticated && (
                         <button onClick={() => logout()}>Logout</button>
                     )}
-                </button>
+                </span>
             </div>
         </nav>
     );
