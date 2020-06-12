@@ -7,6 +7,8 @@ import API from '../../../utils/API';
 const Inbox = () => {
     const { _id } = useContext(UserContext);
 
+    const [showMessages, setMessagesState] = useState(false);
+
     const [message, setMessage] = useState([
         {
             _id: "",
@@ -27,18 +29,16 @@ const Inbox = () => {
         .catch(err => console.log(err))
     }
 
-    useEffect(() => {
-        loadNotifications()
-    }, [_id, message]);
-
-    const [showMessages, setMessagesState] = useState(false);
-
-    useEffect(() => {}, [showMessages]);
-    
     const removeComment = (id, obj) => {
         API.toggleIsRead(_id, id, obj)
+        loadNotifications()
     }
-    
+
+    useEffect(() => {
+        loadNotifications()
+    }, [_id]);
+
+    useEffect(() => {}, [showMessages]);
     
     return (
         <React.Fragment>

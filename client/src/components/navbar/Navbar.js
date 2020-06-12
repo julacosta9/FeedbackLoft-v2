@@ -8,21 +8,15 @@ import UserOptions from "./widgets/UserOptions";
 import logo from "../../images/feedbackloft-logo-white-transparent.png";
 
 const Navbar = () => {
-    const { isAuthenticated, logout } = useAuth0();
 
+    const { isAuthenticated, logout } = useAuth0();
     const [showOptions, setOptionsState] = useState(false);
     const [showMenu, setMenuState] = useState(false);
+    const { username, _id } = useContext(UserContext);
 
     function toggleMenu () {
         setMenuState(!showMenu);
     }
-
-    useEffect(() => {}, [showOptions]);
-
-    const {
-        username,
-        _id
-    } = useContext(UserContext);
 
     const [feedbackRatio, setFeedbackRatio] = useState({
         feedbackGiven: 0,
@@ -31,15 +25,17 @@ const Navbar = () => {
 
     const loadRatio = () => {
         API.getUserById(_id)
-            .then((res) => {
-                setFeedbackRatio(res.data);
-            })
-            .catch((err) => console.log(err));
+        .then((res) => {
+            setFeedbackRatio(res.data);
+        })
+        .catch((err) => console.log(err));
     };
+    
+    useEffect(() => {}, [showOptions]);
 
     useEffect(() => {
         loadRatio()
-    },[_id, feedbackRatio])
+    },[username])
 
     return (
         <nav className="flex items-center justify-between flex-wrap bg-fl-black fixed top-0 left-0 right-0 px-6 py-3 mb-6 shadow-lg">
