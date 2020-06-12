@@ -37,7 +37,10 @@ const Navbar = () => {
     useEffect(() => {}, [showOptions]);
 
     useEffect(() => {
-        loadRatio()
+        if (feedbackRatio.feedbackGiven === 0) loadRatio()
+        setInterval(() => {
+            loadRatio()
+        }, 30000);
     },[username])
 
     return (
