@@ -1,14 +1,16 @@
 import React from "react";
-import logoPattern from "./../images/fl-background.png";
+import logoPattern from "./../images/feedbackloft-logo-icon.png";
 
 const Footer = () => {
 
     let footerStyle = {
         backgroundImage: 'url(' + logoPattern + ')',
+        backgroundRepeat: 'repeat',
+        backgroundSize: '60px'
       };
 
     return (
-        <div style={footerStyle} className= "flex flex-col relative overflow-hidden items-center justify-between bg-fl-gray px-6 py-10 mt-20 text-white">
+        <div style={footerStyle} className= "flex flex-col overflow-hidden items-center justify-between bg-fl-darkGray px-6 py-5 md:py-10 mt-20 text-white text-sm md:text-base">
             {/* <img src={logoPattern} className="absolute inset-0" /> */}
             <div className="font-mono font-bold font-white">Feedback Loft © 2020</div>
             <div className="font-mono font-bold font-white">&lt;/&gt; with 🤍 in San Diego, CA</div>
@@ -18,3 +20,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

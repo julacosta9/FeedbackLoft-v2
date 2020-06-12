@@ -7,6 +7,7 @@ import Navbar from "./components/navbar/Navbar"
 import Loop from "./components/pages/Loop"
 import ProjectPage from './components/pages/ProjectPage';
 import Home from './components/pages/Home'
+import Footer from "./components/Footer";
 import { useAuth0 } from "./react-auth0-spa";
 import API from "./utils/API";
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -66,14 +67,17 @@ const App = () => {
               <Route path="/loop">
                 <Navbar />
                 <Loop />
+                <Footer />
               </Route>
               <Route path="/project-page/:id">
                 <Navbar />
                 <ProjectPage />
+                <Footer />
               </Route>
               <Route path="/">
                 <Navbar />
                 <Home />
+                <Footer />
               </Route>
             </Switch>
           </Router>
