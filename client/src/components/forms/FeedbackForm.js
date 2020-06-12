@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import UserContext from "../../utils/UserContext";
 import API from "../../utils/API";
 import UseForm from "../../utils/UseForm";
+import { Link } from 'react-router-dom';
 
 const FeedbackForm = (props) => {
     const { _id, username } = useContext(UserContext);
@@ -13,7 +14,9 @@ const FeedbackForm = (props) => {
       {
         recipientId: props.id,
         senderName: username,
-        message: username + " has left a review on your project " + props.projectName
+        message: username + " has left a review on your project ",
+        link: `/project-page/${props.projectId}`,
+        projectReviewed: props.projectName,
       }
     );
     props.callback();

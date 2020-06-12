@@ -65,6 +65,8 @@ module.exports = {
                         {
                             senderName: req.body.senderName,
                             message: req.body.message,
+                            link: req.body.link,
+                            projectReviewed: req.body.projectReviewed,
                             isRead: false,
                         },
                     ],

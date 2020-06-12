@@ -52,7 +52,12 @@ const LoopProject = (props) => {
                 <iframe className="h-iframe" title={props._id} aria-hidden="true" srcDoc={props.url} />
              : 
                 <React.Fragment>
-                    <img src={`${process.env.PUBLIC_URL}/assets/genres/${props.genre}.jpg`} alt={props.genre}></img>
+                    <div className="block object-center h-64 w-full">
+                        <img className="h-full w-full object-cover"
+                            src={`${process.env.PUBLIC_URL}/assets/genres/${props.genre}.jpg`} 
+                            alt={props.genre}>
+                        </img>
+                    </div>
                     <audio controls controlsList="nodownload" className="w-full" src={props.url} >
                         <source type="audio/mpeg" />
                     </audio>
