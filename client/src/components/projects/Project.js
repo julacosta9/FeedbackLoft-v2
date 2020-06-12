@@ -42,8 +42,8 @@ const Project = (props) => {
             <div className="flex flex-col">
                 <div className="flex flex-row justify-between">
                     <Link to={`/project-page/${_id}`}>
-                        <p className="font-bold text-3xl mb-2 hover:text-fl-mint">{name}</p>
-                    </Link>
+                        <p className="font-bold text-3xl mb-2 hover:text-fl-mint transition ease-in-out duration-150">{name}</p>
+                     </Link>
                     <span className="self-start inline-block bg-fl-gray rounded-full px-3 py-1 text-sm font-semibold text-gray-700">
                         #{genre}
                     </span>

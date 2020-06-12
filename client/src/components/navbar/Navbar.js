@@ -63,16 +63,16 @@ const Navbar = () => {
                 <div className="text-sm lg:flex-grow">
                     <Link to="/"
                         href="#responsive-header"
-                        className="block mt-4 text-lg lg:inline-block lg:mt-0 text-white hover:text-fl-mint mr-4">
+                        className="block mt-4 text-lg lg:inline-block lg:mt-0 text-white hover:text-fl-mint mr-4 transition ease-in-out duration-150">
                             Dashboard
                     </Link>
                     <Link to="/loop"
                         href="#responsive-header"
-                        className="block mt-4 text-lg lg:inline-block lg:mt-0 text-white hover:text-fl-mint mr-4 pl-2"
+                        className="block mt-4 text-lg lg:inline-block lg:mt-0 text-white hover:text-fl-mint mr-4 pl-2 transition ease-in-out duration-150"
                     >Loop
                     </Link>
                 </div>
-                <span className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-fl-mint mr-4 relative">
+                <span className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-fl-mint mr-4 relative transition ease-in-out duration-150">
                     <Inbox />
                 </span>
                 <button
@@ -95,11 +95,13 @@ const Navbar = () => {
                     <span className="mx-1">{feedbackRatio.feedbackReceived}</span>
                     <i className="fas fa-arrow-alt-circle-down mx-1"></i>
                 </span>
-                <button className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-fl-mint mr-4">
+
+                <span className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-fl-mint mr-4 transition ease-in-out duration-150">
+
                     {isAuthenticated && (
                         <button onClick={() => logout()}>Logout</button>
                     )}
-                </button>
+                </span>
             </div>
         </nav>
     );
