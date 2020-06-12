@@ -13,6 +13,8 @@ const FeedbackGiven = () => {
             dateCreated: "",
             text: "",
             _id: "",
+            projectId: "",
+            projectName: ""
         },
     ]);
 
@@ -38,6 +40,8 @@ const FeedbackGiven = () => {
                         authorUsername={comment.authorUsername}
                         timestamp={comment.dateCreated}
                         text={comment.text}
+                        projectId={comment.projectId}
+                        projectName={comment.projectName}
                     />
                 ))}
             </div>
