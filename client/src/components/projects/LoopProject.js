@@ -27,7 +27,7 @@ const LoopProject = (props) => {
            {console.log(feedbackRatio)}
             <div className="flex flex-col">
                 <div className="flex flex-row justify-between">
-                    <p className="font-bold text-3xl mb-2 hover:text-fl-mint transition ease-in-out duration-150">{props.name}</p>
+                    <p className="font-bold text-3xl mb-2">{props.name}</p>
                     <span className="self-start inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
                         #{props.genre}
                     </span>
