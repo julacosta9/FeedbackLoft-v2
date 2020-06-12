@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useLayoutEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Project from "../projects/Project";
 import EmptyProject from "../dashboard/EmptyProject";
 import FeedbackGiven from "../dashboard/FeedbackGiven";
@@ -8,7 +8,6 @@ import UserContext from "../../utils/UserContext";
 import API from "../../utils/API.js";
 
 const Home = () => {
-    const { user, isAuthenticated, loginWithRedirect, logout } = useAuth0();
 
     const { _id, feedbackGiven, feedbackReceived } = useContext(UserContext);
 

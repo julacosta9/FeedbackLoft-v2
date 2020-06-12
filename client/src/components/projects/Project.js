@@ -1,11 +1,8 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import Comment from "./Comment";
 import { Link } from "react-router-dom";
 import API from "../../utils/API.js";
-import UserContext from "../../utils/UserContext";
 import UseForm from '../../utils/UseForm';
-// import HtmlToReactParser from "react-html-parser";
-// import renderHTML from 'react-render-html';
 
 const Project = (props) => {
 
@@ -39,17 +36,14 @@ const Project = (props) => {
         loadComments();
     }, [_id]);
 
-    // let htmlToReactParser = new HtmlToReactParser();
-    // let soundcloud_iframe = htmlToReactParser(url);
-
     return (
         <div className="mx-2">
         <div className="w-full flex flex-col bg-white space-y-4 rounded overflow-hidden border w-full lg:w-10/12 md:w-12/12 bg-white md:mx-auto sm:mx-2 mb-8 p-6">
             <div className="flex flex-col">
                 <div className="flex flex-row justify-between">
-                    {/* <Link to="/project-page"> */}
-                        <p className="font-bold text-3xl mb-2 hover:text-fl-mint">{name}</p>
-                    {/* </Link> */}
+                    <Link to={`/project-page/${_id}`}>
+                        <p className="font-bold text-3xl mb-2 hover:text-fl-mint transition ease-in-out duration-150">{name}</p>
+                     </Link>
                     <span className="self-start inline-block bg-fl-gray rounded-full px-3 py-1 text-sm font-semibold text-gray-700">
                         #{genre}
                     </span>
@@ -64,9 +58,7 @@ const Project = (props) => {
                 </div>
             </div>
             {url[0] === "<" ? (
-                // renderHTML(url)
-            
-                <iframe className="h-iframe" srcdoc={url} />
+                <iframe title={_id} aria-hidden="true" className="h-iframe" srcdoc={url} />
             ) : (
                     <audio controls controlsList="nodownload" className="w-full">
                         <source src={url} type="audio/mpeg" />

@@ -4,13 +4,8 @@ import Comment from "../projects/Comment";
 import API from "../../utils/API.js";
 
 const FeedbackGiven = () => {
-    const {
-        username,
-        email,
-        feedbackGiven,
-        feedbackReceived,
-        _id,
-    } = useContext(UserContext);
+    
+    const { _id } = useContext(UserContext);
 
     const [userComments, setUserComments] = useState([
         {
