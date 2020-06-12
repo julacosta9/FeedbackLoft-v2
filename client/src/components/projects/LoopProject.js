@@ -20,10 +20,11 @@ const LoopProject = (props) => {
 
     useEffect(() => {
         loadRatio();
-    }, [props.userId, feedbackRatio]);
+    }, [props.userId]);
 
     return (
         <div className="w-full flex flex-col bg-white space-y-4 rounded overflow-hidden border w-full lg:w-12/12 md:w-12/12 bg-white mx-3 md:mx-0 lg:mx-0 mt-48 m-8 p-6">
+           {console.log(feedbackRatio)}
             <div className="flex flex-col">
                 <div className="flex flex-row justify-between">
                     <p className="font-bold text-3xl mb-2 hover:text-fl-mint transition ease-in-out duration-150">{props.name}</p>
