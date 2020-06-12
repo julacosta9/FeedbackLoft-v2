@@ -38,7 +38,7 @@ const Home = () => {
     }, [_id]);
 
     return (
-        <div className="container mx-auto">
+        <div className="container mx-auto min-h-screen">
             <div className="w-full lg:w-10/12 md:w-12/12 md:mx-auto sm:mx-2 mt-32 md:mt-48 mb-1">
             {feedbackReceived > feedbackGiven ? <RatioAlert /> : null}
             <p className="font-mono text-4xl sm:text-5xl p-6">Projects</p>

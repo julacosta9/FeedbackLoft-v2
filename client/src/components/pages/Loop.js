@@ -52,7 +52,7 @@ const Loop = () => {
     }, [loop._id]);
 
     return (
-        <div className="container mx-auto">
+        <div className="container mx-auto min-h-screen">
             <LoopProject
                 name={loop.name}
                 username={loop.username}

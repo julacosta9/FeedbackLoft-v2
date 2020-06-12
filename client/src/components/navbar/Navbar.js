@@ -21,8 +21,6 @@ const Navbar = () => {
 
     useEffect(() => {}, [showOptions]);
 
-    const { username, _id } = useContext(UserContext);
-
     const [feedbackRatio, setFeedbackRatio] = useState({
         feedbackGiven: 0,
         feedbackReceived: 0,
