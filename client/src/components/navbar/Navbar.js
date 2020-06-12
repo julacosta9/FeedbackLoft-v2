@@ -41,11 +41,6 @@ const Navbar = () => {
 
     return (
         <nav className="flex items-center justify-between bg-fl-black fixed top-0 left-0 right-0 px-6 py-3 mb-6 shadow-lg">
-            {/* <img
-                src={logo}
-                alt="Feedback Loft"
-                className="w-48 md:w-56 flex-shrink-0"
-            /> */}
             <Logo />
             <div className="flex w-full block justify-between lg:items-center ml-16 md:pb-6">
                 <div className="hidden md:flex text-sm">
