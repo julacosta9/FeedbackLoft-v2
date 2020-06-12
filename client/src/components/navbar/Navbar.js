@@ -6,7 +6,7 @@ import { useAuth0 } from "../../react-auth0-spa";
 import Inbox from "./widgets/Inbox";
 import UserOptions from "./widgets/UserOptions";
 import MobileDropdown from "./widgets/MobileDropdown";
-import logo from "../../images/feedbackloft-logo-white-transparent.png";
+import Logo from "./widgets/Logo";
 
 const Navbar = () => {
     const { isAuthenticated, logout } = useAuth0();
@@ -41,11 +41,12 @@ const Navbar = () => {
 
     return (
         <nav className="flex items-center justify-between bg-fl-black fixed top-0 left-0 right-0 px-6 py-3 mb-6 shadow-lg">
-            <img
+            {/* <img
                 src={logo}
                 alt="Feedback Loft"
                 className="w-48 md:w-56 flex-shrink-0"
-            />
+            /> */}
+            <Logo />
             <div className="flex w-full block justify-between lg:items-center ml-16 md:pb-6">
                 <div className="hidden md:flex text-sm">
                     <Link
