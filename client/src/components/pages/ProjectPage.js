@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import API from '../../utils/API.js';
 import Comment from '../projects/Comment';
 
+const projectPage = () => {
 
-const ProjectPage = () => {
-
-  const { paramId } = useParams();
+  let { id } = useParams();
 
   const [ project, setProjectState] = useState(
     {
@@ -23,17 +22,17 @@ const ProjectPage = () => {
   )
 
   const loadProject = () => {
-    API.getProjectById(paramId)
+    API.getProjectById(id)
     .then(res => {
       setProjectState(res.data)
-      console.log("parameter", res)
+      console.log("parameter", res.data)
     })
     .catch(err => console.log(err))
   }
 
   useEffect(() => {
     loadProject()
-  },[paramId])
+  },[])
 
   const [comments, setComments] = useState([
     {
@@ -52,7 +51,7 @@ const ProjectPage = () => {
 
   useEffect(() => {
     loadComments();
-  }, [project._id]);
+  }, [id]);
 
   return(
     <div className="mx-2">
@@ -80,7 +79,7 @@ const ProjectPage = () => {
         
             <iframe className="h-iframe" title={project._id} aria-hidden="true" srcdoc={project.url} />
         ) : (
-                <audio controls controlsList="nodownload" className="w-full">
+                <audio controls controlsList="nodownload" src={project.url} className="w-full">
                     <source src={project.url} type="audio/mpeg" />
                 </audio>
             )}
@@ -100,4 +99,4 @@ const ProjectPage = () => {
   )
 }
 
-export default ProjectPage;
+export default projectPage;

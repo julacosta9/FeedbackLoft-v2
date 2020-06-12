@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import FeedbackForm from "../forms/FeedbackForm";
 import LoopProject from "../projects/LoopProject";
 import API from "../../utils/API.js";
-import Comment from '../projects/Comment';
 import UserContext from "../../utils/UserContext";
 import Comment from "../projects/Comment";
 
@@ -31,7 +30,7 @@ const Loop = () => {
     const { _id } = useContext(UserContext);
 
     const loadLoop = () => {
-        API.getProjectForReview()
+        API.getProjectForReview(_id)
             .then((res) => {
                 setLoop(res.data);
                 console.log(res.data);
@@ -64,7 +63,7 @@ const Loop = () => {
                 description={loop.description}
                 dateCreated={loop.dateCreated}
             />
-            {commentState === true ? (
+            {commentState === false ? (
                 <FeedbackForm
                     projectId={loop._id}
                     projectName={loop.name}

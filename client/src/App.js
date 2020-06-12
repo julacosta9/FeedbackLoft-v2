@@ -5,7 +5,7 @@ import "./App.css";
 import './assets/main.css'
 import Navbar from "./components/navbar/Navbar"
 import Loop from "./components/pages/Loop"
-import ProjectPage from './components/pages/ProjectPage'
+import ProjectPage from './components/pages/ProjectPage';
 import Home from './components/pages/Home'
 import { useAuth0 } from "./react-auth0-spa";
 import API from "./utils/API";
@@ -67,7 +67,7 @@ const App = () => {
                 <Navbar />
                 <Loop />
               </Route>
-              <Route path="/project-page/:paramId">
+              <Route path="/project-page/:id">
                 <Navbar />
                 <ProjectPage />
               </Route>
