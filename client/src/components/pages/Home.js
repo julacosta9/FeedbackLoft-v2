@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext, useLayoutEffect } from "react";
 import Project from "../projects/Project";
 import EmptyProject from "../dashboard/EmptyProject";
 import FeedbackGiven from "../dashboard/FeedbackGiven";
+import RatioAlert from "../dashboard/RatioAlert"
 import { useAuth0 } from "../../react-auth0-spa";
 import UserContext from "../../utils/UserContext";
 import API from "../../utils/API.js";
@@ -9,7 +10,7 @@ import API from "../../utils/API.js";
 const Home = () => {
     const { user, isAuthenticated, loginWithRedirect, logout } = useAuth0();
 
-    const { _id } = useContext(UserContext);
+    const { _id, feedbackGiven, feedbackReceived } = useContext(UserContext);
 
     const [projects, setProjects] = useState([
         {
@@ -39,8 +40,9 @@ const Home = () => {
 
     return (
         <div className="container mx-auto">
-            <div className="font-mono font-bold text-5xl w-full lg:w-10/12 md:w-12/12 md:mx-auto sm:mx-2 mt-40 mb-1 p-6">
-                Projects
+            <div className="w-full lg:w-10/12 md:w-12/12 md:mx-auto sm:mx-2 mt-48 mb-1">
+            {feedbackReceived > feedbackGiven ? <RatioAlert /> : null}
+            <p className="font-mono text-5xl p-6">Projects</p>
             </div>
             {projects.map((project) => (
                 <Project key={project._id} project={project} />
@@ -50,7 +52,7 @@ const Home = () => {
                 :
                 <div></div>
             }
-            <div className="font-mono font-bold text-5xl w-full lg:w-10/12 md:w-12/12 md:mx-auto sm:mx-2 mt-16 mb-1 p-6">
+            <div className="font-mono text-5xl w-full lg:w-10/12 md:w-12/12 md:mx-auto sm:mx-2 mt-16 mb-1 p-6">
                 Your Comment History
             </div>
             <FeedbackGiven 
