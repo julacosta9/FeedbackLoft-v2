@@ -45,6 +45,8 @@ const UserSchema = new Schema({
             default: Date.now,
         },
         message: String,
+        link: String,
+        projectReviewed: String,
         isRead: Boolean
     }],
 
