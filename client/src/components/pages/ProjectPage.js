@@ -1,11 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import LoopProject from "./../projects/LoopProject";
 import API from "../../utils/API.js";
 import Comment from "../projects/Comment";
+import UserContext from '../../utils/UserContext'
+import FeedbackForm from '../forms/FeedbackForm'
 
 const projectPage = () => {
     let { id } = useParams();
+
+    const { _id } = useContext(UserContext)
 
     const [project, setProjectState] = useState({
         _id: "",
@@ -18,6 +22,17 @@ const projectPage = () => {
         dateCreated: "",
         lastCommentDate: "",
     });
+    
+    const [comments, setComments] = useState([
+        {
+            authorUsername: "",
+            dateCreated: "",
+            text: "",
+            _id: "",
+        },
+    ]);
+
+    const [ commentState, setCommentState] = useState(false)
 
     const loadProject = () => {
         API.getProjectById(id)
@@ -27,14 +42,6 @@ const projectPage = () => {
             .catch((err) => console.log(err));
     };
 
-    const [comments, setComments] = useState([
-        {
-            authorUsername: "",
-            dateCreated: "",
-            text: "",
-            _id: "",
-        },
-    ]);
 
     const loadComments = () => {
         API.getAllCommentsByProject(project._id)

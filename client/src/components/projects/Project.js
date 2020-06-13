@@ -50,7 +50,7 @@ const Project = (props) => {
                         <button type="submit" className=" text-xs text-fl-black py-1 px-2 text-center border border-fl-black rounded hover:text-fl-mint hover:bg-fl-black">
                             Delete
                         </button>
-            </form>
+                    </form>
                 </div>
             </div>
             {url[0] === "<" ? (

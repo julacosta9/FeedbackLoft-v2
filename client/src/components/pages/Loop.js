@@ -6,6 +6,8 @@ import UserContext from "../../utils/UserContext";
 import Comment from "../projects/Comment";
 
 const Loop = () => {
+    const { _id } = useContext(UserContext);
+
     const [commentState, setCommentState] = useState(false);
 
     const [loop, setLoop] = useState({
@@ -27,9 +29,9 @@ const Loop = () => {
         },
     ]);
 
-    const { _id } = useContext(UserContext);
 
     const loadLoop = () => {
+        console.log(`Active User Id For Loop: ${_id}`)
         API.getProjectForReview(_id)
             .then((res) => {
                 setLoop(res.data);
@@ -48,8 +50,9 @@ const Loop = () => {
     };
 
     useEffect(() => {
+        // if (_id)
         loadLoop();
-    }, [loop._id]);
+    }, []);
 
     return (
         <div className="mx-2">

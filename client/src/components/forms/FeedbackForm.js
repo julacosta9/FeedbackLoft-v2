@@ -10,6 +10,7 @@ const FeedbackForm = (props) => {
   const createPost = () => {
     API.createComment(values);
     API.incrementFeedback(_id, props.id);
+    API.updateProject(props.projectId, {lastCommentDate: Date.now()})
     API.addNotifcation(
       {
         recipientId: props.id,
