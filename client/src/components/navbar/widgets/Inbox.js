@@ -37,7 +37,10 @@ const Inbox = () => {
     }
 
     useEffect(() => {
-        loadNotifications()
+        if (message._id === "") loadNotifications();
+        setInterval(() => {
+            loadNotifications();
+        }, 30000);
     }, [_id]);
 
     useEffect(() => {}, [showMessages]);
