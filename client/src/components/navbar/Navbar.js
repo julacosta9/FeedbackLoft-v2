@@ -45,7 +45,7 @@ const Navbar = () => {
     return (
         <nav className="bg-fl-black flex fixed justify-center top-0 left-0 right-0 px-6 py-6 mb-6 shadow-lg z-10">
             <div className="container flex justify-center">
-            <div className="flex w-full lg:w-10/12 md:w-12/12 items-center justify-between">
+            <div className="flex w-full items-center justify-between">
                 <Logo />
                 <div className="flex w-full block justify-between lg:items-center ml-16 md:pb-6">
                     <div className="hidden md:flex text-sm">
