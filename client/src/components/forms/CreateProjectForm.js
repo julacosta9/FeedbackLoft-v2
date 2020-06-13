@@ -10,6 +10,8 @@ const CreateProjectForm = (props) => {
     const [ uploadType, setUploadType] = useState(false);
     const [ loading, setLoadingState ] = useState(false);
 
+    const { loadProjects } = props
+
     useEffect(() => {}, [loading]);
 
     const s3Upload = async () => {
@@ -29,7 +31,7 @@ const CreateProjectForm = (props) => {
                     props.stateChange();
                     document.body.scrollTop = 0; // For Safari
                     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-    
+                    loadProjects()
                 })
                 .catch((error) => {
                     console.log(error);
@@ -41,6 +43,9 @@ const CreateProjectForm = (props) => {
             props.stateChange();
             document.body.scrollTop = 0; // For Safari
             document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+            // eslint-disable-next-line no-restricted-globals
+            // location.reload(false)
+            loadProjects()
         }
     };
 

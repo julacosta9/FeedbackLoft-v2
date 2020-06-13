@@ -22,8 +22,8 @@ const EmptyProject = (props) => {
         <CreateProjectForm
             callback = {() => {
                 setFormState(false);
-                loadProjects=loadProjects()
             }}
+            loadProjects={loadProjects}
             stateChange = {() => setFormState(false)}
         />
         }

@@ -8,8 +8,11 @@ const Project = (props) => {
 
     const { _id, name, username, genre, url, description } = props.project;
 
+    const { loadProjects } = props
+
     const removeProject = () => {
         API.deleteProject(_id)
+        loadProjects()
     }
 
     const { handleSubmit } = UseForm({}, removeProject);
@@ -24,8 +27,9 @@ const Project = (props) => {
     ]);
 
     const loadComments = () => {
+        console.log("Projects being loaded")
         API.getAllCommentsByProject(_id)
-            .then((res) => setComments(res.data))
+            .then((res) => {setComments(res.data); console.log("got the data")})
             .catch((err) => console.log(err));
     };
 
