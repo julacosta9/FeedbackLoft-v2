@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import UserContext from "../../utils/UserContext";
 import API from "../../utils/API";
 import UseForm from "../../utils/UseForm";
-import { Link } from 'react-router-dom';
 
 const FeedbackForm = (props) => {
     const { _id, username } = useContext(UserContext);
@@ -28,7 +27,7 @@ const FeedbackForm = (props) => {
             authorId: "",
             authorUsername: "",
             text: "",
-            rating: 1,
+            rating: 3,
             projectId: "",
             projectName: "",
         },
@@ -77,9 +76,9 @@ const FeedbackForm = (props) => {
                         id="rating"
                         className="appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500 focus:border-blue-500"
                     >
-                        <option value={3}>❤️Love it!</option>
-                        <option value={2}>👍 Like it.</option>
-                        <option value={1}>🛠️ Needs Work...</option>
+                        <option value={3}><span role="img" aria-label="heart emoji">❤️</span> Love it!</option>
+                        <option value={2}><span role="img" aria-label="thumbs up emoji">👍</span> Like it.</option>
+                        <option value={1}><span role="img" aria-label="tools emoji">🛠️</span> Needs Work...</option>
                     </select>
                     <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-8 pt-6 text-gray-700">
                         <svg

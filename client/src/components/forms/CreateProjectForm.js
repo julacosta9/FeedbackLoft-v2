@@ -29,6 +29,7 @@ const CreateProjectForm = (props) => {
                     props.stateChange();
                     document.body.scrollTop = 0; // For Safari
                     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    
                 })
                 .catch((error) => {
                     console.log(error);
@@ -40,8 +41,6 @@ const CreateProjectForm = (props) => {
             props.stateChange();
             document.body.scrollTop = 0; // For Safari
             document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-            // eslint-disable-next-line no-restricted-globals
-            // location.reload(false)
         }
     };
 
@@ -65,7 +64,7 @@ const CreateProjectForm = (props) => {
     return (
         loading === true ?
         <div className="flex flex-col lg:w-4/12 max-w-sm items-center my-2 p-8 bg-white border-l-4 border-fl-mint text-fl-black space-y-6 mx-auto">
-            <img src={loadingIcon} className="w-8" />
+            <img src={loadingIcon} className="w-8" alt="Loading Icon" />
             <p className="font-bold">Uploading your project...</p>
         </div>
         :

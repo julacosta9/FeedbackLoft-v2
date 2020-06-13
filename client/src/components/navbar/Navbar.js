@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import UserContext from "../../utils/UserContext";
 import { useAuth0 } from "../../react-auth0-spa";
 import Inbox from "./widgets/Inbox";
-import UserOptions from "./widgets/UserOptions";
 import MobileDropdown from "./widgets/MobileDropdown";
 import Logo from "./widgets/Logo";
 
@@ -47,29 +46,29 @@ const Navbar = () => {
             <div className="container flex justify-center">
             <div className="flex w-full items-center justify-between">
                 <Logo />
-                <div className="flex w-full block justify-between lg:items-center ml-16 md:pb-6">
-                    <div className="hidden md:flex text-sm">
+                <div className="flex w-full block justify-between lg:items-center ml-16 lg:pb-6">
+                    <div className="hidden lg:flex text-sm">
                         <Link
                             to="/"
                             href="#responsive-header"
-                            className="block mt-4 text-lg lg:inline-block text-white hover:text-fl-mint mr-4 transition ease-in-out duration-150"
+                            className="block tracking-widest mt-4 text-lg lg:inline-block text-white hover:text-fl-mint mr-4 transition ease-in-out duration-150"
                         >
-                            Dashboard
+                            DASHBOARD
                         </Link>
                         <Link
                             to="/loop"
                             href="#responsive-header"
-                            className="block mt-4 text-lg lg:inline-block text-white hover:text-fl-mint mr-4 pl-2 transition ease-in-out duration-150"
+                            className="block mt-4 tracking-widest text-lg lg:inline-block text-white hover:text-fl-mint mr-4 pl-2 transition ease-in-out duration-150"
                         >
-                            Loop
+                            LOOP
                         </Link>
                     </div>
                     <div className="flex">
-                        <span className="hidden md:block mt-4 lg:inline-block text-white hover:text-fl-mint mr-4 relative transition ease-in-out duration-150">
+                        <span className="hidden block mt-4 lg:inline-block text-white hover:text-fl-mint mr-4 relative transition ease-in-out duration-150">
                             <Inbox />
                         </span>
-                        <button
-                            className="hidden md:block mt-4 lg:inline-block font-semibold text-white mr-4"
+                        <div
+                            className="hidden lg:block mt-4 lg:inline-block font-semibold text-white mr-4"
                             onClick={() =>
                                 showOptions === true
                                     ? setOptionsState(false)
@@ -77,28 +76,27 @@ const Navbar = () => {
                             }
                         >
                             {username}
-                        </button>
-                        {showOptions === true ? <UserOptions /> : <div></div>}
-                        <span className="hidden md:block mt-4 lg:inline-block text-white mr-4">
+                        </div>
+                        <span className="hidden lg:block mt-4 lg:inline-block text-white mr-4">
                             <span className="mx-1">
                                 {feedbackRatio.feedbackGiven}
                             </span>
                             <i className="fas fa-arrow-alt-circle-up mx-1"></i>
                         </span>
-                        <span className="hidden md:block mt-4 lg:inline-block text-white mr-4">
+                        <span className="hidden lg:block mt-4 lg:inline-block text-white mr-4">
                             <span className="mx-1">
                                 {feedbackRatio.feedbackReceived}
                             </span>
                             <i className="fas fa-arrow-alt-circle-down mx-1"></i>
                         </span>
 
-                        <span className="hidden md:block mt-4 lg:inline-block text-white hover:text-fl-mint mr-4 transition ease-in-out duration-150">
+                        <span className="hidden lg:block mt-4 lg:inline-block text-white hover:text-fl-mint mr-4 transition ease-in-out duration-150">
                             {isAuthenticated && (
                                 <button onClick={() => logout()}>Logout</button>
                             )}
                         </span>
                     </div>
-                    <div className="md:hidden relative">
+                    <div className="lg:hidden relative">
                         <button
                             className="flex items-center px-3 py-2 mb-2 border rounded text-white border-white hover:text-fl-mint hover:border-fl-mint"
                             onClick={toggleMenu}
