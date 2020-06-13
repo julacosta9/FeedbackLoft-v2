@@ -7,10 +7,10 @@ const MobileDropdown = (props) => {
         <div className= "fixed py-1 mt-2 rounded-md bg-fl-black text-white font-bold shadow-lg right-0 w-64 h-screen z-10 shadow-2xl">
             <div className="flex flex-col text-right text-2xl py-4 px-6">
                 <div className="flex flex-col space-y-3">
-                <Link to="/" className="hover:text-fl-mint transition ease-in-out duration-150">
+                <Link to="/" onClick={props.callback} className="hover:text-fl-mint transition ease-in-out duration-150">
                     Dashboard
                 </Link>
-                <Link to="/loop" className="hover:text-fl-mint transition ease-in-out duration-150">
+                <Link to="/loop" onClick={props.callback}className="hover:text-fl-mint transition ease-in-out duration-150">
                     Loop
                 </Link>
                 </div>
