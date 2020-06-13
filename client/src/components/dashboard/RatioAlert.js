@@ -11,7 +11,7 @@ const RatioAlert = () => {
 
     return (
         <div
-            class="bg-white border-t-4 border-fl-red rounded-b text-fl-black mx-2 px-4 py-3 shadow-md"
+            class="bg-white border-t-4 border-fl-red rounded-b text-fl-black mx-2 px-4 py-3 mb-6 shadow-md"
             role="alert"
         >
             <div class="flex">
