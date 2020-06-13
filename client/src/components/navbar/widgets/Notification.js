@@ -11,8 +11,8 @@ const Notification = (props) => {
 
     return (
         <div className="flex justify-around">
-        <div className= "flex flex-col justify-between px-4 py-2 text-sm text-black transition ease-in-out duration-200">
-            <span className="text-xs">received {formatDate(props.date)}</span>
+        <div className= "flex flex-col justify-between px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition ease-in-out duration-200">
+            <span className="text-xs">sent {formatDate(props.date)}</span>
             <span>
                 {props.message}
                 <Link 
