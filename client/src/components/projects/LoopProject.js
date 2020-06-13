@@ -23,7 +23,7 @@ const LoopProject = (props) => {
     }, [props.userId]);
 
     return (
-        <div className="w-100 flex flex-col bg-white space-y-4 rounded overflow-hidden border  bg-white mt-48 p-6">
+        <div className="w-100 flex flex-col bg-white space-y-4 rounded overflow-hidden border bg-white mt-48 p-6">
            {console.log(feedbackRatio)}
             <div className="flex flex-col">
                 <div className="flex flex-row justify-between">

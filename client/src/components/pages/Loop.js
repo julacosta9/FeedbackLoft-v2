@@ -78,7 +78,7 @@ const Loop = () => {
                     />
                 ) : (
                     <React.Fragment>
-                        <div className="flex w-2/3 mx-auto space-x-4 mb-6">
+                        <div className="flex w-2/3 mx-auto space-x-4 mt-6 mb-6">
                             <div className="bg-white border-l-4 border-fl-mint text-fl-black p-4">
                                 <p className="font-bold">
                                     {" "}
@@ -100,7 +100,7 @@ const Loop = () => {
                                 <span className="text-xl font-bold">→</span>
                             </button>
                         </div>
-                        <div className="bg-white border-l-4 ml-8 px-2 ">
+                        <div className="bg-white border-l-4 px-2 ">
                             {projectComments.map((comment) => (
                                 <Comment
                                     key={comment._id}

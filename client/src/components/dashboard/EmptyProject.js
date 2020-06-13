@@ -3,7 +3,7 @@ import CreateProjectForm from "../forms/CreateProjectForm";
 
 const EmptyProject = (props) => {
 
-    const { loadProjects } = props
+    let { loadProjects } = props
 
     const [showForm, setFormState] = useState(false)
 

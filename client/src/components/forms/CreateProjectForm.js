@@ -69,7 +69,7 @@ const CreateProjectForm = (props) => {
     return (
         loading === true ?
         <div className="flex flex-col lg:w-4/12 max-w-sm items-center my-2 p-8 bg-white border-l-4 border-fl-mint text-fl-black space-y-6 mx-auto">
-            <img src={loadingIcon} className="w-8" />
+            <img src={loadingIcon} className="w-8" alt="Loading Icon" />
             <p className="font-bold">Uploading your project...</p>
         </div>
         :
