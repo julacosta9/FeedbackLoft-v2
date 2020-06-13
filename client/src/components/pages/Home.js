@@ -43,9 +43,9 @@ const Home = () => {
                     </p>
                 </div>
                 {projects.map((project) => (
-                    <Project key={project._id} project={project} />
+                    <Project key={project._id} project={project} loadProjects={loadProjects} />
                 ))}
-                {projects.length <= 2 ? <EmptyProject loadProjects={loadProjects()}/> : <div></div>}
+                {projects.length <= 2 ? <EmptyProject loadProjects={loadProjects} /> : <div></div>}
                 <div className="font-mono text-2xl sm:text-5xl w-full lg:w-10/12 md:w-12/12 md:mx-auto sm:mx-2 mt-16 mb-1 p-6">
                     Your Comment History
                 </div>
