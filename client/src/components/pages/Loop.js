@@ -49,7 +49,7 @@ const Loop = () => {
 
     useEffect(() => {
         loadLoop();
-    }, [loop._id]);
+    }, []);
 
     return (
         <div className="container mx-auto min-h-screen">
