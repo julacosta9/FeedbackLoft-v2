@@ -6,6 +6,8 @@ import UserContext from "../../utils/UserContext";
 import Comment from "../projects/Comment";
 
 const Loop = () => {
+    const { _id } = useContext(UserContext);
+
     const [commentState, setCommentState] = useState(false);
 
     const [loop, setLoop] = useState({
@@ -27,9 +29,9 @@ const Loop = () => {
         },
     ]);
 
-    const { _id } = useContext(UserContext);
 
     const loadLoop = () => {
+        console.log(`Active User Id For Loop: ${_id}`)
         API.getProjectForReview(_id)
             .then((res) => {
                 setLoop(res.data);
@@ -48,8 +50,9 @@ const Loop = () => {
     };
 
     useEffect(() => {
+        // if (_id)
         loadLoop();
-    }, [loop._id]);
+    }, []);
 
     return (
         <div className="container mx-auto min-h-screen">
@@ -81,8 +84,8 @@ const Loop = () => {
                     </div>
                     <button
                         onClick={() => {
-                            loadLoop();
                             setCommentState(false);
+                            loadLoop();
                         }}
                         className="flex flex-col w-1/4 justify-center space-y-3 bg-fl-mint text-fl-black font-bold rounded px-4 cursor-pointer hover:bg-fl-black hover:text-fl-mint hover:shadow-md transition ease-in-out duration-150"
                     >
