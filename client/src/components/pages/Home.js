@@ -36,9 +36,9 @@ const Home = () => {
     return (
         <div className="mx-2">
             <div className="container mx-auto min-h-screen">
-                <div className="w-full lg:w-10/12 md:w-12/12 md:mx-auto sm:mx-2 mt-32 md:mt-48 mb-1">
+                <div className="w-full md:mx-auto sm:mx-2 mt-32 md:mt-48 mb-1">
                     {feedbackReceived > feedbackGiven ? <RatioAlert /> : null}
-                    <p className="font-mono text-4xl sm:text-5xl p-6">
+                    <p className="font-bold tracking-widest text-4xl sm:text-5xl p-6">
                         Projects
                     </p>
                 </div>
@@ -46,7 +46,7 @@ const Home = () => {
                     <Project key={project._id} project={project} />
                 ))}
                 {projects.length <= 2 ? <EmptyProject loadProjects={loadProjects()}/> : <div></div>}
-                <div className="font-mono text-2xl sm:text-5xl w-full lg:w-10/12 md:w-12/12 md:mx-auto sm:mx-2 mt-16 mb-1 p-6">
+                <div className="font-bold tracking-widest text-2xl sm:text-5xl w-full md:mx-auto sm:mx-2 mt-16 mb-1 p-6">
                     Your Comment History
                 </div>
                 <FeedbackGiven />

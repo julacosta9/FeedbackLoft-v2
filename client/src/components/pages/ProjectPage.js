@@ -3,13 +3,9 @@ import { useParams } from "react-router-dom";
 import LoopProject from "./../projects/LoopProject";
 import API from "../../utils/API.js";
 import Comment from "../projects/Comment";
-import UserContext from '../../utils/UserContext'
-import FeedbackForm from '../forms/FeedbackForm'
 
 const projectPage = () => {
     let { id } = useParams();
-
-    const { _id } = useContext(UserContext)
 
     const [project, setProjectState] = useState({
         _id: "",
@@ -31,8 +27,6 @@ const projectPage = () => {
             _id: "",
         },
     ]);
-
-    const [ commentState, setCommentState] = useState(false)
 
     const loadProject = () => {
         API.getProjectById(id)

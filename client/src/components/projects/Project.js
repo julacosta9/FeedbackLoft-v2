@@ -34,7 +34,7 @@ const Project = (props) => {
     }, []);
 
     return (
-        <div className="w-full flex flex-col bg-white space-y-4 rounded overflow-hidden border w-full lg:w-10/12 md:w-12/12 bg-white md:mx-auto sm:mx-2 mb-8 p-6">
+        <div className="w-full flex flex-col bg-white space-y-4 rounded overflow-hidden border bg-white md:mx-auto sm:mx-2 mb-8 p-6">
             <div className="flex flex-col">
                 <div className="flex flex-row justify-between">
                     <Link to={`/project-page/${_id}`}>
@@ -68,7 +68,7 @@ const Project = (props) => {
                     </React.Fragment>
                 )}
             <div className="px-2">{description}</div>
-            <div className="bg-white border-l-4 ml-8 px-2 ">
+            <div className="bg-white border-l-4 md:ml-8 px-2 ">
                     {comments.map((comment) => (
                         <Comment
                             key={comment._id}
