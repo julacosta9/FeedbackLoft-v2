@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import CreateProjectForm from "../forms/CreateProjectForm";
 
-const EmptyProject = () => {
+const EmptyProject = (props) => {
+
+    const { loadProjects } = props
 
     const [showForm, setFormState] = useState(false)
 
@@ -18,12 +20,12 @@ const EmptyProject = () => {
         </div>)
         :
         <CreateProjectForm
-            callback = {() => setFormState(false)}
+            callback = {() => {
+                setFormState(false);
+                loadProjects=loadProjects()
+            }}
             stateChange = {() => setFormState(false)}
         />
-        // (<div className="flex flex-col items-center my-2 p-8 rounded bg-teal-400 space-x-2 w-1/4 mx-auto cursor-pointer hover:shadow-md ease-in-out">
-            
-        // </div>)
         }
         </div>
     );
