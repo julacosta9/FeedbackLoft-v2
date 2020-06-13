@@ -10,6 +10,7 @@ const FeedbackForm = (props) => {
   const createPost = () => {
     API.createComment(values);
     API.incrementFeedback(_id, props.id);
+    API.updateProject(props.projectId, {lastCommentDate: Date.now()})
     API.addNotifcation(
       {
         recipientId: props.id,
@@ -43,7 +44,7 @@ const FeedbackForm = (props) => {
 
     return (
         <form
-            className="w-full max-w-xl bg-white rounded-lg px-4 py-4 mx-auto shadow-lg border-gray-400"
+            className="w-full max-w-xl bg-white rounded-lg px-4 py-4 mt-10 mx-auto shadow-md border-gray-400"
             onSubmit={handleSubmit}
         >
             <div className="flex flex-wrap -mx-3 mb-6">

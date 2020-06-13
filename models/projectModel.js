@@ -38,7 +38,8 @@ const ProjectSchema = new Schema({
     },
 
     lastCommentDate: {
-        type: Date
+        type: Date,
+        default: Date.now
     }
 });
 

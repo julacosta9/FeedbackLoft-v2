@@ -34,7 +34,6 @@ const Project = (props) => {
     }, []);
 
     return (
-        <div className="mx-2">
         <div className="w-full flex flex-col bg-white space-y-4 rounded overflow-hidden border w-full lg:w-10/12 md:w-12/12 bg-white md:mx-auto sm:mx-2 mb-8 p-6">
             <div className="flex flex-col">
                 <div className="flex flex-row justify-between">
@@ -79,7 +78,6 @@ const Project = (props) => {
                         />
                     ))}
             </div>
-        </div>
         </div>
     );
 };

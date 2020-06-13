@@ -70,7 +70,7 @@ const CreateProjectForm = (props) => {
         </div>
         :
         <form
-            class="w-full max-w-xl flex flex-col bg-white rounded-lg px-6 py-6 mx-auto shadow-lg border-gray-400"
+            class="w-full max-w-xl flex flex-col bg-white rounded-lg px-6 py-6 mx-auto shadow-md border-gray-400"
             onSubmit={handleSubmit}
         >
             <label className="pt-3 pb-2 text-gray-800 text-lg">

@@ -7,7 +7,6 @@ import UserContext from "../../utils/UserContext";
 import API from "../../utils/API.js";
 
 const Home = () => {
-
     const { _id, feedbackGiven, feedbackReceived } = useContext(UserContext);
 
     const [projects, setProjects] = useState([
@@ -26,10 +25,8 @@ const Home = () => {
 
     const loadProjects = () => {
         API.getProjectsByUserId(_id)
-            .then((res) => setProjects(res.data)
-        )
-            .catch((err) => console.log(err)
-        );
+            .then((res) => setProjects(res.data))
+            .catch((err) => console.log(err));
     };
 
     useEffect(() => {
@@ -37,23 +34,23 @@ const Home = () => {
     }, [_id]);
 
     return (
-        <div className="container mx-auto min-h-screen">
-            <div className="w-full lg:w-10/12 md:w-12/12 md:mx-auto sm:mx-2 mt-32 md:mt-48 mb-1">
-            {feedbackReceived > feedbackGiven ? <RatioAlert /> : null}
-            <p className="font-mono text-4xl sm:text-5xl p-6">Projects</p>
+        <div className="mx-2">
+            <div className="container mx-auto min-h-screen">
+                <div className="w-full lg:w-10/12 md:w-12/12 md:mx-auto sm:mx-2 mt-32 md:mt-48 mb-1">
+                    {feedbackReceived > feedbackGiven ? <RatioAlert /> : null}
+                    <p className="font-mono text-4xl sm:text-5xl p-6">
+                        Projects
+                    </p>
+                </div>
+                {projects.map((project) => (
+                    <Project key={project._id} project={project} />
+                ))}
+                {projects.length <= 2 ? <EmptyProject loadProjects={loadProjects()}/> : <div></div>}
+                <div className="font-mono text-2xl sm:text-5xl w-full lg:w-10/12 md:w-12/12 md:mx-auto sm:mx-2 mt-16 mb-1 p-6">
+                    Your Comment History
+                </div>
+                <FeedbackGiven />
             </div>
-            {projects.map((project) => (
-                <Project key={project._id} project={project} />
-            ))}
-            {projects.length <= 2 ?
-                <EmptyProject loadProjects={loadProjects()}/>
-                :
-                <div></div>
-            }
-            <div className="font-mono text-2xl sm:text-5xl w-full lg:w-10/12 md:w-12/12 md:mx-auto sm:mx-2 mt-16 mb-1 p-6">
-                Your Comment History
-            </div>
-            <FeedbackGiven />
         </div>
     );
 };
