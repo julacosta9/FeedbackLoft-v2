@@ -5,6 +5,12 @@ const app = express();
 const routes = require("./routes/index.js");
 const PORT = process.env.PORT || 3001;
 
+// Socket.io
+const http = require('http');
+const socket = require('socket.io');
+const server = http.Server(app);
+const io = socket(server);
+
 // Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -25,6 +31,11 @@ mongoose.connect(
     { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }
 );
 
-app.listen(PORT, () => {
+// Connecting socket
+io.on('connection', socket => {
+    console.log(`Connected as ${socket.id}!`)
+})
+
+server.listen(PORT, () => {
     console.log(`🌎 ==> API server now on port ${PORT}!`);
 });

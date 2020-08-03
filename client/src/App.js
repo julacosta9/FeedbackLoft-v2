@@ -12,10 +12,14 @@ import { useAuth0 } from "./react-auth0-spa";
 import API from "./utils/API";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faArrowAltCircleUp, faArrowAltCircleDown, faBell } from "@fortawesome/free-regular-svg-icons";
+import io from 'socket.io-client'
 
 library.add(faArrowAltCircleUp, faArrowAltCircleDown, faBell)
 
+const socket = io()
+
 const App = () => {
+  console.log(socket)
 
   const { loading, user, isAuthenticated, loginWithRedirect } = useAuth0();
   
